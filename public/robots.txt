@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pivotpyramid.com/sitemap.xml
+
+# LLMs
+# https://llmstxt.org
+LLMs: https://pivotpyramid.com/llms.txt

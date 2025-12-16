@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "setup": "cp \"$CONDUCTOR_ROOT_PATH/.env.local\" .env.local && npm install && npx convex dev --once",
+    "run": "npm run dev"
+  }
+}

@@ -1,0 +1,50 @@
+# The Pivot Pyramid
+
+> A visual framework for startup experimentation by Selçuk Atlı
+
+## About
+
+The Pivot Pyramid is a framework that helps startup founders understand where to pivot and how changes cascade through their business. It breaks down every startup into five layers: Customers, Problem, Solution, Technology, and Growth.
+
+The core insight: The lower in the pyramid you pivot, the more fundamental the change. When you change something at the bottom (like target customers), everything above needs to change too. But when you pivot at the top (like growth channels), the layers below remain stable.
+
+## Creator
+
+Selçuk Atlı - Serial entrepreneur, investor, and former Venture Partner at 500 Startups. Creator of the Pivot Pyramid framework, first published in 2016.
+
+Website: https://selcukatli.com
+Twitter: @selcukatli
+
+## The Five Layers
+
+1. **Customers** (Foundation) - Who are you building for? Changing your target customer is the most fundamental pivot.
+
+2. **Problem** - What pain point are you addressing? If you change the problem, you need to reconsider solution, technology, and growth.
+
+3. **Solution** - How do you solve the problem? This is your product or service.
+
+4. **Technology** - What do you build to deliver the solution? Technology changes are relatively easy pivots.
+
+5. **Growth** (Top) - How do you acquire and retain users? This is the easiest layer to pivot.
+
+## Key Principles
+
+- Start with customer and problem validation
+- Pivoting below changes everything above
+- Focus on one customer type at a time
+- Experiment more frequently at higher layers
+- Lower-layer pivots require more evidence
+
+## Pages
+
+- / - Landing page with full framework explanation
+- /canvas - AI-powered canvas tool for documenting startup hypotheses
+
+## Resources
+
+- Ebook: Coming soon - comprehensive guide with worksheets and exercises
+- Featured in: VentureBeat, 500 Startups, Founder Institute, MaRS
+
+## Contact
+
+For questions about the framework: https://selcukatli.com
