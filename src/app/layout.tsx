@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     icon: "/pivot-pyramid-app-icon.png",
     apple: "/pivot-pyramid-app-icon.png",
   },
+  manifest: "/manifest.json",
 };
 
 const jsonLd = {

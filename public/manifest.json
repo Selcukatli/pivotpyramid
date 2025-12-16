@@ -1,0 +1,21 @@
+{
+  "name": "The Pivot Pyramid",
+  "short_name": "Pivot Pyramid",
+  "description": "A visual framework for startup experimentation. Understand where to pivot and how changes cascade through your business.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf9",
+  "theme_color": "#E07D3B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/pivot-pyramid-app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}
