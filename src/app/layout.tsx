@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pivotpyramid.com"),
+  verification: {
+    google: "lwzVXiQ2xTd1AzRSVQ1edWdTy-UFK8akZlGDS6586hA",
+  },
   title: "The Pivot Pyramid - A Framework for Startup Experimentation",
   description:
     "A visual framework for startup experimentation by Selçuk Atlı. Understand where to pivot and how changes cascade through your business.",
