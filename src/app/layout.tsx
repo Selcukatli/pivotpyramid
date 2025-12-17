@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Selçuk Atlı", url: "https://selcukatli.com" }],
   creator: "Selçuk Atlı",
+  alternates: {
+    canonical: "https://pivotpyramid.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
