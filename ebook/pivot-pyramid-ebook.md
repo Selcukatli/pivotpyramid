@@ -115,6 +115,10 @@ Or consider the opposite scenario: A startup with solid traction among their ini
 
 ### Two Deadly Mistakes
 
+![The Over-Pivot vs Under-Pivot](./figures/over-under-pivot.png)
+
+*The two fatal pivot mistakes: changing everything at once (over-pivot) or making surface changes while the foundation crumbles (under-pivot).*
+
 **Case Study: The Over-Pivoter**
 
 Fab.com is perhaps the most spectacular example of over-pivoting in startup history. Jason Goldberg's company raised over $330 million and was valued at over $1 billion at its peak—then collapsed.
@@ -225,6 +229,10 @@ Let's begin.
 The Pivot Pyramid consists of five layers, each representing a fundamental aspect of your startup. Understanding these layers—what they mean, how to validate them, and when to change them—is the foundation of strategic experimentation.
 
 Let's explore each layer in depth.
+
+![The Pivot Pyramid - Five Layers of a Startup](./figures/pivot-pyramid-foundation.png)
+
+*The Pivot Pyramid shows the five fundamental layers of every startup, with Customer at the foundation. Changes to lower layers cascade upward through all layers above.*
 
 ---
 
@@ -519,6 +527,10 @@ When you change who you're building for, almost everything changes:
 
 *Blast radius: 4 layers affected*
 
+![Customer Pivot Cascade](./figures/cascade-customer-pivot.png)
+
+*A Customer pivot triggers the widest cascade—all four layers above must be reconsidered.*
+
 **Problem Pivot (Layer 2)**
 
 When you change the problem you're solving for the same customers:
@@ -529,6 +541,10 @@ When you change the problem you're solving for the same customers:
 - **Customers remain:** You're still serving the same people
 
 *Blast radius: 3 layers affected*
+
+![Problem Pivot Cascade](./figures/cascade-problem-pivot.png)
+
+*A Problem pivot affects Solution, Technology, and Growth—but Customer stays stable.*
 
 **Solution Pivot (Layer 3)**
 
@@ -541,6 +557,10 @@ When you change how you solve the same problem for the same customers:
 
 *Blast radius: 2 layers affected*
 
+![Solution Pivot Cascade](./figures/cascade-solution-pivot.png)
+
+*A Solution pivot only affects Technology and Growth—Customer and Problem remain validated.*
+
 **Technology Pivot (Layer 4)**
 
 When you change how you build the solution:
@@ -552,6 +572,10 @@ When you change how you build the solution:
 
 *Blast radius: 1 layer potentially affected*
 
+![Technology Pivot Cascade](./figures/cascade-technology-pivot.png)
+
+*A Technology pivot minimally affects only Growth—three layers below remain unchanged.*
+
 **Growth Pivot (Layer 5)**
 
 When you change how you acquire and retain users:
@@ -560,11 +584,19 @@ When you change how you acquire and retain users:
 
 *Blast radius: 0 layers affected*
 
+![Growth Pivot - Safest Pivot Type](./figures/cascade-growth-pivot.png)
+
+*The Growth pivot is the safest—all other layers remain validated and unchanged.*
+
 ---
 
 ### Pivot Cost Analysis
 
 Understanding the cascade principle lets you estimate the *cost* of a pivot before you commit. Cost comes in four forms:
+
+![Pivot Cost Curve](./figures/pivot-cost-curve.png)
+
+*The inverse relationship between pivot position and cost: foundation changes are expensive, top-layer changes are cheap.*
 
 **1. Time Cost**
 
@@ -779,6 +811,10 @@ The first step is documenting your current hypotheses for each layer. Most found
 
 Let's change that.
 
+![Pyramid Audit Template](./figures/pyramid-audit-template.png)
+
+*Use this worksheet to systematically document and validate each layer of your startup.*
+
 **For each layer, write a single sentence that captures your current hypothesis:**
 
 **Layer 1 — Customers:** "We are building for [specific customer description]."
@@ -856,6 +892,10 @@ Be honest about which level of evidence supports each layer. Many founders treat
 ---
 
 ### Documenting Your Hypotheses
+
+![Layer Documentation Card](./figures/layer-documentation-card.png)
+
+*Use this card format to document and track each layer's hypothesis over time.*
 
 Use this format to document each layer:
 
@@ -1070,6 +1110,10 @@ The treatment for each is completely different. Optimizing your landing page won
 ### Diagnostic Questions by Symptom
 
 Here's a systematic framework for tracing symptoms to their root layer.
+
+![Diagnostic Flowchart](./figures/diagnostic-flowchart.png)
+
+*Use this flowchart to trace growth problems to their root cause in the Pivot Pyramid.*
 
 **Symptom: "We can't get users to sign up"**
 
@@ -1346,6 +1390,10 @@ After 20 interviews, you should be able to confidently point to one or two layer
 Everything we've discussed so far is about knowing *when* and *where* to pivot. But there's an equally important skill: knowing when *not* to pivot.
 
 Pivoting too soon is as dangerous as pivoting too late. This chapter helps you distinguish between signals that demand change and noise that should be ignored.
+
+![Anti-Pivot Warning Signs](./figures/anti-pivot-warning.png)
+
+*Watch out for these common traps that lead founders to pivot prematurely.*
 
 ### The Pivot Temptation
 
@@ -1653,9 +1701,17 @@ A well-planned pivot has four components:
 
 Let's walk through each.
 
+![Cost-Impact Matrix](./figures/cost-impact-matrix.png)
+
+*Use this matrix to categorize potential pivots by their cost and expected impact.*
+
 ---
 
 ### Step 1: Define Current State
+
+![Pivot Planning Canvas](./figures/pivot-planning-canvas.png)
+
+*Use this side-by-side canvas to map your current state against your target state.*
 
 Document your current pyramid configuration explicitly. Use the format from Chapter 4:
 
@@ -2050,6 +2106,10 @@ A Customer Pivot means changing who you're building for. This isn't about tweaki
 
 ### The Customer Pivot Playbook
 
+![Customer Pivot Playbook](./figures/customer-pivot-playbook.png)
+
+*A five-step process for executing a Customer pivot successfully.*
+
 **Step 1: Identify Your New Customer**
 
 Don't pivot to a vague "different market." Get specific:
@@ -2437,6 +2497,10 @@ A Solution Pivot means changing how you solve the problem. Your customers remain
 ---
 
 ### The Solution Pivot Playbook
+
+![Solution Pivot Playbook](./figures/solution-pivot-playbook.png)
+
+*A structured process for pivoting your solution while keeping your validated Customer and Problem.*
 
 **Step 1: Clarify What Stays Constant**
 
@@ -2873,6 +2937,10 @@ Example: New AI capabilities become available, enabling a fundamentally better s
 *The Top-Layer Pivot*
 
 Growth sits at the top of the Pivot Pyramid. It's the easiest layer to change because it doesn't cascade down—your customers, problem, solution, and technology can stay the same. But don't mistake "easiest" for "easy." Growth Pivots require their own discipline and carry their own risks.
+
+![Growth Channels Matrix](./figures/growth-channels-matrix.png)
+
+*Compare different growth channels by cost, time, scalability, and fit for your customer type.*
 
 ---
 
@@ -3364,6 +3432,10 @@ A Growth Pivot at each stage looks different and serves different purposes.
 *When one layer isn't enough.*
 
 Sometimes startups need to change more than one layer simultaneously. These multi-layer pivots are complex, risky, and often necessary. Understanding how to execute them can mean the difference between a successful transformation and a chaotic collapse.
+
+![The Multi-Track Trap](./figures/multi-track-trap.png)
+
+*The danger of running multiple pivots simultaneously: fragmented focus, incomplete execution, and cognitive overload.*
 
 ---
 
@@ -4292,9 +4364,17 @@ The founder sets the culture through their own behavior:
 
 This chapter provides ready-to-use tools for applying the Pivot Pyramid framework. Copy these templates and adapt them to your specific situation.
 
+![The Pivot Toolkit Overview](./figures/toolkit-overview.png)
+
+*All the tools in the Pivot Pyramid Toolkit and how they work together.*
+
 ---
 
 ### Tool 1: The Pyramid Assessment Canvas
+
+![Pyramid Assessment Canvas](./figures/assessment-canvas-full.png)
+
+*The complete Pyramid Assessment Canvas for documenting your current state.*
 
 Use this canvas to document your current state and identify potential issues.
 
