@@ -310,32 +310,37 @@ export default function PivotPyramidPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-end md:items-center justify-center"
             onClick={() => setIsLightboxOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative w-full h-full max-w-4xl max-h-[90vh]"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="relative w-full max-w-4xl bg-stone-100 rounded-t-3xl md:rounded-3xl overflow-hidden shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src="/pivot-pyramid.png"
-                alt="The Pivot Pyramid Framework - 5 layers: Customers, Problem, Solution, Technology, Growth"
-                fill
-                className="object-contain"
-              />
+              {/* Close button */}
+              <button
+                onClick={() => setIsLightboxOpen(false)}
+                className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-stone-800/80 hover:bg-stone-800 text-white transition-colors shadow-lg"
+                aria-label="Close lightbox"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Image container */}
+              <div className="relative aspect-square max-h-[85vh] w-full">
+                <Image
+                  src="/pivot-pyramid.png"
+                  alt="The Pivot Pyramid Framework - 5 layers: Customers, Problem, Solution, Technology, Growth"
+                  fill
+                  className="object-contain p-4 md:p-8"
+                />
+              </div>
             </motion.div>
-            <button
-              onClick={() => setIsLightboxOpen(false)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-              aria-label="Close lightbox"
-            >
-              <X className="w-6 h-6" />
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
