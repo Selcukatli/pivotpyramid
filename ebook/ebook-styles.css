@@ -12,7 +12,7 @@
 /* Base styles */
 body {
   font-family: 'Merriweather', Georgia, serif;
-  font-size: 11pt;
+  font-size: 10pt;
   line-height: 1.7;
   color: #1c1917;
   max-width: 100%;
@@ -21,7 +21,7 @@ body {
 /* Headings */
 h1 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 28pt;
+  font-size: 22pt;
   font-weight: 700;
   color: #0c0a09;
   margin-top: 0;
@@ -35,7 +35,7 @@ h1 {
 
 h2 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 20pt;
+  font-size: 16pt;
   font-weight: 600;
   color: #292524;
   margin-top: 1.5em;
@@ -46,7 +46,7 @@ h2 {
 
 h3 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 14pt;
+  font-size: 12pt;
   font-weight: 600;
   color: #44403c;
   margin-top: 1.3em;
@@ -56,7 +56,7 @@ h3 {
 
 h4 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 12pt;
+  font-size: 10pt;
   font-weight: 600;
   color: #57534e;
   margin-top: 1em;
@@ -137,7 +137,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
-  font-size: 10pt;
+  font-size: 9pt;
   page-break-inside: avoid;
 }
 
@@ -195,7 +195,7 @@ hr {
 
 /* Title page styling - first h1 only */
 h1:first-of-type {
-  font-size: 36pt;
+  font-size: 28pt;
   text-align: center;
   border-bottom: none;
   margin-top: 3em;
@@ -205,7 +205,7 @@ h1:first-of-type {
 /* Print optimizations */
 @media print {
   body {
-    font-size: 11pt;
+    font-size: 10pt;
   }
 
   h1, h2, h3, h4 {
@@ -227,7 +227,7 @@ h1:first-of-type {
 
 /* First paragraph after heading - drop cap style intro */
 h2 + p:first-letter {
-  font-size: 2.5em;
+  font-size: 2em;
   float: left;
   line-height: 1;
   margin-right: 0.1em;

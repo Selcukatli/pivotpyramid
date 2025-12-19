@@ -13,7 +13,7 @@
 
 ---
 
-## Foreword: Why I Wrote This Book
+# Foreword: Why I Wrote This Book
 
 In 2016, after my second startup exit, I joined 500 Startups as a Venture Partner. Having been through my own journey pivoting Socialwire from a product recommendation engine for online retailers to a product advertising platform, I recognized a familiar struggle in the founders I was working with: deciding *what* to change when things weren't working.
 
