@@ -6,14 +6,14 @@
 /* Page setup */
 @page {
   size: letter;
-  margin: 1in 1.25in;
+  margin: 0.75in 0.85in;
 }
 
 /* Base styles */
 body {
   font-family: 'Merriweather', Georgia, serif;
-  font-size: 10pt;
-  line-height: 1.7;
+  font-size: 11.5pt;
+  line-height: 1.65;
   color: #1c1917;
   max-width: 100%;
 }
@@ -21,7 +21,7 @@ body {
 /* Headings */
 h1 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 22pt;
+  font-size: 24pt;
   font-weight: 700;
   color: #0c0a09;
   margin-top: 0;
@@ -35,7 +35,7 @@ h1 {
 
 h2 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16pt;
+  font-size: 18pt;
   font-weight: 600;
   color: #292524;
   margin-top: 1.5em;
@@ -46,7 +46,7 @@ h2 {
 
 h3 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 12pt;
+  font-size: 14pt;
   font-weight: 600;
   color: #44403c;
   margin-top: 1.3em;
@@ -56,7 +56,7 @@ h3 {
 
 h4 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: 600;
   color: #57534e;
   margin-top: 1em;
@@ -121,7 +121,7 @@ pre {
   border-radius: 8px;
   overflow-x: auto;
   margin: 1em 0;
-  font-size: 9pt;
+  font-size: 10pt;
   line-height: 1.5;
   page-break-inside: avoid;
 }
@@ -137,7 +137,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
-  font-size: 9pt;
+  font-size: 10.5pt;
   page-break-inside: avoid;
 }
 
@@ -195,17 +195,17 @@ hr {
 
 /* Title page styling - first h1 only */
 h1:first-of-type {
-  font-size: 28pt;
+  font-size: 32pt;
   text-align: center;
   border-bottom: none;
-  margin-top: 3em;
+  margin-top: 2em;
   page-break-before: avoid;
 }
 
 /* Print optimizations */
 @media print {
   body {
-    font-size: 10pt;
+    font-size: 11.5pt;
   }
 
   h1, h2, h3, h4 {
