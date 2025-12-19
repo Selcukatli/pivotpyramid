@@ -27,7 +27,7 @@ This book is the complete guide I wish I'd had during my own pivots—the framew
 
 ---
 
-## About the Author
+# About the Author
 
 **Selçuk Atlı** is a serial entrepreneur, investor, and songwriter based in New York.
 
@@ -39,7 +39,7 @@ Learn more at [selcukatli.com](https://selcukatli.com)
 
 ---
 
-## About This Book
+# About This Book
 
 Every startup pivots. The question isn't whether you'll need to change direction—it's whether you'll change the right thing at the right time.
 
@@ -49,7 +49,7 @@ Whether you're a first-time founder searching for product-market fit, a seasoned
 
 ---
 
-## Table of Contents
+# Table of Contents
 
 ### Part I: The Framework
 
