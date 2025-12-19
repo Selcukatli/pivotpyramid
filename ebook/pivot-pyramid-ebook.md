@@ -5496,7 +5496,7 @@ And to you, the reader: Thank you for investing your time in this framework. I h
 
 *The Pivot Pyramid: A Founder's Guide to Knowing When to Stay the Course and When to Change Direction*
 
-*© 2024 Selçuk Atlı*
+*© 2025 Selçuk Atlı*
 
 *All rights reserved.*
 
