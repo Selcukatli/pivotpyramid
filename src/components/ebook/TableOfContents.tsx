@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronRight, BookOpen } from 'lucide-react';
+import { ChevronRight, BookOpen, Home } from 'lucide-react';
 import type { TableOfContentsItem } from '@/lib/ebook-parser';
 
 interface TableOfContentsProps {
@@ -13,12 +13,34 @@ interface TableOfContentsProps {
 export function TableOfContents({ groups, onItemClick }: TableOfContentsProps) {
   const pathname = usePathname();
   const currentSlug = pathname.split('/').pop();
+  const isWelcomePage = pathname === '/ebook';
 
   return (
     <nav className="space-y-6">
       <div className="flex items-center gap-2 px-3">
         <BookOpen className="w-5 h-5 text-amber-500" />
         <h2 className="font-semibold text-stone-800">Contents</h2>
+      </div>
+
+      {/* Welcome page link */}
+      <div className="space-y-1">
+        <Link
+          href="/ebook"
+          onClick={onItemClick}
+          className={`
+            flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors
+            ${isWelcomePage
+              ? 'bg-amber-100 text-amber-900 font-medium'
+              : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+            }
+          `}
+        >
+          {isWelcomePage && (
+            <ChevronRight className="w-4 h-4 text-amber-500 flex-shrink-0" />
+          )}
+          <Home className={`w-4 h-4 ${isWelcomePage ? '' : 'ml-6 mr-1.5'}`} />
+          <span>Welcome</span>
+        </Link>
       </div>
 
       {groups.map((group, groupIndex) => (

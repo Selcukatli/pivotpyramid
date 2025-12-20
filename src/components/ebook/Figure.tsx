@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FigureProps {
   src: string;
@@ -55,10 +56,10 @@ export function Figure({ src, alt, caption }: FigureProps) {
             onClick={() => setIsLightboxOpen(true)}
           >
             {/* Image container with rounded corners */}
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden">
               {/* Skeleton loader */}
               <div
-                className={`absolute inset-0 bg-gradient-to-r from-stone-200 via-stone-100 to-stone-200 bg-[length:200%_100%] animate-pulse rounded-2xl transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-r from-stone-200 via-stone-100 to-stone-200 bg-[length:200%_100%] animate-pulse rounded-lg transition-opacity duration-500 ${
                   imageLoaded ? 'opacity-0' : 'opacity-100'
                 }`}
               />
@@ -74,7 +75,7 @@ export function Figure({ src, alt, caption }: FigureProps) {
               />
             </div>
 
-            {/* Hand-drawn border overlay */}
+            {/* Hand-drawn border overlay - tighter to match rounded-lg (8px radius) */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none z-10"
               viewBox="0 0 400 300"
@@ -82,7 +83,7 @@ export function Figure({ src, alt, caption }: FigureProps) {
               preserveAspectRatio="none"
             >
               <path
-                d="M 30 8 Q 35 4, 50 6 L 100 4 Q 130 3, 160 5 L 220 4 Q 280 3, 340 6 L 360 5 Q 380 4, 388 12 Q 394 20, 392 40 L 394 80 Q 395 120, 393 160 L 394 200 Q 395 240, 392 260 Q 388 280, 380 288 Q 370 294, 350 292 L 280 294 Q 220 295, 160 293 L 100 294 Q 60 295, 30 292 Q 12 288, 8 270 Q 4 250, 6 200 L 4 140 Q 3 80, 6 40 Q 8 20, 18 10 Q 24 5, 30 8 Z"
+                d="M 12 3 Q 14 2, 20 2 L 100 3 Q 150 2, 200 3 L 300 2 Q 350 3, 380 2 L 388 3 Q 396 3, 398 12 L 398 20 Q 397 80, 398 150 L 397 220 Q 398 260, 398 288 Q 398 296, 388 298 L 380 298 Q 300 297, 200 298 L 100 297 Q 50 298, 20 298 L 12 298 Q 3 298, 2 288 L 2 280 Q 3 220, 2 150 L 3 80 Q 2 40, 2 12 Q 2 3, 12 3 Z"
                 stroke="#f59e0b"
                 strokeWidth="3"
                 strokeLinecap="round"
@@ -100,28 +101,49 @@ export function Figure({ src, alt, caption }: FigureProps) {
         )}
       </figure>
 
-      {/* Lightbox */}
-      {isLightboxOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setIsLightboxOpen(false)}
-        >
-          <button
-            className="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors"
+      {/* Lightbox with slide-up animation */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
             onClick={() => setIsLightboxOpen(false)}
           >
-            <X className="w-8 h-8" />
-          </button>
-          <Image
-            src={src}
-            alt={alt}
-            width={1200}
-            height={900}
-            className="max-w-full max-h-[90vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.1 }}
+              className="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors"
+              onClick={() => setIsLightboxOpen(false)}
+            >
+              <X className="w-8 h-8" />
+            </motion.button>
+            <motion.div
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '100%', opacity: 0 }}
+              transition={{
+                type: 'spring',
+                damping: 30,
+                stiffness: 300,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={src}
+                alt={alt}
+                width={1200}
+                height={900}
+                className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
