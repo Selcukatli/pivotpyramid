@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TableOfContents } from './TableOfContents';
 import type { TableOfContentsItem } from '@/lib/ebook-parser';
@@ -25,8 +26,20 @@ export function EbookSidebar({ groups }: EbookSidebarProps) {
       </button>
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block fixed left-0 top-0 w-72 h-screen bg-stone-50 border-r border-stone-200 overflow-y-auto pt-8 pb-16">
-        <TableOfContents groups={groups} />
+      <aside className="hidden lg:block fixed left-0 top-0 w-72 h-screen bg-stone-50 border-r border-stone-200 overflow-y-auto pb-16">
+        {/* Home link */}
+        <div className="sticky top-0 bg-stone-50 border-b border-stone-200 px-6 py-4">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-amber-600 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+        </div>
+        <div className="pt-4">
+          <TableOfContents groups={groups} />
+        </div>
       </aside>
 
       {/* Mobile drawer - slides from right */}
@@ -60,6 +73,16 @@ export function EbookSidebar({ groups }: EbookSidebarProps) {
                 >
                   <X className="w-5 h-5" />
                 </button>
+              </div>
+              <div className="px-4 py-3 border-b border-stone-100">
+                <Link
+                  href="/"
+                  className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-amber-600 transition-colors"
+                  onClick={() => setIsMobileOpen(false)}
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Back to Home
+                </Link>
               </div>
               <div className="p-4">
                 <TableOfContents

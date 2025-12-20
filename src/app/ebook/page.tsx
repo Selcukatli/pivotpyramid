@@ -1,35 +1,36 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookOpen, ArrowRight, FileText } from 'lucide-react';
+import { BookOpen, ArrowRight, FileText, ImageIcon } from 'lucide-react';
 import { getGroupedTableOfContents, getTableOfContents } from '@/lib/ebook-parser';
 import { BookCoverVideo } from '@/components/ebook/BookCoverVideo';
+import { EbookCTAButtons } from '@/components/ebook/EbookCTAButtons';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'The Pivot Pyramid - Free Ebook',
+  title: 'The Pivot Pyramid - Early Access Ebook',
   description: 'Read The Pivot Pyramid ebook online. A comprehensive guide to startup experimentation and pivoting by Selçuk Atlı (YC W14).',
   alternates: {
     canonical: 'https://pivotpyramid.com/ebook',
   },
   openGraph: {
-    title: 'The Pivot Pyramid - Free Ebook',
-    description: 'A comprehensive guide to startup experimentation and pivoting. Read online for free.',
+    title: 'The Pivot Pyramid - Early Access Ebook',
+    description: 'A comprehensive guide to startup experimentation and pivoting.',
     url: 'https://pivotpyramid.com/ebook',
     type: 'book',
     images: [
       {
-        url: '/pivot-pyramid-og.png',
-        width: 1200,
-        height: 630,
-        alt: 'The Pivot Pyramid Book',
+        url: '/pivot-pyramid-cover.png',
+        width: 800,
+        height: 1174,
+        alt: 'The Pivot Pyramid Book Cover',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Pivot Pyramid - Free Ebook',
-    description: 'A comprehensive guide to startup experimentation and pivoting. Read online for free.',
-    images: ['/pivot-pyramid-og.png'],
+    title: 'The Pivot Pyramid - Early Access Ebook',
+    description: 'A comprehensive guide to startup experimentation and pivoting.',
+    images: ['/pivot-pyramid-cover.png'],
     creator: '@selcukatli',
   },
 };
@@ -141,7 +142,7 @@ export default function EbookLandingPage() {
           <div className="text-center md:text-left flex-1">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium mb-4">
               <BookOpen className="w-4 h-4" />
-              Free Online Ebook
+              Early Access
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4 font-[family-name:var(--font-inter)]">
@@ -154,46 +155,42 @@ export default function EbookLandingPage() {
               and how changes cascade through their business.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3">
-              {firstChapter && (
-                <Link
-                  href={`/ebook/${firstChapter.slug}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg min-w-[160px]"
-                >
-                  Start Reading
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              )}
-
-              <Link
-                href="/ebook/pivot-pyramid-ebook-styled.pdf"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-300 text-stone-700 rounded-lg font-semibold hover:bg-stone-50 hover:border-stone-400 transition-colors min-w-[160px]"
-              >
-                <FileText className="w-4 h-4" />
-                Download PDF
-              </Link>
-            </div>
+            <EbookCTAButtons firstChapterSlug={firstChapter?.slug} />
           </div>
         </div>
       </header>
 
-      {/* Author Section */}
-      <section className="flex items-center gap-4 p-6 bg-stone-50 rounded-2xl">
-        <Image
-          src="/selcuk-photo.jpg"
-          alt="Selçuk Atlı"
-          width={64}
-          height={64}
-          className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-        />
-        <div>
-          <h2 className="font-semibold text-stone-900 font-[family-name:var(--font-inter)]">
-            Selçuk Atlı
-          </h2>
-          <p className="text-stone-600 text-sm">
-            Serial entrepreneur (YC W14), former Venture Partner at 500 Startups,
-            and creator of the Pivot Pyramid framework.
-          </p>
+      {/* About the Author */}
+      <section className="bg-stone-50 rounded-2xl p-6">
+        <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex-1">
+            <h2 className="text-xl font-bold text-stone-900 mb-4 font-[family-name:var(--font-inter)]">
+              About the Author
+            </h2>
+            <div className="prose prose-stone prose-sm max-w-none">
+              <p className="text-stone-600 leading-relaxed">
+                <strong className="text-stone-900">Selçuk Atlı</strong> is a serial entrepreneur, investor, and songwriter based in New York.
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                Most recently, he founded <strong>Bunch</strong>, a group video chat app for playing games together, used by over 10 million players. Before that, he founded and sold two adtech companies: <strong>Socialwire/Manifest</strong> (acquired by Rakuten in 2014) and <strong>Boostable</strong> (acquired by Metric Collective).
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                He conceptualized the Pivot Pyramid while serving as a Venture Partner at <strong>500 Startups</strong>, where he worked with dozens of early-stage founders navigating the search for product-market fit. He is also a <strong>Y Combinator W14</strong> alumni.
+              </p>
+              <p className="text-stone-600">
+                <a href="https://selcukatli.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 no-underline hover:underline">
+                  Learn more →
+                </a>
+              </p>
+            </div>
+          </div>
+          <Image
+            src="/selcuk-photo.jpg"
+            alt="Selçuk Atlı"
+            width={96}
+            height={96}
+            className="w-24 h-24 rounded-xl object-cover flex-shrink-0 order-first sm:order-last"
+          />
         </div>
       </section>
 
@@ -259,13 +256,7 @@ export default function EbookLandingPage() {
 
         <div className="text-center p-4">
           <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-3">
-            <Image
-              src="/ebook/figures/pivot-pyramid-figure-1.png"
-              alt="Pivot Pyramid"
-              width={24}
-              height={24}
-              className="w-6 h-6"
-            />
+            <ImageIcon className="w-6 h-6 text-amber-600" />
           </div>
           <h3 className="font-semibold text-stone-900 mb-1">20+ Figures</h3>
           <p className="text-sm text-stone-500">Visual diagrams and illustrations</p>
