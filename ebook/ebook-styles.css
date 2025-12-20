@@ -235,22 +235,34 @@ h2 + p:first-letter {
   font-weight: 700;
 }
 
+/* Figure container styling */
+p:has(img) {
+  text-align: center;
+  margin: 1.5em 0;
+  page-break-inside: avoid;
+}
+
 /* Image styling */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 1em 0;
+  margin: 1em auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e7e5e4;
 }
 
-/* Figure captions */
-img + em {
+/* Figure captions - italic text following images */
+img + em,
+p:has(img) + p > em:first-child {
   display: block;
   text-align: center;
   font-size: 10pt;
   color: #78716c;
-  margin-top: -0.5em;
-  margin-bottom: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  font-style: italic;
 }
 
 /* Pyramid layer colors */
