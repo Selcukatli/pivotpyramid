@@ -36,9 +36,21 @@ export default function EbookLayout({
 
       {/* Main content area */}
       <main className="lg:ml-72">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-12 pb-24">
           {children}
         </div>
+
+        {/* Copyright footer */}
+        <footer className="border-t border-stone-200 py-8 mt-12">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-500">
+            <p className="mb-2">
+              <strong className="text-stone-700">The Pivot Pyramid</strong> &copy; {new Date().getFullYear()} Selçuk Atlı. All rights reserved.
+            </p>
+            <p className="text-xs">
+              This work is protected by copyright. No part of this publication may be reproduced, distributed, or transmitted without the prior written permission of the author.
+            </p>
+          </div>
+        </footer>
       </main>
     </div>
   );
