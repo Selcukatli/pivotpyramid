@@ -115,7 +115,7 @@ Or consider the opposite scenario: A startup with solid traction among their ini
 
 ### Two Deadly Mistakes
 
-![The Over-Pivot vs Under-Pivot](./figures/over-under-pivot.png)
+![The Over-Pivot vs Under-Pivot](./figures/optimized/over-under-pivot.png)
 
 *The two fatal pivot mistakes: changing everything at once (over-pivot) or making surface changes while the foundation crumbles (under-pivot).*
 
@@ -230,7 +230,7 @@ The Pivot Pyramid consists of five layers, each representing a fundamental aspec
 
 Let's explore each layer in depth.
 
-![The Pivot Pyramid - Five Layers of a Startup](./figures/pivot-pyramid-foundation.png)
+![The Pivot Pyramid - Five Layers of a Startup](./figures/optimized/pivot-pyramid-foundation.png)
 
 *The Pivot Pyramid shows the five fundamental layers of every startup, with Customer at the foundation. Changes to lower layers cascade upward through all layers above.*
 
@@ -527,7 +527,7 @@ When you change who you're building for, almost everything changes:
 
 *Blast radius: 4 layers affected*
 
-![Customer Pivot Cascade](./figures/cascade-customer-pivot.png)
+![Customer Pivot Cascade](./figures/optimized/cascade-customer-pivot.png)
 
 *A Customer pivot triggers the widest cascade—all four layers above must be reconsidered.*
 
@@ -542,7 +542,7 @@ When you change the problem you're solving for the same customers:
 
 *Blast radius: 3 layers affected*
 
-![Problem Pivot Cascade](./figures/cascade-problem-pivot.png)
+![Problem Pivot Cascade](./figures/optimized/cascade-problem-pivot.png)
 
 *A Problem pivot affects Solution, Technology, and Growth—but Customer stays stable.*
 
@@ -557,7 +557,7 @@ When you change how you solve the same problem for the same customers:
 
 *Blast radius: 2 layers affected*
 
-![Solution Pivot Cascade](./figures/cascade-solution-pivot.png)
+![Solution Pivot Cascade](./figures/optimized/cascade-solution-pivot.png)
 
 *A Solution pivot only affects Technology and Growth—Customer and Problem remain validated.*
 
@@ -572,7 +572,7 @@ When you change how you build the solution:
 
 *Blast radius: 1 layer potentially affected*
 
-![Technology Pivot Cascade](./figures/cascade-technology-pivot.png)
+![Technology Pivot Cascade](./figures/optimized/cascade-technology-pivot.png)
 
 *A Technology pivot minimally affects only Growth—three layers below remain unchanged.*
 
@@ -584,7 +584,7 @@ When you change how you acquire and retain users:
 
 *Blast radius: 0 layers affected*
 
-![Growth Pivot - Safest Pivot Type](./figures/cascade-growth-pivot.png)
+![Growth Pivot - Safest Pivot Type](./figures/optimized/cascade-growth-pivot.png)
 
 *The Growth pivot is the safest—all other layers remain validated and unchanged.*
 
@@ -594,7 +594,7 @@ When you change how you acquire and retain users:
 
 Understanding the cascade principle lets you estimate the *cost* of a pivot before you commit. Cost comes in four forms:
 
-![Pivot Cost Curve](./figures/pivot-cost-curve.png)
+![Pivot Cost Curve](./figures/optimized/pivot-cost-curve.png)
 
 *The inverse relationship between pivot position and cost: foundation changes are expensive, top-layer changes are cheap.*
 
@@ -811,7 +811,7 @@ The first step is documenting your current hypotheses for each layer. Most found
 
 Let's change that.
 
-![Pyramid Audit Template](./figures/pyramid-audit-template.png)
+![Pyramid Audit Template](./figures/optimized/pyramid-audit-template.png)
 
 *Use this worksheet to systematically document and validate each layer of your startup.*
 
@@ -893,7 +893,7 @@ Be honest about which level of evidence supports each layer. Many founders treat
 
 ### Documenting Your Hypotheses
 
-![Layer Documentation Card](./figures/layer-documentation-card.png)
+![Layer Documentation Card](./figures/optimized/layer-documentation-card.png)
 
 *Use this card format to document and track each layer's hypothesis over time.*
 
@@ -1111,7 +1111,7 @@ The treatment for each is completely different. Optimizing your landing page won
 
 Here's a systematic framework for tracing symptoms to their root layer.
 
-![Diagnostic Flowchart](./figures/diagnostic-flowchart.png)
+![Diagnostic Flowchart](./figures/optimized/diagnostic-flowchart.png)
 
 *Use this flowchart to trace growth problems to their root cause in the Pivot Pyramid.*
 
@@ -1391,7 +1391,7 @@ Everything we've discussed so far is about knowing *when* and *where* to pivot. 
 
 Pivoting too soon is as dangerous as pivoting too late. This chapter helps you distinguish between signals that demand change and noise that should be ignored.
 
-![Anti-Pivot Warning Signs](./figures/anti-pivot-warning.png)
+![Anti-Pivot Warning Signs](./figures/optimized/anti-pivot-warning.png)
 
 *Watch out for these common traps that lead founders to pivot prematurely.*
 
@@ -1701,7 +1701,7 @@ A well-planned pivot has four components:
 
 Let's walk through each.
 
-![Cost-Impact Matrix](./figures/cost-impact-matrix.png)
+![Cost-Impact Matrix](./figures/optimized/cost-impact-matrix.png)
 
 *Use this matrix to categorize potential pivots by their cost and expected impact.*
 
@@ -1709,7 +1709,7 @@ Let's walk through each.
 
 ### Step 1: Define Current State
 
-![Pivot Planning Canvas](./figures/pivot-planning-canvas.png)
+![Pivot Planning Canvas](./figures/optimized/pivot-planning-canvas.png)
 
 *Use this side-by-side canvas to map your current state against your target state.*
 
@@ -2106,7 +2106,7 @@ A Customer Pivot means changing who you're building for. This isn't about tweaki
 
 ### The Customer Pivot Playbook
 
-![Customer Pivot Playbook](./figures/customer-pivot-playbook.png)
+![Customer Pivot Playbook](./figures/optimized/customer-pivot-playbook.png)
 
 *A five-step process for executing a Customer pivot successfully.*
 
@@ -2498,7 +2498,7 @@ A Solution Pivot means changing how you solve the problem. Your customers remain
 
 ### The Solution Pivot Playbook
 
-![Solution Pivot Playbook](./figures/solution-pivot-playbook.png)
+![Solution Pivot Playbook](./figures/optimized/solution-pivot-playbook.png)
 
 *A structured process for pivoting your solution while keeping your validated Customer and Problem.*
 
@@ -2938,7 +2938,7 @@ Example: New AI capabilities become available, enabling a fundamentally better s
 
 Growth sits at the top of the Pivot Pyramid. It's the easiest layer to change because it doesn't cascade down—your customers, problem, solution, and technology can stay the same. But don't mistake "easiest" for "easy." Growth Pivots require their own discipline and carry their own risks.
 
-![Growth Channels Matrix](./figures/growth-channels-matrix.png)
+![Growth Channels Matrix](./figures/optimized/growth-channels-matrix.png)
 
 *Compare different growth channels by cost, time, scalability, and fit for your customer type.*
 
@@ -3433,7 +3433,7 @@ A Growth Pivot at each stage looks different and serves different purposes.
 
 Sometimes startups need to change more than one layer simultaneously. These multi-layer pivots are complex, risky, and often necessary. Understanding how to execute them can mean the difference between a successful transformation and a chaotic collapse.
 
-![The Multi-Track Trap](./figures/multi-track-trap.png)
+![The Multi-Track Trap](./figures/optimized/multi-track-trap.png)
 
 *The danger of running multiple pivots simultaneously: fragmented focus, incomplete execution, and cognitive overload.*
 
@@ -4364,7 +4364,7 @@ The founder sets the culture through their own behavior:
 
 This chapter provides ready-to-use tools for applying the Pivot Pyramid framework. Copy these templates and adapt them to your specific situation.
 
-![The Pivot Toolkit Overview](./figures/toolkit-overview.png)
+![The Pivot Toolkit Overview](./figures/optimized/toolkit-overview.png)
 
 *All the tools in the Pivot Pyramid Toolkit and how they work together.*
 
@@ -4372,7 +4372,7 @@ This chapter provides ready-to-use tools for applying the Pivot Pyramid framewor
 
 ### Tool 1: The Pyramid Assessment Canvas
 
-![Pyramid Assessment Canvas](./figures/assessment-canvas-full.png)
+![Pyramid Assessment Canvas](./figures/optimized/assessment-canvas-full.png)
 
 *The complete Pyramid Assessment Canvas for documenting your current state.*
 
