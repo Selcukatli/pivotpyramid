@@ -107,7 +107,7 @@ export function Figure({ src, alt, caption }: FigureProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-stone-100/95 flex items-center justify-center p-4"
             onClick={() => setIsLightboxOpen(false)}
           >
             <motion.button
@@ -115,7 +115,7 @@ export function Figure({ src, alt, caption }: FigureProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.1 }}
-              className="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors"
+              className="absolute top-4 right-4 p-2 text-stone-500 hover:text-stone-800 transition-colors"
               onClick={() => setIsLightboxOpen(false)}
             >
               <X className="w-8 h-8" />
