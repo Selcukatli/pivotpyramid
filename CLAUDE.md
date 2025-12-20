@@ -20,10 +20,14 @@ This is the web application and ebook for the Pivot Pyramid framework, created b
 casablanca/
 ├── src/
 │   ├── app/              # Next.js app router pages
+│   │   └── ebook/        # HTML ebook routes
+│   │       └── [slug]/   # Dynamic chapter pages
 │   ├── components/       # React components
-│   │   └── canvas/       # Canvas-specific components
+│   │   ├── canvas/       # Canvas-specific components
+│   │   └── ebook/        # Ebook components (TOC, nav, markdown renderer)
 │   ├── hooks/            # Custom React hooks
 │   └── lib/              # Utilities and data
+│       └── ebook-parser.ts # Ebook markdown parser
 ├── convex/               # Convex backend
 │   ├── schema.ts         # Database schema
 │   ├── canvases.ts       # Canvas CRUD + AI generation
@@ -36,6 +40,7 @@ casablanca/
 │   └── figures/                      # Diagrams and illustrations
 │       └── optimized/                # Optimized images for PDF
 └── public/               # Static assets
+    └── ebook/figures/    # Web-optimized figures for HTML ebook
 ```
 
 ## Development
@@ -260,6 +265,89 @@ Content paragraphs...
 
 ---
 
+## HTML Ebook
+
+The ebook is also available as an HTML version with individual chapter pages, optimized for web reading.
+
+### Routes
+
+| Route | Description |
+|-------|-------------|
+| `/ebook` | Landing page with full table of contents |
+| `/ebook/foreword` | Foreword: Why I Wrote This Book |
+| `/ebook/about-author` | About the Author |
+| `/ebook/about-book` | About This Book |
+| `/ebook/chapter-1` to `/ebook/chapter-14` | Individual chapters |
+| `/ebook/appendix-a` to `/ebook/appendix-c` | Appendices |
+
+### Features
+
+- **Sidebar Table of Contents**: Fixed sidebar navigation on desktop, slide-out drawer on mobile
+- **Reading Progress**: Progress bar at top showing scroll position
+- **Previous/Next Navigation**: Navigate between chapters at the bottom of each page
+- **SEO Optimized**: Each chapter has its own URL, metadata, and sitemap entry
+- **Responsive Design**: Mobile-first design with adaptive layout
+- **Image Lightbox**: Click figures to view full-size
+- **Next.js Image Optimization**: Figures served via Next.js Image component
+
+### Key Files
+
+```
+src/
+├── app/ebook/
+│   ├── layout.tsx          # Shared layout with sidebar + progress bar
+│   ├── page.tsx             # Landing page with TOC
+│   └── [slug]/page.tsx      # Dynamic chapter pages
+├── components/ebook/
+│   ├── Figure.tsx           # Image with lightbox + caption
+│   ├── MarkdownRenderer.tsx # Custom markdown rendering
+│   ├── TableOfContents.tsx  # Sidebar/mobile navigation
+│   ├── ChapterNav.tsx       # Previous/Next buttons
+│   ├── ReadingProgress.tsx  # Scroll progress bar
+│   └── EbookSidebar.tsx     # Desktop sidebar + mobile drawer
+└── lib/
+    └── ebook-parser.ts      # Parses markdown into chapters
+```
+
+### Parser Functions
+
+The `ebook-parser.ts` module provides:
+
+```typescript
+parseChapters()           // Get all chapters with content
+getChapterBySlug(slug)    // Get single chapter by URL slug
+getTableOfContents()      // Get TOC items (no content)
+getAdjacentChapters(slug) // Get previous/next for navigation
+getGroupedTableOfContents() // TOC grouped by Part
+getAllChapterSlugs()      // All slugs for static generation
+```
+
+### Updating the HTML Ebook
+
+The HTML ebook is automatically generated from the same `ebook/pivot-pyramid-ebook.md` source as the PDF. When you update the markdown:
+
+1. **Figures**: Copy any new figures to `public/ebook/figures/`:
+   ```bash
+   cp ebook/figures/optimized/new-figure.png public/ebook/figures/
+   ```
+
+2. **Build**: The Next.js build will statically generate all chapter pages:
+   ```bash
+   npm run build
+   ```
+
+3. **Sitemap**: Chapter URLs are automatically added to the sitemap via `src/app/sitemap.ts`
+
+### Styling
+
+The HTML ebook uses:
+- **Typography**: Merriweather (serif) for body, Inter (sans-serif) for headings
+- **Colors**: Same amber/orange theme as PDF (#f59e0b)
+- **Components**: Tailwind CSS for responsive styling
+- **Markdown**: react-markdown with remark-gfm for GFM support
+
+---
+
 ## Deployment
 
 ### Convex
@@ -281,6 +369,9 @@ Set `NEXT_PUBLIC_CONVEX_URL` in Vercel environment variables.
 | File | Purpose |
 |------|---------|
 | `src/app/canvas/page.tsx` | Main canvas page |
+| `src/app/ebook/page.tsx` | HTML ebook landing page |
+| `src/app/ebook/[slug]/page.tsx` | Dynamic chapter pages |
+| `src/lib/ebook-parser.ts` | Ebook markdown parser |
 | `convex/canvases.ts` | Canvas CRUD + AI generation |
 | `convex/canvasStream.ts` | AI streaming for chat |
 | `src/lib/pivot-pyramid-data.ts` | Layer definitions and prompts |
