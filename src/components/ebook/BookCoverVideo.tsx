@@ -72,16 +72,20 @@ export function BookCoverVideo({
   }, []);
 
   return (
-    <div className="relative" style={{ width, height }}>
+    <div
+      className="relative overflow-hidden rounded-lg shadow-xl"
+      style={{ width, height, aspectRatio: `${width}/${height}` }}
+    >
       {/* Fallback image for iOS Safari where video scrubbing doesn't work */}
       <Image
         src={posterSrc}
         alt={alt}
-        width={width}
-        height={height}
-        className={`rounded-lg shadow-xl transition-opacity duration-300 ${
-          videoReady ? 'opacity-0 absolute inset-0' : 'opacity-100'
+        fill
+        sizes={`${width}px`}
+        className={`transition-opacity duration-300 ${
+          videoReady ? 'opacity-0' : 'opacity-100'
         }`}
+        style={{ objectFit: 'fill' }}
         priority
       />
 
@@ -92,10 +96,11 @@ export function BookCoverVideo({
         playsInline
         preload="auto"
         poster={posterSrc}
-        className={`rounded-lg shadow-xl transition-opacity duration-300 ${
-          videoReady ? 'opacity-100' : 'opacity-0 absolute inset-0'
+        width={width}
+        height={height}
+        className={`absolute inset-0 w-full h-full object-fill transition-opacity duration-300 ${
+          videoReady ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ width, height, objectFit: 'fill' }}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
