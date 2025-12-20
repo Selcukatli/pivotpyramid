@@ -22,33 +22,33 @@ export function TableOfContents({ groups, onItemClick }: TableOfContentsProps) {
         <h2 className="font-semibold text-stone-800">Contents</h2>
       </div>
 
-      {/* Welcome page link */}
-      <div className="space-y-1">
-        <Link
-          href="/ebook"
-          onClick={onItemClick}
-          className={`
-            flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors
-            ${isWelcomePage
-              ? 'bg-amber-100 text-amber-900 font-medium'
-              : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
-            }
-          `}
-        >
-          {isWelcomePage && (
-            <ChevronRight className="w-4 h-4 text-amber-500 flex-shrink-0" />
-          )}
-          <Home className={`w-4 h-4 ${isWelcomePage ? '' : 'ml-6 mr-1.5'}`} />
-          <span>Welcome</span>
-        </Link>
-      </div>
-
       {groups.map((group, groupIndex) => (
         <div key={groupIndex} className="space-y-1">
           {group.part && (
             <h3 className="px-3 py-2 text-xs font-semibold text-stone-500 uppercase tracking-wider">
               {group.part}
             </h3>
+          )}
+
+          {/* Welcome link at the start of first group */}
+          {groupIndex === 0 && (
+            <Link
+              href="/ebook"
+              onClick={onItemClick}
+              className={`
+                flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors
+                ${isWelcomePage
+                  ? 'bg-amber-100 text-amber-900 font-medium'
+                  : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+                }
+              `}
+            >
+              {isWelcomePage && (
+                <ChevronRight className="w-4 h-4 text-amber-500 flex-shrink-0" />
+              )}
+              <Home className={`w-4 h-4 ${isWelcomePage ? '' : 'ml-6 mr-1.5'}`} />
+              <span>Welcome</span>
+            </Link>
           )}
 
           {group.items.map((item) => {
