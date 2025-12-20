@@ -5,22 +5,28 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Figure } from './Figure';
 import type { Components } from 'react-markdown';
+import type { Element } from 'hast';
 
 interface MarkdownRendererProps {
   content: string;
 }
 
-// Helper to check if children contains only an image
-function hasOnlyImageChild(children: React.ReactNode): boolean {
-  const childArray = React.Children.toArray(children);
-  if (childArray.length !== 1) return false;
+// Helper to check if a paragraph node contains only an image
+function isImageOnlyParagraph(node: Element | undefined): boolean {
+  if (!node || !node.children) return false;
 
-  const child = childArray[0];
-  if (React.isValidElement(child)) {
-    // Check if the child is our Figure component or an img element
-    return child.type === Figure || child.type === 'img';
-  }
-  return false;
+  // Filter out text nodes that are just whitespace
+  const meaningfulChildren = node.children.filter(child => {
+    if (child.type === 'text') {
+      return child.value.trim() !== '';
+    }
+    return true;
+  });
+
+  // Check if there's exactly one child and it's an image
+  return meaningfulChildren.length === 1 &&
+         meaningfulChildren[0].type === 'element' &&
+         (meaningfulChildren[0] as Element).tagName === 'img';
 }
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
@@ -62,10 +68,10 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
       </h4>
     ),
     // Style paragraphs - unwrap if only contains an image to avoid hydration error
-    p: ({ children }) => {
+    p: ({ children, node }) => {
       // If the paragraph only contains an image, return the image directly
       // This avoids the hydration error of <div> inside <p>
-      if (hasOnlyImageChild(children)) {
+      if (isImageOnlyParagraph(node)) {
         return <>{children}</>;
       }
       return (
