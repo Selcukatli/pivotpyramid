@@ -19,7 +19,6 @@ export function BookCoverVideo({
   height,
 }: BookCoverVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
@@ -51,36 +50,30 @@ export function BookCoverVideo({
       setVideoReady(true);
     };
 
+    video.addEventListener('canplaythrough', handleCanPlay);
+    initVideo();
+
     const handleScroll = () => {
       // Scrub video based on scroll position
+      // Video plays from 0% to 100% over 200px of scrolling (immediate response)
       if (video.duration && video.readyState >= 2) {
-        // Calculate scroll progress: 0 to 1 based on viewport height
-        // Video plays fully over 80% of viewport height for a nice pace
-        const scrollProgress = Math.min(
-          window.scrollY / (window.innerHeight * 0.8),
-          1
-        );
-
-        // Map scroll progress to video time
+        const scrollProgress = Math.min(window.scrollY / 200, 1);
         video.currentTime = scrollProgress * video.duration;
       }
     };
 
-    video.addEventListener('canplaythrough', handleCanPlay);
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    initVideo();
     handleScroll(); // Set initial position
 
     return () => {
-      video.removeEventListener('canplaythrough', handleCanPlay);
       window.removeEventListener('scroll', handleScroll);
+      video.removeEventListener('canplaythrough', handleCanPlay);
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="relative" style={{ width, height }}>
-      {/* Fallback image - shown until video is ready */}
+    <div className="relative" style={{ width, height }}>
+      {/* Fallback image for iOS Safari where video scrubbing doesn't work */}
       <Image
         src={posterSrc}
         alt={alt}
@@ -102,7 +95,7 @@ export function BookCoverVideo({
         className={`rounded-lg shadow-xl transition-opacity duration-300 ${
           videoReady ? 'opacity-100' : 'opacity-0 absolute inset-0'
         }`}
-        style={{ width, height, objectFit: 'cover' }}
+        style={{ width, height, objectFit: 'fill' }}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>

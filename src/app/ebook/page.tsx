@@ -36,8 +36,8 @@ export default function EbookLandingPage() {
               videoSrc="/ebook-cover-video.mp4"
               posterSrc="/pivot-pyramid-cover.png"
               alt="The Pivot Pyramid Book Cover"
-              width={240}
-              height={320}
+              width={220}
+              height={323}
             />
           </div>
 
