@@ -80,12 +80,10 @@ function getChapterNumber(slug: string): number | undefined {
 
 function transformFigurePaths(content: string): string {
   // Transform relative figure paths to absolute paths for web
+  // ./figures/optimized/filename.png -> /ebook/figures/filename.png
   return content.replace(
-    /\.\/(figures\/optimized\/[^)]+)/g,
-    '/ebook/figures/$1'.replace('/optimized', '')
-  ).replace(
-    /\.\/figures\/optimized\//g,
-    '/ebook/figures/'
+    /\.\/figures\/optimized\/([^)]+)/g,
+    '/ebook/figures/$1'
   );
 }
 

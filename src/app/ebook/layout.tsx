@@ -43,12 +43,8 @@ export default function EbookLayout({
         {/* Copyright footer */}
         <footer className="border-t border-stone-200 py-8 mt-12">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-500">
-            <p className="mb-2">
+            <p>
               <strong className="text-stone-700">The Pivot Pyramid</strong> &copy; {new Date().getFullYear()} Selçuk Atlı. All rights reserved.
-            </p>
-            <p className="text-xs">
-              By continuing, you agree to our<br />
-              <a href="/terms" className="text-amber-600 hover:text-amber-700 underline">Terms of Service</a> and <a href="/privacy" className="text-amber-600 hover:text-amber-700 underline">Privacy Policy</a>
             </p>
           </div>
         </footer>

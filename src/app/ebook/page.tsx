@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, ArrowRight, FileText } from 'lucide-react';
 import { getGroupedTableOfContents } from '@/lib/ebook-parser';
+import { BookCoverVideo } from '@/components/ebook/BookCoverVideo';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -29,15 +30,14 @@ export default function EbookLandingPage() {
       {/* Hero Section */}
       <header className="py-8">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          {/* Book Cover */}
+          {/* Book Cover with scroll-controlled page flip animation */}
           <div className="flex-shrink-0">
-            <Image
-              src="/pivot-pyramid-cover.png"
+            <BookCoverVideo
+              videoSrc="/ebook-cover-video.mp4"
+              posterSrc="/pivot-pyramid-cover.png"
               alt="The Pivot Pyramid Book Cover"
-              width={240}
-              height={320}
-              className="rounded-lg shadow-xl"
-              priority
+              width={220}
+              height={323}
             />
           </div>
 
