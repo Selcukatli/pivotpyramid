@@ -13,7 +13,7 @@
 
 ---
 
-# Foreword: Why I Wrote This Book
+# Why I Wrote This Book
 
 In 2016, after my second startup exit, I joined 500 Startups as a Venture Partner. Having been through my own journey pivoting Socialwire from a product recommendation engine for online retailers to a product advertising platform, I recognized a familiar struggle in the founders I was working with: deciding *what* to change when things weren't working.
 
@@ -24,28 +24,6 @@ The cost of getting this wrong was huge—wasted months, burned runway, demorali
 I created the Pivot Pyramid to give founders a simple mental model for these decisions. It was first published on the 500 Startups blog and has since been featured in VentureBeat, Founder Institute, and many other publications. The framework has been used by thousands of founders navigating the search for product-market fit.
 
 This book is the complete guide I wish I'd had during my own pivots—the frameworks, case studies, and practical tools that would have saved me years of trial and error.
-
----
-
-# About the Author
-
-**Selçuk Atlı** is a serial entrepreneur, investor, and songwriter based in New York.
-
-Most recently, he founded **Bunch**, a group video chat app for playing games together, used by over 10 million players. Before that, he founded and sold two adtech companies: **Socialwire/Manifest** (acquired by Rakuten in 2014) and **Boostable** (acquired by Metric Collective).
-
-He conceptualized the Pivot Pyramid while serving as a Venture Partner at **500 Startups**, where he worked with dozens of early-stage founders navigating the search for product-market fit. He is also a **Y Combinator W14** alumni.
-
-Learn more at [selcukatli.com](https://selcukatli.com)
-
----
-
-# About This Book
-
-Every startup pivots. The question isn't whether you'll need to change direction—it's whether you'll change the right thing at the right time.
-
-This book gives you a complete system for making that decision. The Pivot Pyramid framework helps you understand the five fundamental layers of your business, diagnose which layer is broken, and execute pivots with clarity about what else needs to change.
-
-Whether you're a first-time founder searching for product-market fit, a seasoned entrepreneur facing a strategic crossroads, or an investor advising portfolio companies, this book will transform how you think about startup experimentation.
 
 ---
 

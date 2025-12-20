@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Home } from 'lucide-react';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TableOfContents } from './TableOfContents';
 import type { TableOfContentsItem } from '@/lib/ebook-parser';
@@ -33,7 +33,7 @@ export function EbookSidebar({ groups }: EbookSidebarProps) {
             href="/"
             className="inline-flex items-center gap-2 text-sm text-stone-600 hover:text-amber-600 transition-colors"
           >
-            <Home className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
         </div>

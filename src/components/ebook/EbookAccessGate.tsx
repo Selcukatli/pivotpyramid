@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useEbookAccessStore } from '@/stores/ebookAccessStore';
 import { AccessModal } from './AccessModal';
+import { UnlockSuccessModal } from './UnlockSuccessModal';
 import { BookOpen, Lock } from 'lucide-react';
 
 interface EbookAccessGateProps {
@@ -11,7 +12,9 @@ interface EbookAccessGateProps {
 
 export function EbookAccessGate({ children }: EbookAccessGateProps) {
   const hasAccess = useEbookAccessStore((state) => state.hasAccess);
+  const justUnlocked = useEbookAccessStore((state) => state.justUnlocked);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
 
   // Wait for hydration to avoid mismatch between server and client
@@ -26,6 +29,13 @@ export function EbookAccessGate({ children }: EbookAccessGateProps) {
     }
   }, [isHydrated, hasAccess]);
 
+  // Show success modal when access was just unlocked
+  useEffect(() => {
+    if (isHydrated && justUnlocked) {
+      setIsSuccessModalOpen(true);
+    }
+  }, [isHydrated, justUnlocked]);
+
   // During SSR or before hydration, show a loading state
   if (!isHydrated) {
     return (
@@ -35,9 +45,17 @@ export function EbookAccessGate({ children }: EbookAccessGateProps) {
     );
   }
 
-  // If user has access, show the content
+  // If user has access, show the content (and possibly the success modal)
   if (hasAccess) {
-    return <>{children}</>;
+    return (
+      <>
+        {children}
+        <UnlockSuccessModal
+          isOpen={isSuccessModalOpen}
+          onClose={() => setIsSuccessModalOpen(false)}
+        />
+      </>
+    );
   }
 
   // User doesn't have access - show blurred preview + overlay

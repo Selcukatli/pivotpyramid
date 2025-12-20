@@ -21,9 +21,8 @@ export interface TableOfContentsItem {
 // Define the chapter structure
 const CHAPTER_CONFIG: { pattern: RegExp; slug: string; type: Chapter['type'] }[] = [
   { pattern: /^# The Pivot Pyramid$/m, slug: 'title', type: 'intro' },
-  { pattern: /^# Foreword: Why I Wrote This Book$/m, slug: 'foreword', type: 'intro' },
-  { pattern: /^# About the Author$/m, slug: 'about-author', type: 'intro' },
-  { pattern: /^# About This Book$/m, slug: 'about-book', type: 'intro' },
+  { pattern: /^# Why I Wrote This Book$/m, slug: 'foreword', type: 'intro' },
+  { pattern: /^# Table of Contents$/m, slug: 'toc', type: 'intro' }, // Used as boundary, skipped in output
   { pattern: /^## Chapter 1:/m, slug: 'chapter-1', type: 'chapter' },
   { pattern: /^## Chapter 2:/m, slug: 'chapter-2', type: 'chapter' },
   { pattern: /^## Chapter 3:/m, slug: 'chapter-3', type: 'chapter' },
@@ -126,8 +125,8 @@ export function parseChapters(): Chapter[] {
     const current = positions[i];
     const nextStart = i < positions.length - 1 ? positions[i + 1].start : content.length;
 
-    // Skip title page and TOC
-    if (current.slug === 'title') continue;
+    // Skip title page and TOC (toc is just used as a boundary marker)
+    if (current.slug === 'title' || current.slug === 'toc') continue;
 
     let chapterContent = content.slice(current.start, nextStart).trim();
     // Strip Part headers from content (they're shown in sidebar grouping)
