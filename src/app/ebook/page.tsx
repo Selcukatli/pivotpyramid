@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, ArrowRight, FileText } from 'lucide-react';
-import { getGroupedTableOfContents } from '@/lib/ebook-parser';
+import { getGroupedTableOfContents, getTableOfContents } from '@/lib/ebook-parser';
 import { BookCoverVideo } from '@/components/ebook/BookCoverVideo';
 import type { Metadata } from 'next';
 
@@ -16,17 +16,113 @@ export const metadata: Metadata = {
     description: 'A comprehensive guide to startup experimentation and pivoting. Read online for free.',
     url: 'https://pivotpyramid.com/ebook',
     type: 'book',
+    images: [
+      {
+        url: '/pivot-pyramid-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Pivot Pyramid Book',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Pivot Pyramid - Free Ebook',
+    description: 'A comprehensive guide to startup experimentation and pivoting. Read online for free.',
+    images: ['/pivot-pyramid-og.png'],
+    creator: '@selcukatli',
+  },
+};
+
+// Book structured data for Google
+function getBookJsonLd() {
+  const toc = getTableOfContents();
+  const chapters = toc.filter(item => item.type === 'chapter');
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "@id": "https://pivotpyramid.com/ebook#book",
+    name: "The Pivot Pyramid",
+    description: "A comprehensive guide to startup experimentation and pivoting. Master the framework that helps founders understand where to pivot and how changes cascade through their business.",
+    author: {
+      "@type": "Person",
+      name: "Selçuk Atlı",
+      url: "https://selcukatli.com",
+      sameAs: [
+        "https://twitter.com/selcukatli",
+        "https://www.linkedin.com/in/selcukatli",
+      ],
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Selçuk Atlı",
+    },
+    inLanguage: "en",
+    genre: ["Business", "Entrepreneurship", "Startups"],
+    about: [
+      { "@type": "Thing", name: "Startup Pivoting" },
+      { "@type": "Thing", name: "Product-Market Fit" },
+      { "@type": "Thing", name: "Business Strategy" },
+    ],
+    numberOfPages: 190,
+    bookFormat: "https://schema.org/EBook",
+    isAccessibleForFree: true,
+    url: "https://pivotpyramid.com/ebook",
+    image: "https://pivotpyramid.com/pivot-pyramid-cover.png",
+    datePublished: "2024-01-01",
+    copyrightYear: 2024,
+    copyrightHolder: {
+      "@type": "Person",
+      name: "Selçuk Atlı",
+    },
+    hasPart: chapters.map((chapter, index) => ({
+      "@type": "Chapter",
+      name: chapter.title,
+      position: index + 1,
+      url: `https://pivotpyramid.com/ebook/${chapter.slug}`,
+    })),
+  };
+}
+
+// BreadcrumbList for navigation
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://pivotpyramid.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Ebook",
+      item: "https://pivotpyramid.com/ebook",
+    },
+  ],
 };
 
 export default function EbookLandingPage() {
   const groups = getGroupedTableOfContents();
+  const bookJsonLd = getBookJsonLd();
 
   // Get first chapter for the CTA
   const firstChapter = groups[0]?.items[0];
 
   return (
-    <div className="space-y-12">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="space-y-12">
       {/* Hero Section */}
       <header className="py-8">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -175,6 +271,7 @@ export default function EbookLandingPage() {
           <p className="text-sm text-stone-500">Visual diagrams and illustrations</p>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
