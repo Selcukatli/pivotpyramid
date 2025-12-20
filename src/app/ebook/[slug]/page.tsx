@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
     title,
     description,
     alternates: {
-      canonical: `https://pivotpyramid.com/ebook/${slug}`,
+      canonical: `https://www.pivotpyramid.com/ebook/${slug}`,
     },
     openGraph: {
       title: `${title} | The Pivot Pyramid`,
       description,
-      url: `https://pivotpyramid.com/ebook/${slug}`,
+      url: `https://www.pivotpyramid.com/ebook/${slug}`,
       type: 'article',
       images: [
         {
@@ -79,13 +79,13 @@ function getArticleJsonLd(slug: string, title: string, chapterNumber?: number, p
     dateModified: "2024-01-01",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://pivotpyramid.com/ebook/${slug}`,
+      "@id": `https://www.pivotpyramid.com/ebook/${slug}`,
     },
-    image: "https://pivotpyramid.com/pivot-pyramid-og.png",
+    image: "https://www.pivotpyramid.com/pivot-pyramid-og.png",
     isPartOf: {
       "@type": "Book",
       name: "The Pivot Pyramid",
-      url: "https://pivotpyramid.com/ebook",
+      url: "https://www.pivotpyramid.com/ebook",
     },
     ...(chapterNumber && { position: chapterNumber }),
     ...(part && { articleSection: part }),
@@ -102,19 +102,19 @@ function getBreadcrumbJsonLd(slug: string, title: string) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://pivotpyramid.com",
+        item: "https://www.pivotpyramid.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Ebook",
-        item: "https://pivotpyramid.com/ebook",
+        item: "https://www.pivotpyramid.com/ebook",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: title,
-        item: `https://pivotpyramid.com/ebook/${slug}`,
+        item: `https://www.pivotpyramid.com/ebook/${slug}`,
       },
     ],
   };

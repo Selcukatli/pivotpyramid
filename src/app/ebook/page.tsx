@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: 'The Pivot Pyramid - Free Ebook',
   description: 'Read The Pivot Pyramid ebook online. A comprehensive guide to startup experimentation and pivoting by Selçuk Atlı (YC W14).',
   alternates: {
-    canonical: 'https://pivotpyramid.com/ebook',
+    canonical: 'https://www.pivotpyramid.com/ebook',
   },
   openGraph: {
     title: 'The Pivot Pyramid - Free Ebook',
     description: 'A comprehensive guide to startup experimentation and pivoting. Read online for free.',
-    url: 'https://pivotpyramid.com/ebook',
+    url: 'https://www.pivotpyramid.com/ebook',
     type: 'book',
     images: [
       {
@@ -42,7 +42,7 @@ function getBookJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Book",
-    "@id": "https://pivotpyramid.com/ebook#book",
+    "@id": "https://www.pivotpyramid.com/ebook#book",
     name: "The Pivot Pyramid",
     description: "A comprehensive guide to startup experimentation and pivoting. Master the framework that helps founders understand where to pivot and how changes cascade through their business.",
     author: {
@@ -68,8 +68,8 @@ function getBookJsonLd() {
     numberOfPages: 190,
     bookFormat: "https://schema.org/EBook",
     isAccessibleForFree: true,
-    url: "https://pivotpyramid.com/ebook",
-    image: "https://pivotpyramid.com/pivot-pyramid-cover.png",
+    url: "https://www.pivotpyramid.com/ebook",
+    image: "https://www.pivotpyramid.com/pivot-pyramid-cover.png",
     datePublished: "2024-01-01",
     copyrightYear: 2024,
     copyrightHolder: {
@@ -80,7 +80,7 @@ function getBookJsonLd() {
       "@type": "Chapter",
       name: chapter.title,
       position: index + 1,
-      url: `https://pivotpyramid.com/ebook/${chapter.slug}`,
+      url: `https://www.pivotpyramid.com/ebook/${chapter.slug}`,
     })),
   };
 }
@@ -94,13 +94,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://pivotpyramid.com",
+      item: "https://www.pivotpyramid.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Ebook",
-      item: "https://pivotpyramid.com/ebook",
+      item: "https://www.pivotpyramid.com/ebook",
     },
   ],
 };

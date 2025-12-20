@@ -6,7 +6,7 @@ import { ConvexClientProvider } from "@/components/providers/convex-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pivotpyramid.com"),
+  metadataBase: new URL("https://www.pivotpyramid.com"),
   verification: {
     google: "lwzVXiQ2xTd1AzRSVQ1edWdTy-UFK8akZlGDS6586hA",
   },
@@ -25,12 +25,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Selçuk Atlı", url: "https://selcukatli.com" }],
   creator: "Selçuk Atlı",
   alternates: {
-    canonical: "https://pivotpyramid.com",
+    canonical: "https://www.pivotpyramid.com",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pivotpyramid.com",
+    url: "https://www.pivotpyramid.com",
     siteName: "The Pivot Pyramid",
     title: "The Pivot Pyramid - A Framework for Startup Experimentation",
     description:
@@ -64,15 +64,15 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://pivotpyramid.com/#website",
-      url: "https://pivotpyramid.com",
+      "@id": "https://www.pivotpyramid.com/#website",
+      url: "https://www.pivotpyramid.com",
       name: "The Pivot Pyramid",
       description: "A visual framework for startup experimentation",
-      publisher: { "@id": "https://pivotpyramid.com/#person" },
+      publisher: { "@id": "https://www.pivotpyramid.com/#person" },
     },
     {
       "@type": "Person",
-      "@id": "https://pivotpyramid.com/#person",
+      "@id": "https://www.pivotpyramid.com/#person",
       name: "Selçuk Atlı",
       url: "https://selcukatli.com",
       sameAs: [
@@ -85,9 +85,9 @@ const jsonLd = {
     },
     {
       "@type": "WebApplication",
-      "@id": "https://pivotpyramid.com/#canvas",
+      "@id": "https://www.pivotpyramid.com/#canvas",
       name: "Pivot Canvas",
-      url: "https://pivotpyramid.com/canvas",
+      url: "https://www.pivotpyramid.com/canvas",
       description:
         "AI-powered canvas tool for documenting startup hypotheses using the Pivot Pyramid framework",
       applicationCategory: "BusinessApplication",
@@ -97,11 +97,11 @@ const jsonLd = {
         price: "0",
         priceCurrency: "USD",
       },
-      creator: { "@id": "https://pivotpyramid.com/#person" },
+      creator: { "@id": "https://www.pivotpyramid.com/#person" },
     },
     {
       "@type": "FAQPage",
-      "@id": "https://pivotpyramid.com/#faq",
+      "@id": "https://www.pivotpyramid.com/#faq",
       mainEntity: [
         {
           "@type": "Question",
@@ -147,19 +147,19 @@ const jsonLd = {
     },
     {
       "@type": "VideoObject",
-      "@id": "https://pivotpyramid.com/#video",
+      "@id": "https://www.pivotpyramid.com/#video",
       name: "The Pivot Pyramid Framework Animation",
       description:
         "Animated illustration of the Pivot Pyramid framework showing the five layers of startup experimentation: Customers, Problem, Solution, Technology, and Growth.",
-      thumbnailUrl: "https://pivotpyramid.com/pivot-pyramid-og.png",
+      thumbnailUrl: "https://www.pivotpyramid.com/pivot-pyramid-og.png",
       uploadDate: "2024-01-01",
-      contentUrl: "https://pivotpyramid.com/pivot-pyramid-illustration.mp4",
-      embedUrl: "https://pivotpyramid.com/pivot-pyramid-illustration.mp4",
+      contentUrl: "https://www.pivotpyramid.com/pivot-pyramid-illustration.mp4",
+      embedUrl: "https://www.pivotpyramid.com/pivot-pyramid-illustration.mp4",
       duration: "PT30S",
     },
     {
       "@type": "HowTo",
-      "@id": "https://pivotpyramid.com/#howto",
+      "@id": "https://www.pivotpyramid.com/#howto",
       name: "How to Use the Pivot Pyramid",
       description:
         "A step-by-step guide to using the Pivot Pyramid framework for startup experimentation.",

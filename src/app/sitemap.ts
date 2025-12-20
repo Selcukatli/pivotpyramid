@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllChapterSlugs } from "@/lib/ebook-parser";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://pivotpyramid.com";
+  const baseUrl = "https://www.pivotpyramid.com";
   const chapterSlugs = getAllChapterSlugs();
 
   const ebookPages: MetadataRoute.Sitemap = chapterSlugs.map((slug) => ({
