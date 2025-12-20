@@ -47,7 +47,8 @@ export default function EbookLayout({
               <strong className="text-stone-700">The Pivot Pyramid</strong> &copy; {new Date().getFullYear()} Selçuk Atlı. All rights reserved.
             </p>
             <p className="text-xs">
-              This work is protected by copyright. No part of this publication may be reproduced, distributed, or transmitted without the prior written permission of the author.
+              By continuing, you agree to our<br />
+              <a href="/terms" className="text-amber-600 hover:text-amber-700 underline">Terms of Service</a> and <a href="/privacy" className="text-amber-600 hover:text-amber-700 underline">Privacy Policy</a>
             </p>
           </div>
         </footer>
