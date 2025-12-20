@@ -57,12 +57,10 @@ export function Figure({ src, alt, caption }: FigureProps) {
           >
             {/* Image container with rounded corners */}
             <div className="relative rounded-lg overflow-hidden">
-              {/* Skeleton loader */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-r from-stone-200 via-stone-100 to-stone-200 bg-[length:200%_100%] animate-pulse rounded-lg transition-opacity duration-500 ${
-                  imageLoaded ? 'opacity-0' : 'opacity-100'
-                }`}
-              />
+              {/* Skeleton loader - only render while loading */}
+              {!imageLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-200 via-stone-100 to-stone-200 bg-[length:200%_100%] animate-pulse rounded-lg" />
+              )}
 
               <Image
                 src={src}
