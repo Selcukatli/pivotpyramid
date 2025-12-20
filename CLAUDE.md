@@ -9,8 +9,9 @@ This is the web application and ebook for the Pivot Pyramid framework, created b
 ### Tech Stack
 
 - **Frontend**: Next.js 15, React 19, Tailwind CSS 4
-- **Backend**: Convex (real-time database + serverless functions)
-- **AI**: OpenRouter (Gemini 2.5 Flash for canvas generation and chat)
+- **Backend**: Convex (real-time database + serverless functions + file storage)
+- **AI Text**: OpenRouter (Gemini 2.5 Flash for canvas generation and chat)
+- **AI Images**: Fal AI (Recraft v3 / nano-banana-pro for figure generation)
 - **Animations**: Framer Motion
 
 ## Project Structure
@@ -61,6 +62,7 @@ NEXT_PUBLIC_CONVEX_URL=https://your-deployment.convex.cloud
 ### Convex Dashboard
 ```
 OPENROUTER_API_KEY=sk-or-v1-xxxxxxxx
+FAL_KEY=your-fal-api-key
 ```
 
 ---
@@ -172,12 +174,60 @@ done
 
 The markdown references optimized figures: `./figures/optimized/filename.png`
 
-### Adding New Figures
+### Generating Figures
 
-1. Create the figure as PNG (recommended 2400x1400 or similar aspect ratio)
-2. Save to `ebook/figures/`
-3. Create optimized version in `ebook/figures/optimized/`
-4. Reference in markdown:
+Figures are generated using **Fal AI's Recraft v3 (nano-banana-pro)** model via Convex actions, then stored in Convex storage.
+
+#### Generation Process
+
+1. **Use Fal Actions**: Generate images using the `fal-ai/recraft-v3` model (nano-banana-pro)
+2. **Store in Convex**: Upload generated images to Convex storage for persistence
+3. **Download for Ebook**: Export images from Convex storage to `ebook/figures/`
+
+#### Design Guidelines (IMPORTANT)
+
+All figures must follow these guidelines for consistency:
+
+1. **Flat, Front-Facing Perspective**
+   - Diagrams and charts must be presented **directly facing the screen**
+   - **NO 3D angles or isometric views** for informational graphics
+   - Text and labels should be horizontal and readable
+
+2. **Brand Alignment**
+   - Use the amber/orange color scheme (#f59e0b, #d97706, #ea580c)
+   - Consistent illustration style across all figures
+   - Professional, clean aesthetic matching the ebook design
+
+3. **Visual Consistency**
+   - Same illustration style for all figures (flat design with subtle shadows)
+   - Consistent use of the pyramid motif where relevant
+   - Unified color palette: amber/orange for primary, teal for accents, stone grays for neutrals
+
+#### Example Prompt Structure
+
+```
+Create a professional business diagram showing [concept].
+
+Style requirements:
+- Flat, 2D design viewed directly from the front (not at an angle)
+- Clean, minimal aesthetic with amber/orange (#f59e0b) as primary color
+- Professional business illustration style
+- Clear labels and text that are horizontal and readable
+- Light gray or white background
+- Subtle shadows for depth, but diagram should face the viewer directly
+```
+
+#### Adding New Figures
+
+1. Generate figure using Fal AI with the design guidelines above
+2. Store in Convex storage
+3. Download and save to `ebook/figures/`
+4. Create optimized version in `ebook/figures/optimized/`:
+   ```bash
+   cd ebook/figures
+   magick "new-figure.png" -resize 1200x1200\> -quality 85 "optimized/new-figure.png"
+   ```
+5. Reference in markdown:
    ```markdown
    ![Figure Title](./figures/optimized/figure-name.png)
 
