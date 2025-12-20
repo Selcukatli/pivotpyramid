@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getChapterBySlug, getAdjacentChapters, getAllChapterSlugs } from '@/lib/ebook-parser';
 import { MarkdownRenderer, ChapterNav } from '@/components/ebook';
+import { EbookAccessGate } from '@/components/ebook/EbookAccessGate';
 import type { Metadata } from 'next';
 
 interface ChapterPageProps {
@@ -43,10 +44,10 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
       type: 'article',
       images: [
         {
-          url: '/pivot-pyramid-og.png',
-          width: 1200,
-          height: 630,
-          alt: 'The Pivot Pyramid',
+          url: '/pivot-pyramid-cover.png',
+          width: 800,
+          height: 1174,
+          alt: 'The Pivot Pyramid Book Cover',
         },
       ],
     },
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
       card: 'summary_large_image',
       title: `${title} | The Pivot Pyramid`,
       description,
-      images: ['/pivot-pyramid-og.png'],
+      images: ['/pivot-pyramid-cover.png'],
       creator: '@selcukatli',
     },
   };
@@ -81,7 +82,7 @@ function getArticleJsonLd(slug: string, title: string, chapterNumber?: number, p
       "@type": "WebPage",
       "@id": `https://pivotpyramid.com/ebook/${slug}`,
     },
-    image: "https://pivotpyramid.com/pivot-pyramid-og.png",
+    image: "https://pivotpyramid.com/pivot-pyramid-cover.png",
     isPartOf: {
       "@type": "Book",
       name: "The Pivot Pyramid",
@@ -147,22 +148,24 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <article className="ebook-chapter">
-        {/* Chapter header */}
-        {chapter.part && (
-          <div className="text-sm font-medium text-amber-600 uppercase tracking-wider mb-2">
-            {chapter.part}
+      <EbookAccessGate>
+        <article className="ebook-chapter">
+          {/* Chapter header */}
+          {chapter.part && (
+            <div className="text-sm font-medium text-amber-600 uppercase tracking-wider mb-2">
+              {chapter.part}
+            </div>
+          )}
+
+          {/* Chapter content */}
+          <div className="prose-stone">
+            <MarkdownRenderer content={chapter.content} />
           </div>
-        )}
 
-        {/* Chapter content */}
-        <div className="prose-stone">
-          <MarkdownRenderer content={chapter.content} />
-        </div>
-
-        {/* Navigation */}
-        <ChapterNav previous={previous} next={next} />
-      </article>
+          {/* Navigation */}
+          <ChapterNav previous={previous} next={next} />
+        </article>
+      </EbookAccessGate>
     </>
   );
 }

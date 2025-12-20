@@ -4,9 +4,7 @@ import { useLayoutEffect, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, X, Maximize2, Users, ArrowUpDown, Target, MapPin, Search, GitBranch, FlaskConical, BookOpen, Mail, CheckCircle } from "lucide-react";
-import { useMutation } from "convex/react";
-import { api } from "../../convex/_generated/api";
+import { ArrowRight, ExternalLink, X, Maximize2, Users, ArrowUpDown, Target, MapPin, Search, GitBranch, FlaskConical, BookOpen } from "lucide-react";
 
 const layers = [
   {
@@ -112,29 +110,6 @@ export default function PivotPyramidPage() {
   // Lightbox state
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
-  // Ebook signup state
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [showEbookModal, setShowEbookModal] = useState(false);
-  const subscribe = useMutation(api.ebookSubscribers.subscribe);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || isSubmitting) return;
-
-    setIsSubmitting(true);
-    try {
-      await subscribe({ email });
-      setIsSubscribed(true);
-      setEmail("");
-    } catch (error) {
-      console.error("Failed to subscribe:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   // Close lightbox on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -197,24 +172,26 @@ export default function PivotPyramidPage() {
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => setShowEbookModal(true)}
+              {/* Canvas CTA - commented out for now
+              <Link
+                href="/canvas"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
                          text-stone-600 hover:text-stone-800 hover:bg-stone-100 transition-colors"
               >
-                <BookOpen className="w-4 h-4" />
-                <span className="hidden sm:inline">Get the Ebook</span>
-              </button>
+                <ArrowRight className="w-4 h-4" />
+                <span className="hidden sm:inline">Open Pivot Canvas</span>
+              </Link>
+              */}
               <Link
-                href="/canvas"
+                href="/ebook"
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   isBottomCtaVisible
                     ? "bg-transparent border border-primary text-primary hover:bg-primary/10"
                     : "bg-primary text-primary-foreground hover:bg-primary-hover"
                 }`}
               >
-                <ArrowRight className="w-4 h-4" />
-                Open Pivot Canvas
+                <BookOpen className="w-4 h-4" />
+                Get the Ebook
               </Link>
             </div>
           </nav>
@@ -339,80 +316,6 @@ export default function PivotPyramidPage() {
                   fill
                   className="object-contain p-4 md:p-8"
                 />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Ebook Modal */}
-      <AnimatePresence>
-        {showEbookModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setShowEbookModal(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setShowEbookModal(false)}
-                className="absolute top-4 right-4 p-1 rounded-full hover:bg-stone-100 text-stone-400 hover:text-stone-600 transition-colors"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="text-center">
-                <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-stone-800 mb-2">
-                  The Pivot Pyramid Ebook
-                </h3>
-                <p className="text-stone-600 text-sm mb-1">
-                  Coming Soon
-                </p>
-                <p className="text-stone-500 text-sm mb-6">
-                  Get the complete guide with detailed examples, worksheets, and exercises to help you navigate your startup pivots.
-                </p>
-
-                {isSubscribed ? (
-                  <div className="flex items-center justify-center gap-2 text-green-600 py-3">
-                    <CheckCircle className="w-5 h-5" />
-                    <span className="font-medium">Thanks! We&apos;ll notify you.</span>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubscribe} className="space-y-3">
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400" />
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email"
-                        required
-                        className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-stone-800 placeholder:text-stone-400"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? "Subscribing..." : "Notify Me"}
-                    </button>
-                  </form>
-                )}
               </div>
             </motion.div>
           </motion.div>
@@ -635,8 +538,8 @@ export default function PivotPyramidPage() {
         </div>
       </section>
 
-      {/* Ebook Signup Section */}
-      <section className="py-16 md:py-24 bg-stone-100/50">
+      {/* Ebook Section */}
+      <section ref={bottomCtaRef} className="py-16 md:py-24 bg-stone-100/50">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Book Cover */}
@@ -655,7 +558,7 @@ export default function PivotPyramidPage() {
             {/* CTA Content */}
             <div className="order-1 md:order-2">
               <p className="text-primary text-sm uppercase tracking-wide font-semibold mb-2">
-                Coming Soon
+                Early Access
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-4">
                 Get the Complete Guide
@@ -664,39 +567,19 @@ export default function PivotPyramidPage() {
                 The Pivot Pyramid Ebook includes detailed examples, worksheets, and exercises to help you systematically experiment with your startup.
               </p>
 
-              {isSubscribed ? (
-                <div className="flex items-center gap-2 text-green-600 py-3">
-                  <CheckCircle className="w-5 h-5" />
-                  <span className="font-medium">Thanks! We&apos;ll notify you when it&apos;s ready.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
-                  <div className="relative flex-1">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400" />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      required
-                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-stone-800 placeholder:text-stone-400"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
-                  >
-                    {isSubmitting ? "..." : "Notify Me"}
-                  </button>
-                </form>
-              )}
+              <Link
+                href="/ebook"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-hover transition-colors"
+              >
+                <BookOpen className="w-5 h-5" />
+                Read the Ebook
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Wrap Up / CTA */}
+      {/* Wrap Up / CTA - commented out for now
       <section ref={bottomCtaRef} className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-orange-50">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-4">
@@ -717,6 +600,7 @@ export default function PivotPyramidPage() {
           </Link>
         </div>
       </section>
+      */}
 
       {/* About the Author */}
       <section className="py-16 md:py-20 border-t border-stone-200">

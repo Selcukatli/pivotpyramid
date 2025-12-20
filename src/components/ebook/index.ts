@@ -4,3 +4,6 @@ export { TableOfContents } from './TableOfContents';
 export { ChapterNav } from './ChapterNav';
 export { ReadingProgress } from './ReadingProgress';
 export { EbookSidebar } from './EbookSidebar';
+export { AccessModal } from './AccessModal';
+export { EbookAccessGate } from './EbookAccessGate';
+export { EbookCTAButtons } from './EbookCTAButtons';
