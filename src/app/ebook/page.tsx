@@ -27,40 +27,57 @@ export default function EbookLandingPage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <header className="text-center py-8">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium mb-6">
-          <BookOpen className="w-4 h-4" />
-          Free Online Ebook
-        </div>
+      <header className="py-8">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          {/* Book Cover */}
+          <div className="flex-shrink-0">
+            <Image
+              src="/pivot-pyramid-cover.png"
+              alt="The Pivot Pyramid Book Cover"
+              width={240}
+              height={320}
+              className="rounded-lg shadow-xl"
+              priority
+            />
+          </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4 font-[family-name:var(--font-inter)]">
-          The Pivot Pyramid
-        </h1>
+          {/* Text Content */}
+          <div className="text-center md:text-left flex-1">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium mb-4">
+              <BookOpen className="w-4 h-4" />
+              Free Online Ebook
+            </div>
 
-        <p className="text-xl text-stone-600 max-w-2xl mx-auto mb-8">
-          A comprehensive guide to startup experimentation and pivoting.
-          Master the framework that helps founders understand where to pivot
-          and how changes cascade through their business.
-        </p>
+            <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4 font-[family-name:var(--font-inter)]">
+              The Pivot Pyramid
+            </h1>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          {firstChapter && (
-            <Link
-              href={`/ebook/${firstChapter.slug}`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg min-w-[160px]"
-            >
-              Start Reading
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          )}
+            <p className="text-lg text-stone-600 mb-6">
+              A comprehensive guide to startup experimentation and pivoting.
+              Master the framework that helps founders understand where to pivot
+              and how changes cascade through their business.
+            </p>
 
-          <Link
-            href="/ebook/pivot-pyramid-ebook-styled.pdf"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-300 text-stone-700 rounded-lg font-semibold hover:bg-stone-50 hover:border-stone-400 transition-colors min-w-[160px]"
-          >
-            <FileText className="w-4 h-4" />
-            Download PDF
-          </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3">
+              {firstChapter && (
+                <Link
+                  href={`/ebook/${firstChapter.slug}`}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg min-w-[160px]"
+                >
+                  Start Reading
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
+
+              <Link
+                href="/ebook/pivot-pyramid-ebook-styled.pdf"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-300 text-stone-700 rounded-lg font-semibold hover:bg-stone-50 hover:border-stone-400 transition-colors min-w-[160px]"
+              >
+                <FileText className="w-4 h-4" />
+                Download PDF
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
 
