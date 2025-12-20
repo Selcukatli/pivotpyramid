@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
 import { Merriweather, Inter } from 'next/font/google';
 import { getGroupedTableOfContents } from '@/lib/ebook-parser';
-import { EbookSidebar, ReadingProgress } from '@/components/ebook';
+import { EbookSidebar, ReadingProgress, PasswordUrlChecker } from '@/components/ebook';
 import type { Metadata } from 'next';
 
 const merriweather = Merriweather({
@@ -31,6 +32,10 @@ export default function EbookLayout({
 
   return (
     <div className={`${merriweather.variable} ${inter.variable} min-h-screen bg-white`}>
+      {/* Check for ?pwd= query param to auto-grant access */}
+      <Suspense fallback={null}>
+        <PasswordUrlChecker />
+      </Suspense>
       <ReadingProgress />
       <EbookSidebar groups={groups} />
 

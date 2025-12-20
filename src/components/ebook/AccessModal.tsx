@@ -12,17 +12,17 @@ interface AccessModalProps {
   onClose: () => void;
 }
 
-const EARLY_ACCESS_PASSWORD = 'letspivot26';
-
 export function AccessModal({ isOpen, onClose }: AccessModalProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [isSubmittingEmail, setIsSubmittingEmail] = useState(false);
+  const [isSubmittingPassword, setIsSubmittingPassword] = useState(false);
   const [emailSuccess, setEmailSuccess] = useState(false);
 
   const subscribe = useMutation(api.ebookSubscribers.subscribe);
+  const redeemCode = useMutation(api.ebookAccess.redeemCode);
   const grantAccess = useEbookAccessStore((state) => state.grantAccess);
 
   const validateEmail = (email: string) => {
@@ -77,7 +77,7 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
     }
   };
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
+  const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setPasswordError('');
 
@@ -86,13 +86,29 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
       return;
     }
 
-    if (password.trim() !== EARLY_ACCESS_PASSWORD) {
-      setPasswordError('Incorrect password');
-      return;
-    }
+    setIsSubmittingPassword(true);
 
-    grantAccess();
-    onClose();
+    try {
+      const result = await redeemCode({
+        code: password.trim(),
+        metadata: {
+          referrer: typeof window !== 'undefined' ? document.referrer : undefined,
+          userAgent: typeof window !== 'undefined' ? navigator.userAgent : undefined,
+        },
+      });
+
+      if (result.valid) {
+        grantAccess();
+        onClose();
+      } else {
+        setPasswordError(result.error || 'Invalid code');
+      }
+    } catch (error) {
+      console.error('Error validating access code:', error);
+      setPasswordError('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmittingPassword(false);
+    }
   };
 
   const handleClose = () => {
@@ -250,9 +266,10 @@ export function AccessModal({ isOpen, onClose }: AccessModalProps) {
                 )}
                 <button
                   type="submit"
-                  className="w-full mt-3 py-3 border border-stone-300 text-stone-700 rounded-xl font-semibold hover:bg-stone-50 hover:border-stone-400 transition-colors"
+                  disabled={isSubmittingPassword}
+                  className="w-full mt-3 py-3 border border-stone-300 text-stone-700 rounded-xl font-semibold hover:bg-stone-50 hover:border-stone-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Unlock Access
+                  {isSubmittingPassword ? 'Checking...' : 'Unlock Access'}
                 </button>
               </form>
             </div>
