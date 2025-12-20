@@ -66,4 +66,44 @@ export default defineSchema({
     // Timestamp
     createdAt: v.number(),
   }).index("by_canvas", ["canvasId"]),
+
+  // Ebook access codes
+  ebookAccessCodes: defineTable({
+    // The access code (e.g., "letspivot26", "LAUNCH2024")
+    code: v.string(),
+
+    // Optional description (e.g., "Product Hunt launch", "Newsletter subscribers")
+    description: v.optional(v.string()),
+
+    // Usage limits: null = unlimited, number = max uses
+    maxUses: v.optional(v.number()),
+
+    // Current usage count
+    usedCount: v.number(),
+
+    // Whether this code is currently active
+    isActive: v.boolean(),
+
+    // Timestamps
+    createdAt: v.number(),
+    expiresAt: v.optional(v.number()), // Optional expiration date
+  }).index("by_code", ["code"]),
+
+  // Track individual code redemptions
+  ebookCodeRedemptions: defineTable({
+    // Which code was used
+    codeId: v.id("ebookAccessCodes"),
+
+    // Optional: track who redeemed (could be email, session ID, etc.)
+    identifier: v.optional(v.string()),
+
+    // When it was redeemed
+    redeemedAt: v.number(),
+
+    // Optional: user agent, referrer, etc. for analytics
+    metadata: v.optional(v.object({
+      userAgent: v.optional(v.string()),
+      referrer: v.optional(v.string()),
+    })),
+  }).index("by_code", ["codeId"]),
 });

@@ -167,17 +167,17 @@ export default function EbookLandingPage() {
             <h2 className="text-xl font-bold text-stone-900 mb-4 font-[family-name:var(--font-inter)]">
               About the Author
             </h2>
-            <div className="prose prose-stone prose-sm max-w-none">
-              <p className="text-stone-600 leading-relaxed">
+            <div className="space-y-3">
+              <p className="text-stone-600 text-sm leading-relaxed">
                 <strong className="text-stone-900">Selçuk Atlı</strong> is a serial entrepreneur, investor, and songwriter based in New York.
               </p>
-              <p className="text-stone-600 leading-relaxed">
+              <p className="text-stone-600 text-sm leading-relaxed">
                 Most recently, he founded <strong>Bunch</strong>, a group video chat app for playing games together, used by over 10 million players. Before that, he founded and sold two adtech companies: <strong>Socialwire/Manifest</strong> (acquired by Rakuten in 2014) and <strong>Boostable</strong> (acquired by Metric Collective).
               </p>
-              <p className="text-stone-600 leading-relaxed">
+              <p className="text-stone-600 text-sm leading-relaxed">
                 He conceptualized the Pivot Pyramid while serving as a Venture Partner at <strong>500 Startups</strong>, where he worked with dozens of early-stage founders navigating the search for product-market fit. He is also a <strong>Y Combinator W14</strong> alumni.
               </p>
-              <p className="text-stone-600">
+              <p className="text-stone-600 text-sm">
                 <a href="https://selcukatli.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 no-underline hover:underline">
                   Learn more →
                 </a>

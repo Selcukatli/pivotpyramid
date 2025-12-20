@@ -8,3 +8,4 @@ export { AccessModal } from './AccessModal';
 export { EbookAccessGate } from './EbookAccessGate';
 export { EbookCTAButtons } from './EbookCTAButtons';
 export { UnlockSuccessModal } from './UnlockSuccessModal';
+export { PasswordUrlChecker } from './PasswordUrlChecker';

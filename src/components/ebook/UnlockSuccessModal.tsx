@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, Twitter } from 'lucide-react';
 import { useEbookAccessStore } from '@/stores/ebookAccessStore';
@@ -10,6 +11,7 @@ interface UnlockSuccessModalProps {
 }
 
 export function UnlockSuccessModal({ isOpen, onClose }: UnlockSuccessModalProps) {
+  const router = useRouter();
   const clearJustUnlocked = useEbookAccessStore((state) => state.clearJustUnlocked);
 
   const tweetText = `Just unlocked early access to "The Pivot Pyramid" - an ebook on when and how to pivot your startup by @selcukatli`;
@@ -23,6 +25,12 @@ export function UnlockSuccessModal({ isOpen, onClose }: UnlockSuccessModalProps)
   const handleClose = () => {
     clearJustUnlocked();
     onClose();
+  };
+
+  const handleContinueReading = () => {
+    clearJustUnlocked();
+    onClose();
+    router.push('/ebook/foreword');
   };
 
   return (
@@ -91,10 +99,10 @@ export function UnlockSuccessModal({ isOpen, onClose }: UnlockSuccessModalProps)
 
               {/* Continue button */}
               <button
-                onClick={handleClose}
+                onClick={handleContinueReading}
                 className="w-full mt-4 py-3 text-stone-600 font-medium hover:text-stone-800 transition-colors"
               >
-                Continue Reading
+                Start Reading
               </button>
             </div>
           </motion.div>
