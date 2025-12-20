@@ -26,18 +26,97 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
     ? `Chapter ${chapter.chapterNumber}: ${chapter.title}`
     : chapter.title;
 
+  const description = chapter.type === 'chapter' && chapter.chapterNumber
+    ? `Chapter ${chapter.chapterNumber} of The Pivot Pyramid: ${chapter.title}. ${chapter.part ? `${chapter.part}.` : ''} Free online ebook by Selçuk Atlı.`
+    : `${chapter.title} - The Pivot Pyramid ebook. ${chapter.part ? `${chapter.part}.` : ''} Free online by Selçuk Atlı.`;
+
   return {
     title,
-    description: `Read "${chapter.title}" from The Pivot Pyramid ebook. ${chapter.part ? `Part of ${chapter.part}.` : ''}`,
+    description,
     alternates: {
       canonical: `https://pivotpyramid.com/ebook/${slug}`,
     },
     openGraph: {
       title: `${title} | The Pivot Pyramid`,
-      description: `Read this chapter from The Pivot Pyramid ebook online.`,
+      description,
       url: `https://pivotpyramid.com/ebook/${slug}`,
       type: 'article',
+      images: [
+        {
+          url: '/pivot-pyramid-og.png',
+          width: 1200,
+          height: 630,
+          alt: 'The Pivot Pyramid',
+        },
+      ],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | The Pivot Pyramid`,
+      description,
+      images: ['/pivot-pyramid-og.png'],
+      creator: '@selcukatli',
+    },
+  };
+}
+
+// Generate Article structured data for chapter pages
+function getArticleJsonLd(slug: string, title: string, chapterNumber?: number, part?: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    author: {
+      "@type": "Person",
+      name: "Selçuk Atlı",
+      url: "https://selcukatli.com",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Selçuk Atlı",
+    },
+    datePublished: "2024-01-01",
+    dateModified: "2024-01-01",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://pivotpyramid.com/ebook/${slug}`,
+    },
+    image: "https://pivotpyramid.com/pivot-pyramid-og.png",
+    isPartOf: {
+      "@type": "Book",
+      name: "The Pivot Pyramid",
+      url: "https://pivotpyramid.com/ebook",
+    },
+    ...(chapterNumber && { position: chapterNumber }),
+    ...(part && { articleSection: part }),
+  };
+}
+
+// BreadcrumbList for chapter navigation
+function getBreadcrumbJsonLd(slug: string, title: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://pivotpyramid.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Ebook",
+        item: "https://pivotpyramid.com/ebook",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: `https://pivotpyramid.com/ebook/${slug}`,
+      },
+    ],
   };
 }
 
@@ -51,22 +130,39 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
 
   const { previous, next } = getAdjacentChapters(slug);
 
+  const title = chapter.type === 'chapter' && chapter.chapterNumber
+    ? `Chapter ${chapter.chapterNumber}: ${chapter.title}`
+    : chapter.title;
+
+  const articleJsonLd = getArticleJsonLd(slug, title, chapter.chapterNumber, chapter.part);
+  const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, title);
+
   return (
-    <article className="ebook-chapter">
-      {/* Chapter header */}
-      {chapter.part && (
-        <div className="text-sm font-medium text-amber-600 uppercase tracking-wider mb-2">
-          {chapter.part}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <article className="ebook-chapter">
+        {/* Chapter header */}
+        {chapter.part && (
+          <div className="text-sm font-medium text-amber-600 uppercase tracking-wider mb-2">
+            {chapter.part}
+          </div>
+        )}
+
+        {/* Chapter content */}
+        <div className="prose-stone">
+          <MarkdownRenderer content={chapter.content} />
         </div>
-      )}
 
-      {/* Chapter content */}
-      <div className="prose-stone">
-        <MarkdownRenderer content={chapter.content} />
-      </div>
-
-      {/* Navigation */}
-      <ChapterNav previous={previous} next={next} />
-    </article>
+        {/* Navigation */}
+        <ChapterNav previous={previous} next={next} />
+      </article>
+    </>
   );
 }
