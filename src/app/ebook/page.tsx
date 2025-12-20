@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookOpen, ArrowRight, User, FileText } from 'lucide-react';
+import { BookOpen, ArrowRight, FileText } from 'lucide-react';
 import { getGroupedTableOfContents } from '@/lib/ebook-parser';
 import type { Metadata } from 'next';
 
@@ -43,22 +43,22 @@ export default function EbookLandingPage() {
           and how changes cascade through their business.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           {firstChapter && (
             <Link
               href={`/ebook/${firstChapter.slug}`}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg min-w-[160px]"
             >
               Start Reading
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           )}
 
           <Link
             href="/ebook/pivot-pyramid-ebook-styled.pdf"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-stone-100 text-stone-700 rounded-xl font-semibold hover:bg-stone-200 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-stone-300 text-stone-700 rounded-lg font-semibold hover:bg-stone-50 hover:border-stone-400 transition-colors min-w-[160px]"
           >
-            <FileText className="w-5 h-5" />
+            <FileText className="w-4 h-4" />
             Download PDF
           </Link>
         </div>
@@ -66,9 +66,13 @@ export default function EbookLandingPage() {
 
       {/* Author Section */}
       <section className="flex items-center gap-4 p-6 bg-stone-50 rounded-2xl">
-        <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-          <User className="w-8 h-8 text-white" />
-        </div>
+        <Image
+          src="/selcuk-photo.jpg"
+          alt="Selçuk Atlı"
+          width={64}
+          height={64}
+          className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+        />
         <div>
           <h2 className="font-semibold text-stone-900 font-[family-name:var(--font-inter)]">
             Selçuk Atlı
