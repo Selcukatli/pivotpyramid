@@ -89,6 +89,12 @@ function transformFigurePaths(content: string): string {
   );
 }
 
+function stripPartHeaders(content: string): string {
+  // Remove standalone Part headers (# Part I/II/III/IV/V: ...) from chapter content
+  // These are shown in the sidebar TOC grouping, so they shouldn't appear in page content
+  return content.replace(/^# Part [IVX]+:.*$/gm, '').trim();
+}
+
 export function getEbookContent(): string {
   const ebookPath = path.join(process.cwd(), 'ebook', 'pivot-pyramid-ebook.md');
   const content = fs.readFileSync(ebookPath, 'utf-8');
@@ -125,7 +131,9 @@ export function parseChapters(): Chapter[] {
     // Skip title page and TOC
     if (current.slug === 'title') continue;
 
-    const chapterContent = content.slice(current.start, nextStart).trim();
+    let chapterContent = content.slice(current.start, nextStart).trim();
+    // Strip Part headers from content (they're shown in sidebar grouping)
+    chapterContent = stripPartHeaders(chapterContent);
     const title = extractTitle(chapterContent);
 
     chapters.push({
