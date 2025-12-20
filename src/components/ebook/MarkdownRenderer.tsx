@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Figure } from './Figure';
@@ -7,6 +8,19 @@ import type { Components } from 'react-markdown';
 
 interface MarkdownRendererProps {
   content: string;
+}
+
+// Helper to check if children contains only an image
+function hasOnlyImageChild(children: React.ReactNode): boolean {
+  const childArray = React.Children.toArray(children);
+  if (childArray.length !== 1) return false;
+
+  const child = childArray[0];
+  if (React.isValidElement(child)) {
+    // Check if the child is our Figure component or an img element
+    return child.type === Figure || child.type === 'img';
+  }
+  return false;
 }
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
@@ -47,12 +61,19 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         {children}
       </h4>
     ),
-    // Style paragraphs
-    p: ({ children }) => (
-      <p className="text-stone-700 leading-relaxed mb-4 text-base md:text-lg">
-        {children}
-      </p>
-    ),
+    // Style paragraphs - unwrap if only contains an image to avoid hydration error
+    p: ({ children }) => {
+      // If the paragraph only contains an image, return the image directly
+      // This avoids the hydration error of <div> inside <p>
+      if (hasOnlyImageChild(children)) {
+        return <>{children}</>;
+      }
+      return (
+        <p className="text-stone-700 leading-relaxed mb-4 text-base md:text-lg">
+          {children}
+        </p>
+      );
+    },
     // Style blockquotes as callout boxes
     blockquote: ({ children }) => (
       <blockquote className="my-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-r-lg">
