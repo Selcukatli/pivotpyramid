@@ -11,13 +11,14 @@ interface ChapterNavProps {
 
 export function ChapterNav({ previous, next }: ChapterNavProps) {
   return (
-    <nav className="flex items-center justify-between gap-4 pt-8 mt-12 border-t border-stone-200">
+    <nav className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between sm:gap-4 pt-8 mt-12 border-t border-stone-200">
+      {/* Previous - shown second on mobile (order-2), first on desktop (sm:order-1) */}
       {previous ? (
         <Link
           href={`/ebook/${previous.slug}`}
-          className="flex items-center gap-2 px-4 py-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors group flex-1 max-w-xs"
+          className="flex items-center gap-2 px-4 py-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors group w-full sm:flex-1 sm:max-w-xs order-2 sm:order-1"
         >
-          <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-amber-500 transition-colors" />
+          <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:text-amber-500 transition-colors flex-shrink-0" />
           <div className="text-left min-w-0">
             <div className="text-xs text-stone-400 uppercase tracking-wide">Previous</div>
             <div className="text-sm font-medium truncate">
@@ -29,15 +30,16 @@ export function ChapterNav({ previous, next }: ChapterNavProps) {
           </div>
         </Link>
       ) : (
-        <div className="flex-1 max-w-xs" />
+        <div className="hidden sm:block sm:flex-1 sm:max-w-xs order-2 sm:order-1" />
       )}
 
+      {/* Next - shown first on mobile (order-1), second on desktop (sm:order-2) */}
       {next ? (
         <Link
           href={`/ebook/${next.slug}`}
-          className="flex items-center gap-2 px-4 py-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors group flex-1 max-w-xs justify-end"
+          className="flex items-center gap-2 px-4 py-3 rounded-lg text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors group w-full sm:flex-1 sm:max-w-xs sm:justify-end order-1 sm:order-2"
         >
-          <div className="text-right min-w-0">
+          <div className="text-left sm:text-right min-w-0 order-2 sm:order-1">
             <div className="text-xs text-stone-400 uppercase tracking-wide">Next</div>
             <div className="text-sm font-medium truncate">
               {next.type === 'chapter' && next.chapterNumber && (
@@ -46,10 +48,10 @@ export function ChapterNav({ previous, next }: ChapterNavProps) {
               {next.title}
             </div>
           </div>
-          <ChevronRight className="w-5 h-5 text-stone-400 group-hover:text-amber-500 transition-colors" />
+          <ChevronRight className="w-5 h-5 text-stone-400 group-hover:text-amber-500 transition-colors flex-shrink-0 order-1 sm:order-2" />
         </Link>
       ) : (
-        <div className="flex-1 max-w-xs" />
+        <div className="hidden sm:block sm:flex-1 sm:max-w-xs order-1 sm:order-2" />
       )}
     </nav>
   );
