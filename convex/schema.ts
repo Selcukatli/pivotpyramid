@@ -121,4 +121,30 @@ export default defineSchema({
       referrer: v.optional(v.string()),
     })),
   }).index("by_code", ["codeId"]),
+
+  // GTM Outreach contacts
+  outreachContacts: defineTable({
+    name: v.string(),
+    email: v.string(),
+    organization: v.string(),
+    tier: v.number(), // 1-4 (priority tier)
+    isSent: v.boolean(), // simple sent/pending status
+
+    // Email content (one per contact)
+    emailSubject: v.string(),
+    emailBody: v.string(),
+
+    // Context for outreach
+    background: v.optional(v.string()), // Who they are, their work, books, focus areas
+    relationship: v.optional(v.string()), // How you know them (warm/cold, shared history)
+    context: v.optional(v.string()), // The angle, why relevant to them, what you're asking for
+    notes: v.optional(v.string()), // DEPRECATED: legacy field, use background/relationship/context
+
+    // Timestamps
+    sentAt: v.optional(v.number()), // when marked as sent
+    createdAt: v.number(),
+  })
+    .index("by_tier", ["tier"])
+    .index("by_sent", ["isSent"])
+    .index("by_email", ["email"]),
 });

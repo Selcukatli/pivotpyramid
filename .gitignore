@@ -43,3 +43,6 @@ coverage/
 
 # Generated PDFs
 *.pdf
+
+# clerk configuration (can include secrets)
+/.clerk/
