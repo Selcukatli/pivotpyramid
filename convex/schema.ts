@@ -14,10 +14,24 @@ const startupProfileValidator = v.object({
 });
 
 export default defineSchema({
+  // Users (synced from Clerk)
+  users: defineTable({
+    clerkId: v.string(),
+    email: v.optional(v.string()),
+    name: v.optional(v.string()),
+    imageUrl: v.optional(v.string()),
+    isAdmin: v.optional(v.boolean()),
+  })
+    .index("by_clerk_id", ["clerkId"])
+    .index("by_email", ["email"]),
+
   // Pivot Pyramid Canvases
   canvases: defineTable({
     // Anonymous session tracking (localStorage ID until auth is added)
     sessionId: v.string(),
+
+    // Optional user ID for authenticated users
+    userId: v.optional(v.id("users")),
 
     // Optional email for recovery
     email: v.optional(v.string()),
@@ -41,7 +55,8 @@ export default defineSchema({
     updatedAt: v.number(),
   })
     .index("by_session", ["sessionId"])
-    .index("by_email", ["email"]),
+    .index("by_email", ["email"])
+    .index("by_user", ["userId"]),
 
   // Ebook notification subscribers
   ebookSubscribers: defineTable({
