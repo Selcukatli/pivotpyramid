@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Menu, X, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TableOfContents } from './TableOfContents';
+import { ReadingProgress } from './ReadingProgress';
 import type { TableOfContentsItem } from '@/lib/ebook-parser';
 
 interface EbookSidebarProps {
@@ -16,14 +17,20 @@ export function EbookSidebar({ groups }: EbookSidebarProps) {
 
   return (
     <>
-      {/* Mobile menu button - top right */}
-      <button
-        onClick={() => setIsMobileOpen(true)}
-        className="lg:hidden fixed top-4 right-4 z-40 p-3 bg-amber-500 text-white rounded-full shadow-lg hover:bg-amber-600 transition-colors"
-        aria-label="Open table of contents"
-      >
-        <Menu className="w-6 h-6" />
-      </button>
+      {/* Mobile navigation cluster - top right */}
+      <div className="lg:hidden fixed top-4 right-4 z-40 flex items-center gap-2">
+        {/* Reading progress - smaller, to the left of hamburger */}
+        <ReadingProgress size="sm" />
+
+        {/* Hamburger menu button */}
+        <button
+          onClick={() => setIsMobileOpen(true)}
+          className="p-3 bg-amber-500 text-white rounded-full shadow-lg hover:bg-amber-600 transition-colors"
+          aria-label="Open table of contents"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+      </div>
 
       {/* Desktop sidebar */}
       <aside className="hidden lg:block fixed left-0 top-0 w-72 h-screen bg-stone-50 border-r border-stone-200 overflow-y-auto pb-16">
