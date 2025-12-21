@@ -46,3 +46,6 @@ coverage/
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# Script temp files
+scripts/.temp-export/
