@@ -8,10 +8,12 @@
  * @module
  */
 
+import type * as adminAuth from "../adminAuth.js";
 import type * as canvasMessages from "../canvasMessages.js";
 import type * as canvasStream from "../canvasStream.js";
 import type * as canvases from "../canvases.js";
 import type * as ebookAccess from "../ebookAccess.js";
+import type * as ebookAccessCodes from "../ebookAccessCodes.js";
 import type * as ebookSubscribers from "../ebookSubscribers.js";
 import type * as http from "../http.js";
 import type * as lib_fal_actions_generateEbookFigure from "../lib/fal/actions/generateEbookFigure.js";
@@ -44,6 +46,7 @@ import type * as lib_fal_test_testPublic from "../lib/fal/test/testPublic.js";
 import type * as lib_fal_test_testUnifiedAPI from "../lib/fal/test/testUnifiedAPI.js";
 import type * as lib_fal_types from "../lib/fal/types.js";
 import type * as lib_logger from "../lib/logger.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -52,10 +55,12 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  adminAuth: typeof adminAuth;
   canvasMessages: typeof canvasMessages;
   canvasStream: typeof canvasStream;
   canvases: typeof canvases;
   ebookAccess: typeof ebookAccess;
+  ebookAccessCodes: typeof ebookAccessCodes;
   ebookSubscribers: typeof ebookSubscribers;
   http: typeof http;
   "lib/fal/actions/generateEbookFigure": typeof lib_fal_actions_generateEbookFigure;
@@ -88,6 +93,7 @@ declare const fullApi: ApiFromModules<{
   "lib/fal/test/testUnifiedAPI": typeof lib_fal_test_testUnifiedAPI;
   "lib/fal/types": typeof lib_fal_types;
   "lib/logger": typeof lib_logger;
+  users: typeof users;
 }>;
 
 /**

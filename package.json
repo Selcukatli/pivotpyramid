@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.36.5",
     "@convex-dev/persistent-text-streaming": "^0.3.0",
     "@fal-ai/client": "^1.8.0",
     "@openrouter/ai-sdk-provider": "^1.5.4",
@@ -24,6 +25,7 @@
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "svix": "^1.82.0",
     "use-debounce": "^10.0.4",
     "zod": "^3.25.3",
     "zustand": "^5.0.9"
