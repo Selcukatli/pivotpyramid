@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useEbookAccessStore } from '@/stores/ebookAccessStore';
 import { AccessModal } from './AccessModal';
 import { UnlockSuccessModal } from './UnlockSuccessModal';
-import { BookOpen, Lock } from 'lucide-react';
+import { BookOpen, Lock, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 interface EbookAccessGateProps {
   children: React.ReactNode;
@@ -83,13 +84,22 @@ export function EbookAccessGate({ children }: EbookAccessGateProps) {
               This chapter is available for early access readers.
               Join the waitlist or enter your password to continue reading.
             </p>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg"
-            >
-              <BookOpen className="w-5 h-5" />
-              Unlock Chapter
-            </button>
+            <div className="flex flex-col items-center gap-3">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-semibold hover:from-amber-600 hover:to-orange-600 transition-all shadow-md hover:shadow-lg"
+              >
+                <BookOpen className="w-5 h-5" />
+                Unlock Chapter
+              </button>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 px-6 py-3 text-stone-600 hover:text-stone-900 font-medium transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Home
+              </Link>
+            </div>
           </div>
         </div>
       </div>
