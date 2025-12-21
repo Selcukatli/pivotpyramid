@@ -46,6 +46,7 @@ import type * as lib_fal_test_testPublic from "../lib/fal/test/testPublic.js";
 import type * as lib_fal_test_testUnifiedAPI from "../lib/fal/test/testUnifiedAPI.js";
 import type * as lib_fal_types from "../lib/fal/types.js";
 import type * as lib_logger from "../lib/logger.js";
+import type * as outreach from "../outreach.js";
 import type * as users from "../users.js";
 
 import type {
@@ -93,6 +94,7 @@ declare const fullApi: ApiFromModules<{
   "lib/fal/test/testUnifiedAPI": typeof lib_fal_test_testUnifiedAPI;
   "lib/fal/types": typeof lib_fal_types;
   "lib/logger": typeof lib_logger;
+  outreach: typeof outreach;
   users: typeof users;
 }>;
 
