@@ -151,25 +151,27 @@ export default function PivotPyramidPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-xl border-b border-stone-200/50">
         <div className="max-w-4xl mx-auto px-6 md:px-8">
           <nav className="flex items-center justify-between h-16 md:h-20">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col md:flex-row md:items-center md:gap-3">
               <Image
                 src="/pivot-pyramid-logo.png"
                 alt="Pivot Pyramid"
                 width={330}
                 height={82}
-                className="h-16 w-auto transition-transform duration-200 hover:scale-105"
+                className="h-10 md:h-16 w-auto transition-transform duration-200 hover:scale-105"
                 priority
               />
-              <span className="text-stone-400">by</span>
-              <a
-                href="https://www.selcukatli.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-medium text-stone-600 hover:text-primary transition-colors"
-              >
-                Selçuk Atlı
-                <ExternalLink className="w-3 h-3" />
-              </a>
+              <div className="flex items-center gap-1.5 mt-0.5 md:mt-0">
+                <span className="text-stone-400 text-xs md:text-base">by</span>
+                <a
+                  href="https://www.selcukatli.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-medium text-stone-600 hover:text-primary transition-colors text-xs md:text-base"
+                >
+                  Selçuk Atlı
+                  <ExternalLink className="w-2.5 h-2.5 md:w-3 md:h-3" />
+                </a>
+              </div>
             </div>
             <div className="flex items-center gap-3">
               {/* Canvas CTA - commented out for now
