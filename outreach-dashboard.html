@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTM Outreach — Pivot Pyramid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand colors from pivotpyramid.com */
+      --primary: #E07D3B;
+      --primary-hover: #C96A2E;
+      --primary-foreground: #FFFFFF;
+
+      /* Stone palette */
+      --stone-50: #fafaf9;
+      --stone-100: #f5f5f4;
+      --stone-200: #e7e5e4;
+      --stone-300: #d6d3d1;
+      --stone-400: #a8a29e;
+      --stone-500: #78716c;
+      --stone-600: #57534e;
+      --stone-700: #44403c;
+      --stone-800: #292524;
+
+      /* Amber accents */
+      --amber-50: #fffbeb;
+      --amber-100: #fef3c7;
+      --amber-600: #d97706;
+      --amber-700: #b45309;
+
+      /* Status colors */
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+
+      /* Spacing & Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--stone-50);
+      color: var(--stone-800);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header bar matching pivotpyramid.com */
+    .header-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 250, 249, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(231, 229, 228, 0.5);
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-pyramid {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-pyramid svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--stone-800);
+    }
+
+    .logo-text span {
+      color: var(--stone-400);
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.75rem;
+      background: var(--amber-50);
+      border: 1px solid var(--amber-100);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--amber-700);
+    }
+
+    /* Main container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* Page header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--stone-800);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--stone-500);
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--stone-200);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      min-width: 100px;
+      transition: all 0.2s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--stone-300);
+      box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--stone-400);
+      margin-top: 0.25rem;
+    }
+
+    /* Search bar */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--stone-400);
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.625rem 1rem 0.625rem 2.5rem;
+      border: 1px solid var(--stone-300);
+      border-radius: var(--radius-full);
+      background: white;
+      font-family: inherit;
+      font-size: 0.875rem;
+      color: var(--stone-800);
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .search-input::placeholder {
+      color: var(--stone-400);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(224, 125, 59, 0.1);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--stone-200);
+      border: none;
+      color: var(--stone-500);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .search-clear:hover {
+      background: var(--stone-300);
+      color: var(--stone-700);
+    }
+
+    .search-input:not(:placeholder-shown) + .search-clear {
+      display: flex;
+    }
+
+    /* Filter pills */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-pill {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--stone-300);
+      background: transparent;
+      color: var(--stone-600);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--stone-400);
+      background: var(--stone-100);
+    }
+
+    .filter-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    /* Tier sections */
+    .tier-section {
+      margin-bottom: 2rem;
+    }
+
+    .tier-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .tier-header:hover {
+      background: var(--stone-100);
+    }
+
+    .tier-toggle {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--stone-100);
+      border: 1px solid var(--stone-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      transition: all 0.2s ease;
+      color: var(--stone-500);
+    }
+
+    .tier-toggle svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .tier-header:hover .tier-toggle {
+      background: var(--stone-200);
+      border-color: var(--stone-300);
+    }
+
+    .tier-section.collapsed .tier-toggle svg {
+      transform: rotate(-90deg);
+    }
+
+    .tier-section.collapsed .tier-cards {
+      display: none;
+    }
+
+    .tier-count {
+      font-size: 0.75rem;
+      color: var(--stone-400);
+      font-weight: 500;
+    }
+
+    .tier-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .tier-1 .tier-badge { background: var(--primary); color: white; }
+    .tier-2 .tier-badge { background: #3b82f6; color: white; }
+    .tier-3 .tier-badge { background: #8b5cf6; color: white; }
+    .tier-4 .tier-badge { background: var(--stone-500); color: white; }
+
+    .tier-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--stone-700);
+    }
+
+    /* Email cards */
+    .email-card {
+      background: white;
+      border: 1px solid var(--stone-200);
+      border-radius: var(--radius-lg);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .email-card:hover {
+      border-color: var(--stone-300);
+      box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.08);
+    }
+
+    .email-card.sent {
+      opacity: 0.55;
+    }
+
+    .email-card.sent:hover {
+      opacity: 0.75;
+    }
+
+    .email-card.sent .status-indicator {
+      background: var(--green-500);
+    }
+
+    /* Card header */
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .card-header:hover {
+      background: var(--stone-50);
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .contact-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--stone-800);
+    }
+
+    .contact-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .contact-org {
+      color: var(--stone-500);
+    }
+
+    .contact-email {
+      color: var(--primary);
+    }
+
+    /* Action buttons */
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      padding: 0.5rem 0.875rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--stone-100);
+      color: var(--stone-600);
+      border: 1px solid var(--stone-200);
+    }
+
+    .btn-secondary:hover {
+      background: var(--stone-200);
+      color: var(--stone-700);
+    }
+
+    .btn-secondary.is-sent {
+      background: var(--green-500);
+      border-color: var(--green-500);
+      color: white;
+    }
+
+    .expand-chevron {
+      color: var(--stone-400);
+      font-size: 0.7rem;
+      margin-left: 0.25rem;
+      transition: transform 0.2s ease;
+    }
+
+    .card-header.expanded .expand-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Card body */
+    .card-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      animation: slideIn 0.2s ease;
+    }
+
+    .card-body.expanded {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Email fields */
+    .email-field {
+      margin-bottom: 1rem;
+    }
+
+    .field-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.35rem;
+    }
+
+    .field-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--stone-400);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: none;
+      color: var(--stone-400);
+      font-size: 0.7rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--stone-100);
+      color: var(--primary);
+    }
+
+    .copy-btn.copied {
+      color: var(--green-500);
+    }
+
+    .copy-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .field-content {
+      background: var(--stone-50);
+      border: 1px solid var(--stone-200);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .field-content.subject {
+      font-weight: 500;
+      color: var(--stone-700);
+    }
+
+    .field-content.body {
+      white-space: pre-wrap;
+      line-height: 1.7;
+      max-height: 320px;
+      overflow-y: auto;
+      color: var(--stone-600);
+    }
+
+    .field-content.body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .field-content.body::-webkit-scrollbar-track {
+      background: var(--stone-100);
+      border-radius: 3px;
+    }
+
+    .field-content.body::-webkit-scrollbar-thumb {
+      background: var(--stone-300);
+      border-radius: 3px;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: var(--stone-800);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-icon {
+      color: var(--green-500);
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--stone-400);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .header-content {
+        padding: 0 1rem;
+      }
+
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .page-title {
+        font-size: 1.5rem;
+      }
+
+      .stats-row {
+        flex-wrap: wrap;
+      }
+
+      .stat-card {
+        flex: 1;
+        min-width: 80px;
+        padding: 0.75rem 1rem;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+      }
+
+      .actions {
+        flex-wrap: wrap;
+      }
+
+      .contact-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+      }
+
+      .header-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky header bar -->
+  <header class="header-bar">
+    <div class="header-content">
+      <div class="logo-group">
+        <div class="logo-pyramid">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L28 26H4L16 4Z" fill="#E07D3B" stroke="#C96A2E" stroke-width="1.5"/>
+            <path d="M16 10L22 22H10L16 10Z" fill="#fef3c7" stroke="#E07D3B" stroke-width="0.75"/>
+          </svg>
+        </div>
+        <div class="logo-text">Pivot Pyramid <span>GTM Outreach</span></div>
+      </div>
+      <div class="header-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        16 Contacts Ready
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Page header -->
+    <div class="page-header">
+      <h1 class="page-title">Outreach Dashboard</h1>
+      <p class="page-subtitle">Track and send your GTM campaign emails</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" id="totalCount">16</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="sentCount">0</div>
+        <div class="stat-label">Sent</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="pendingCount">16</div>
+        <div class="stat-label">Pending</div>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search contacts...">
+        <button class="search-clear" id="searchClear" type="button">×</button>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="pending">Pending</button>
+      <button class="filter-pill" data-filter="sent">Sent</button>
+    </div>
+
+    <!-- Email list -->
+    <main id="emailList"></main>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage"></span>
+  </div>
+
+  <script>
+    const emails = [
+      {
+        id: 1,
+        tier: 1,
+        name: "Adeo Ressi",
+        org: "Founders Institute",
+        email: "adeo@founderinstitute.com",
+        subject: "Pivot Pyramid — already featured on FI blog",
+        body: `Hi Adeo,
+
+Hope you're well!
+
+As a fellow FI mentor, I wanted to share something I've been working on.
+
+After my second startup Boostable, while I was investing and mentoring at 500 Startups, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed the framework has been cited organically in several places — including on the Founders Institute blog (https://fi.co/insight/what-pivoting-is-when-to-pivot-and-how-to-pivot-effectively), which was a nice surprise.
+
+So I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put the framework into practice.
+
+The core idea: not all pivots are created equal. There's a hierarchy — Customer → Problem → Solution → Technology → Growth — and understanding where you are determines how to pivot effectively.
+
+Given it's already resonating with the FI community, would you be open to exploring a more formal integration into the curriculum? Happy to share the draft and demo the tools.
+
+Best,
+Selcuk`
+      },
+      {
+        id: 2,
+        tier: 1,
+        name: "Garry Tan",
+        org: "Y Combinator",
+        email: "garry@ycombinator.com",
+        subject: "Pivot framework — fellow W14 alum",
+        body: `Hey Garry,
+
+Hope you're well! It's been a while since W14.
+
+After my second startup Boostable, while I was investing and mentoring at 500 Startups, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The core idea: not all pivots are equal. There's a hierarchy — Customer → Problem → Solution → Technology → Growth — and understanding where you are determines how to pivot effectively.
+
+Would love to share it with you. If it resonates, maybe it could be useful for Startup School or the YC community?
+
+Best,
+Selcuk`
+      },
+      {
+        id: 3,
+        tier: 1,
+        name: "Brad Flora",
+        org: "Y Combinator",
+        email: "brad@ycombinator.com",
+        subject: "Pivot framework — would love your take",
+        body: `Hey Brad,
+
+Long time! Hope you've been well.
+
+After my second startup Boostable, while I was investing and mentoring at 500 Startups, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook.
+
+The core idea: not all pivots are equal. There's a hierarchy — Customer → Problem → Solution → Technology → Growth — and knowing which layer is broken determines everything.
+
+Would love to get your take on it. Happy to share the draft.
+
+Best,
+Selcuk`
+      },
+      {
+        id: 4,
+        tier: 1,
+        name: "Andrew Chen",
+        org: "a16z",
+        email: "andrew@a16z.com",
+        subject: "Pivot framework — side project through the holidays",
+        body: `Hey Andrew,
+
+Hope you're well!
+
+I've been working on something on the side through the holidays that might resonate with your audience.
+
+After my second startup Boostable, while I was investing and mentoring at 500 Startups, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The core idea: pivots aren't random. They follow a hierarchy — Customer → Problem → Solution → Technology → Growth — and understanding where you are determines how expensive and risky your pivot will be.
+
+Given your work on The Cold Start Problem, I think there's natural overlap — especially around the Growth layer pivots.
+
+Would love to share it with you. If it resonates, maybe it could be a fit for your newsletter or a16z content?
+
+Best,
+Selcuk`
+      },
+      {
+        id: 5,
+        tier: 1,
+        name: "Greg Isenberg",
+        org: "Late Checkout",
+        email: "gregisenberg@gmail.com",
+        subject: "Pivot framework — might be podcast material",
+        body: `Hey Greg,
+
+Hope you're well!
+
+I've been working on something I think your audience would dig.
+
+After my second startup Boostable, while I was investing and mentoring at 500 Startups, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The core idea: pivots follow a hierarchy — Customer → Problem → Solution → Technology → Growth. Most founders pivot randomly. This framework gives them structure.
+
+Given your focus on building internet businesses and community-first products, I think there's a lot of overlap — especially around the Customer and Growth layers.
+
+Would love to share it with you. Could make for an interesting podcast conversation if you're into it.
+
+Best,
+Selcuk`
+      },
+      {
+        id: 6,
+        tier: 1,
+        name: "Chris Yeh",
+        org: "Blitzscaling",
+        email: "info@blitzscaling.com",
+        subject: "Pivot framework that complements Blitzscaling",
+        body: `Hey Chris,
+
+Hope you're well!
+
+I've been working on a framework I think complements your work on Blitzscaling — it's called the Pivot Pyramid.
+
+After my second startup Boostable, while I was investing and mentoring at 500 Startups, I developed this mental framework to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The core idea: before you can blitzscale, you need to nail your foundation. The Pivot Pyramid provides a structured way to validate (or invalidate) each layer: Customer → Problem → Solution → Technology → Growth.
+
+I think there's a natural narrative arc: Pivot Pyramid helps you find product-market fit, then Blitzscaling helps you scale it.
+
+Would love to get your thoughts. If it resonates, I'd be honored to have your endorsement — or even explore a foreword.
+
+Best,
+Selcuk`
+      },
+      {
+        id: 7,
+        tier: 2,
+        name: "Sarah Stein Greenberg",
+        org: "Stanford d.school",
+        email: "sstein@stanford.edu",
+        subject: "Design framework for startup pivots — d.school curriculum idea",
+        body: `Dear Sarah,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The Pivot Pyramid applies design thinking principles to startup strategy. It provides a structured hierarchy for understanding business model pivots: Customer → Problem → Solution → Technology → Growth.
+
+Given the d.school's focus on human-centered design and creative problem-solving, I think this framework could complement your curriculum — especially for students tackling entrepreneurial challenges.
+
+I read "Creative Acts for Curious People" and was inspired by your approach to structured creativity. The Pivot Pyramid aims to bring similar structure to the often chaotic process of pivoting a startup.
+
+Would you be open to exploring this? I'd be happy to share the draft and demo the tools.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 8,
+        tier: 2,
+        name: "Tom Byers",
+        org: "Stanford STVP",
+        email: "tbyers@stanford.edu",
+        subject: "Pivot framework for engineering entrepreneurs — STVP curriculum",
+        body: `Dear Professor Byers,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The framework provides a structured approach to startup pivots, organized as a hierarchy: Customer → Problem → Solution → Technology → Growth. It includes diagnostic tools, playbooks for each pivot type, and a cost/impact matrix for decision-making.
+
+Given STVP's focus on principled entrepreneurship and responsible innovation, I think this framework could help engineering students approach the messy process of pivoting with more rigor.
+
+Would you be open to reviewing it? I'd be honored to contribute to STVP in any capacity — guest lecture, curriculum material, or case study.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 9,
+        tier: 2,
+        name: "Deepak Hegde",
+        org: "NYU Stern / Endless Frontier Labs",
+        email: "dh99@stern.nyu.edu",
+        subject: "Pivot framework for science-based startups — EFL curriculum",
+        body: `Dear Professor Hegde,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+Science and technology startups face unique pivot challenges — especially at the Technology layer. The Pivot Pyramid provides a structured hierarchy (Customer → Problem → Solution → Technology → Growth) with specific playbooks for each type of pivot.
+
+Given EFL's focus on transforming scientific breakthroughs into high-growth businesses, I think this framework could help founders navigate the transition from lab to market more systematically.
+
+Would you be open to exploring this for EFL or the Berkley Center? I'd be happy to share the draft and demo the tools.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 10,
+        tier: 2,
+        name: "Angela Lee",
+        org: "Columbia Business School",
+        email: "awl2108@gsb.columbia.edu",
+        subject: "Pivot framework for Columbia entrepreneurs — Lang Center curriculum",
+        body: `Dear Professor Lee,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The framework provides a structured approach to evaluating and executing pivots: Customer → Problem → Solution → Technology → Growth. For investors, it also offers a diagnostic lens for evaluating whether a struggling portfolio company should pivot — and where.
+
+Given your dual perspective as an educator and investor (37 Angels), I think you'd find the framework's approach to pivot cost/benefit analysis particularly interesting.
+
+Would you be open to reviewing it? I'd be honored to contribute to the Lang Center — whether as a guest speaker, curriculum material, or case study.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 11,
+        tier: 2,
+        name: "Steve Blank",
+        org: "Stanford / Berkeley",
+        email: "steveblank.com/contact",
+        subject: "Pivot framework that builds on Customer Development",
+        body: `Dear Steve,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+Your work on Customer Development fundamentally shaped how I build companies. I've developed a framework called the Pivot Pyramid that I believe extends your methodology.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed this mental framework to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time. Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook.
+
+Your work taught us that startups need to "get out of the building" and validate hypotheses. The Pivot Pyramid provides a structured hierarchy for what to do when that validation fails: Customer → Problem → Solution → Technology → Growth.
+
+Key insight: Not all pivots are equal. A Customer pivot is fundamentally different (and more expensive) than a Solution pivot. The framework provides playbooks for each type.
+
+I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+Would you be open to reviewing it? Your feedback would be invaluable — and if it resonates, I'd be honored to explore how it might complement Lean LaunchPad.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 12,
+        tier: 2,
+        name: "Kurt Beyer",
+        org: "UC Berkeley",
+        email: "[Your contact]",
+        subject: "Pivot framework I've been working on — would love your feedback",
+        body: `Hey Kurt,
+
+Hope you're doing well! It's been too long.
+
+I've been working on something I'd love to get your feedback on.
+
+After Boostable, while I was investing and mentoring at 500 Startups, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The core idea: pivots follow a hierarchy — Customer → Problem → Solution → Technology → Growth — and knowing which layer is broken determines everything.
+
+Given your work with entrepreneurs at Berkeley, I think this could be useful as curriculum material — or at least an interesting read.
+
+Would you be open to taking a look? I'd also love to catch up if you're around.
+
+Best,
+Selcuk`
+      },
+      {
+        id: 13,
+        tier: 2,
+        name: "Jason Kuruzovich",
+        org: "RPI Lally School of Business",
+        email: "[Your contact]",
+        subject: "Pivot framework from a former student — case study material?",
+        body: `Dear Professor Kuruzovich,
+
+I hope this email finds you well. I was your student at Lally School of Business during my Masters, and I've been thinking about you as I've developed something I think could be useful for your entrepreneurship courses.
+
+Since Lally, I've started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The framework organizes pivots into a hierarchy: Customer → Problem → Solution → Technology → Growth.
+
+Would you be interested in reviewing it? I'd be honored if it could be useful for Lally students — as a case study, guest lecture, or course reading.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 14,
+        tier: 3,
+        name: "Michael Peng",
+        org: "IDEO",
+        email: "michael@ideo.com",
+        subject: "Design framework for startup pivots — potential collaboration",
+        body: `Dear Michael,
+
+Congratulations on your appointment as IDEO CEO. Your work co-founding IDEO Tokyo and expanding across Asia is inspiring.
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The framework applies design thinking principles to startup strategy, providing a structured approach to business model pivots: Customer → Problem → Solution → Technology → Growth.
+
+Given IDEO's focus on human-centered design and your background in venture building at Moon Creative Lab, I think there could be interesting synergies — whether as IDEO U content, client workshop material, or something else.
+
+Would you be open to exploring this?
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 15,
+        tier: 3,
+        name: "Tim Brown",
+        org: "IDEO (Chair Emeritus)",
+        email: "tim@ideo.com",
+        subject: "Framework that applies \"Change by Design\" to startup pivots",
+        body: `Dear Tim,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+Your book "Change by Design" fundamentally shaped how I think about problem-solving.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+The framework applies design thinking principles to startup strategy. The core insight: pivots follow a hierarchy — Customer → Problem → Solution → Technology → Growth — and each layer requires different design approaches.
+
+I think of it as "Change by Design" for the messy reality of startup pivots — structured creativity when everything is breaking.
+
+Would you be open to reviewing it? Your feedback would be invaluable, and if it resonates, I'd be honored to have your endorsement.
+
+Best regards,
+Selcuk Atli`
+      },
+      {
+        id: 16,
+        tier: 4,
+        name: "Eric Ries",
+        org: "Lean Startup",
+        email: "leanstartup.co/contact",
+        subject: "Framework that extends the Lean Startup for pivots",
+        body: `Dear Eric,
+
+I'm Selcuk Atli — a serial founder who started and exited two ad-tech startups, and most recently built Bunch (raised $26M, 10M users). I'm also a YC W14 alum and 500 Startups Venture Partner.
+
+"The Lean Startup" changed how I build companies.
+
+After my second startup Boostable, while I was investing and mentoring at 500, I developed a mental framework called the Pivot Pyramid to help startups think about how to pivot and experiment. It got picked up by VentureBeat and the 500 blog at the time.
+
+Recently, I noticed it's been cited organically in several places — Founders Institute, among others — so I decided to polish it into a proper framework and ebook. I'm also building an AI agent and canvas editor to help founders put it into practice.
+
+While the Lean Startup teaches us to "pivot or persevere," I've found founders need more structure for the pivot itself.
+
+The Pivot Pyramid provides:
+- A hierarchy for understanding pivots: Customer → Problem → Solution → Technology → Growth
+- Playbooks for each type of pivot
+- A cost/impact framework for timing pivots
+
+I'd be honored if you'd review it. Your feedback would help me improve the framework, and if it resonates, I'd love to explore how it might complement your work.
+
+Best regards,
+Selcuk Atli`
+      }
+    ];
+
+    const tierNames = {
+      1: { title: 'Inner Circle', class: 'tier-1' },
+      2: { title: 'Academic', class: 'tier-2' },
+      3: { title: 'IDEO & Design', class: 'tier-3' },
+      4: { title: 'Thought Leaders', class: 'tier-4' }
+    };
+
+    // LocalStorage helpers
+    const getSentStatus = () => {
+      const stored = localStorage.getItem('pivotPyramidOutreach');
+      return stored ? JSON.parse(stored) : {};
+    };
+
+    const setSentStatus = (id, sent) => {
+      const status = getSentStatus();
+      status[id] = sent;
+      localStorage.setItem('pivotPyramidOutreach', JSON.stringify(status));
+      updateStats();
+    };
+
+    const updateStats = () => {
+      const status = getSentStatus();
+      const sentCount = Object.values(status).filter(s => s).length;
+      document.getElementById('sentCount').textContent = sentCount;
+      document.getElementById('pendingCount').textContent = emails.length - sentCount;
+    };
+
+    // Toast
+    const showToast = (message) => {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    };
+
+    // Copy with button feedback
+    const copyToClipboard = async (text, btn) => {
+      await navigator.clipboard.writeText(text);
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied`;
+      btn.classList.add('copied');
+      showToast('Copied to clipboard');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    };
+
+    // Toggle tier
+    const toggleTier = (tierNum) => {
+      const section = document.querySelector(`[data-tier="${tierNum}"]`);
+      section.classList.toggle('collapsed');
+    };
+
+    // Toggle card
+    const toggleCard = (id) => {
+      const card = document.querySelector(`[data-id="${id}"]`);
+      const body = card.querySelector('.card-body');
+      const header = card.querySelector('.card-header');
+      body.classList.toggle('expanded');
+      header.classList.toggle('expanded');
+    };
+
+    // Mark as sent
+    const markAsSent = (id, event) => {
+      event.stopPropagation();
+      const card = document.querySelector(`[data-id="${id}"]`);
+      const status = getSentStatus();
+      const newStatus = !status[id];
+      setSentStatus(id, newStatus);
+      card.classList.toggle('sent', newStatus);
+
+      const btn = card.querySelector('.btn-secondary');
+      btn.classList.toggle('is-sent', newStatus);
+      btn.textContent = newStatus ? '✓ Sent' : 'Mark Sent';
+
+      showToast(newStatus ? 'Marked as sent' : 'Marked as pending');
+      applyFilters();
+    };
+
+    // Open mailto
+    const openMailto = (id, event) => {
+      event.stopPropagation();
+      const email = emails.find(e => e.id === id);
+      const subject = encodeURIComponent(email.subject);
+      const body = encodeURIComponent(email.body);
+      window.location.href = `mailto:${email.email}?subject=${subject}&body=${body}`;
+    };
+
+    // Filter and Search
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    const applyFilters = () => {
+      const status = getSentStatus();
+      const searchLower = currentSearch.toLowerCase();
+
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === currentFilter);
+      });
+
+      document.querySelectorAll('.email-card').forEach(card => {
+        const id = parseInt(card.dataset.id);
+        const email = emails.find(e => e.id === id);
+        const isSent = status[id];
+
+        // Check filter match
+        let filterMatch = true;
+        if (currentFilter === 'sent') {
+          filterMatch = isSent;
+        } else if (currentFilter === 'pending') {
+          filterMatch = !isSent;
+        }
+
+        // Check search match
+        let searchMatch = true;
+        if (currentSearch) {
+          searchMatch =
+            email.name.toLowerCase().includes(searchLower) ||
+            email.org.toLowerCase().includes(searchLower) ||
+            email.email.toLowerCase().includes(searchLower) ||
+            email.subject.toLowerCase().includes(searchLower);
+        }
+
+        card.style.display = (filterMatch && searchMatch) ? 'block' : 'none';
+      });
+
+      // Update tier visibility
+      document.querySelectorAll('.tier-section').forEach(section => {
+        const hasVisible = Array.from(section.querySelectorAll('.email-card')).some(card => card.style.display !== 'none');
+        section.style.display = hasVisible ? 'block' : 'none';
+      });
+    };
+
+    const applyFilter = (filter) => {
+      currentFilter = filter;
+      applyFilters();
+    };
+
+    const applySearch = (query) => {
+      currentSearch = query;
+      applyFilters();
+    };
+
+    // Render
+    const renderEmails = () => {
+      const container = document.getElementById('emailList');
+      const status = getSentStatus();
+
+      let html = '';
+
+      [1, 2, 3, 4].forEach(tierNum => {
+        const tierEmails = emails.filter(e => e.tier === tierNum);
+        if (tierEmails.length === 0) return;
+
+        const tier = tierNames[tierNum];
+
+        html += `
+          <section class="tier-section ${tier.class}" data-tier="${tierNum}">
+            <div class="tier-header" onclick="toggleTier(${tierNum})">
+              <span class="tier-badge">Tier ${tierNum}</span>
+              <h2 class="tier-title">${tier.title}</h2>
+              <span class="tier-count">${tierEmails.length} contact${tierEmails.length !== 1 ? 's' : ''}</span>
+              <span class="tier-toggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </div>
+            <div class="tier-cards">
+        `;
+
+        tierEmails.forEach(email => {
+          const isSent = status[email.id];
+          html += `
+            <div class="email-card ${isSent ? 'sent' : ''}" data-id="${email.id}">
+              <div class="card-header" onclick="toggleCard(${email.id})">
+                <div class="contact-info">
+                  <div class="status-indicator"></div>
+                  <div class="contact-details">
+                    <div class="contact-name">${email.name}</div>
+                    <div class="contact-meta">
+                      <span class="contact-org">${email.org}</span>
+                      <span class="contact-email">${email.email}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="actions">
+                  <button class="btn btn-primary" onclick="openMailto(${email.id}, event)">
+                    Send Email
+                  </button>
+                  <button class="btn btn-secondary ${isSent ? 'is-sent' : ''}" onclick="markAsSent(${email.id}, event)">
+                    ${isSent ? '✓ Sent' : 'Mark Sent'}
+                  </button>
+                  <span class="expand-chevron">▾</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="email-field">
+                  <div class="field-header">
+                    <span class="field-label">Subject</span>
+                    <button class="copy-btn" onclick="copyToClipboard('${email.subject.replace(/'/g, "\\'")}', this)">
+                      <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <div class="field-content subject">${email.subject}</div>
+                </div>
+                <div class="email-field">
+                  <div class="field-header">
+                    <span class="field-label">Body</span>
+                    <button class="copy-btn" onclick="copyToClipboard(emails[${email.id - 1}].body, this)">
+                      <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <div class="field-content body">${email.body}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += '</div></section>';
+      });
+
+      container.innerHTML = html;
+      updateStats();
+    };
+
+    // Init
+    renderEmails();
+
+    // Filter buttons
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+    });
+
+    // Search input
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+
+    searchInput.addEventListener('input', (e) => {
+      applySearch(e.target.value);
+      searchClear.style.display = e.target.value ? 'flex' : 'none';
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      applySearch('');
+      searchClear.style.display = 'none';
+      searchInput.focus();
+    });
+  </script>
+</body>
+</html>
