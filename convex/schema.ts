@@ -122,6 +122,21 @@ export default defineSchema({
     })),
   }).index("by_code", ["codeId"]),
 
+  // GTM Outreach campaign settings (singleton - only one record)
+  outreachSettings: defineTable({
+    // Email tone/style
+    tone: v.string(), // e.g., "professional", "casual", "friendly", "formal"
+
+    // Additional campaign context that applies to all emails
+    campaignContext: v.optional(v.string()),
+
+    // Additional instructions for AI
+    additionalInstructions: v.optional(v.string()),
+
+    // Timestamps
+    updatedAt: v.number(),
+  }),
+
   // GTM Outreach contacts
   outreachContacts: defineTable({
     name: v.string(),

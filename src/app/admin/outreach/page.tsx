@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation, useAction } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,6 +23,15 @@ import {
   LayoutDashboard,
   UserCircle,
   Trash2,
+  Sparkles,
+  Settings,
+  MessageCircle,
+  Zap,
+  Target,
+  Coffee,
+  Briefcase,
+  Megaphone,
+  Lightbulb,
 } from "lucide-react";
 import type { Id, Doc } from "../../../../convex/_generated/dataModel";
 
@@ -51,6 +60,7 @@ function InlineEditField({
   className = "",
   placeholder = "",
   rows,
+  isGenerating = false,
 }: {
   value: string;
   onChange: (value: string) => void;
@@ -59,6 +69,7 @@ function InlineEditField({
   className?: string;
   placeholder?: string;
   rows?: number;
+  isGenerating?: boolean;
 }) {
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -82,14 +93,19 @@ function InlineEditField({
     };
   }, []);
 
+  const shimmerClass = isGenerating
+    ? "animate-pulse bg-gradient-to-r from-purple-50 via-white to-purple-50 bg-[length:200%_100%] animate-shimmer"
+    : "bg-white";
+
   if (type === "textarea") {
     return (
       <textarea
         value={value}
         onChange={(e) => handleChange(e.target.value)}
-        placeholder={placeholder}
+        placeholder={isGenerating ? "Generating with AI..." : placeholder}
         rows={rows || 6}
-        className={`w-full px-3 py-2 bg-white border border-stone-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm resize-none ${className}`}
+        disabled={isGenerating}
+        className={`w-full px-3 py-2 ${shimmerClass} border ${isGenerating ? "border-purple-200" : "border-stone-200"} rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm resize-none disabled:cursor-wait ${className}`}
       />
     );
   }
@@ -99,22 +115,154 @@ function InlineEditField({
       type={type}
       value={value}
       onChange={(e) => handleChange(e.target.value)}
-      placeholder={placeholder}
-      className={`w-full px-3 py-2 bg-white border border-stone-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm ${className}`}
+      placeholder={isGenerating ? "Generating..." : placeholder}
+      disabled={isGenerating}
+      className={`w-full px-3 py-2 ${shimmerClass} border ${isGenerating ? "border-purple-200" : "border-stone-200"} rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm disabled:cursor-wait ${className}`}
     />
+  );
+}
+
+// Generate popover component - uses portal-like positioning
+function GeneratePopover({
+  isOpen,
+  onClose,
+  onGenerate,
+  isGenerating,
+  fieldLabel,
+  anchorRef,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  onGenerate: (prompt: string) => void;
+  isGenerating: boolean;
+  fieldLabel: string;
+  anchorRef: React.RefObject<HTMLButtonElement | null>;
+}) {
+  const [prompt, setPrompt] = useState("");
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+
+  // Calculate position when opening
+  useEffect(() => {
+    if (isOpen && anchorRef.current) {
+      const rect = anchorRef.current.getBoundingClientRect();
+      setPosition({
+        top: rect.bottom + 8,
+        left: Math.max(16, rect.left - 100), // Center-ish, but don't go off-screen
+      });
+    }
+  }, [isOpen, anchorRef]);
+
+  // Close on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        popoverRef.current &&
+        !popoverRef.current.contains(e.target as Node) &&
+        anchorRef.current &&
+        !anchorRef.current.contains(e.target as Node)
+      ) {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, onClose, anchorRef]);
+
+  // Close on escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+    }
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isOpen, onClose]);
+
+  // Reset prompt when closing
+  useEffect(() => {
+    if (!isOpen) setPrompt("");
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <motion.div
+      ref={popoverRef}
+      initial={{ opacity: 0, y: -4, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -4, scale: 0.95 }}
+      transition={{ duration: 0.15 }}
+      style={{ top: position.top, left: position.left }}
+      className="fixed z-[100] w-72 bg-white rounded-xl border border-stone-200 shadow-xl p-3"
+    >
+      <label className="text-xs font-medium text-stone-600 block mb-1.5">
+        Instructions for AI <span className="text-stone-400">(optional)</span>
+      </label>
+      <textarea
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+        placeholder={`e.g., "Make it more casual" or "Focus on their book"`}
+        rows={2}
+        autoFocus
+        className="w-full px-2.5 py-2 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:ring-2 focus:ring-purple-200 focus:border-purple-300 focus:bg-white outline-none transition-all resize-none"
+      />
+      <div className="flex justify-end gap-2 mt-2.5">
+        <button
+          onClick={onClose}
+          disabled={isGenerating}
+          className="px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-100 rounded-lg transition-colors disabled:opacity-50"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={() => onGenerate(prompt)}
+          disabled={isGenerating}
+          className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isGenerating ? (
+            <>
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              Generating...
+            </>
+          ) : (
+            <>
+              <Sparkles className="w-3.5 h-3.5" />
+              Generate {fieldLabel}
+            </>
+          )}
+        </button>
+      </div>
+    </motion.div>
   );
 }
 
 export default function OutreachPage() {
   const contacts = useQuery(api.outreach.list);
   const stats = useQuery(api.outreach.getStats);
+  const settings = useQuery(api.outreach.getSettings);
   const toggleSent = useMutation(api.outreach.toggleSent);
   const updateContact = useMutation(api.outreach.update);
   const createContact = useMutation(api.outreach.create);
   const deleteContact = useMutation(api.outreach.remove);
+  const updateSettings = useMutation(api.outreach.updateSettings);
+  const generateEmail = useAction(api.outreach.generateEmail);
 
-  // View state: "dashboard" or "contacts"
-  const [activeView, setActiveView] = useState<"dashboard" | "contacts">("dashboard");
+  // View state: "dashboard", "contacts", or "settings"
+  const [activeView, setActiveView] = useState<"dashboard" | "contacts" | "settings">("dashboard");
+
+  // Settings local state
+  const [localTone, setLocalTone] = useState("professional-friendly");
+  const [localCampaignContext, setLocalCampaignContext] = useState("");
+  const [localAdditionalInstructions, setLocalAdditionalInstructions] = useState("");
+  const [savingSettings, setSavingSettings] = useState(false);
+  const [savedSettings, setSavedSettings] = useState(false);
+
+  // Refs for popover anchors
+  const popoverAnchorRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState<"all" | "pending" | "sent">("all");
@@ -155,6 +303,12 @@ export default function OutreachPage() {
   }>>({});
   const [savingFields, setSavingFields] = useState<Set<string>>(new Set());
 
+  // AI generation state (tracks which contact+field is generating)
+  const [generatingFields, setGeneratingFields] = useState<Set<string>>(new Set());
+
+  // Popover state for AI generation (tracks which popover is open: `${contactId}-${field}` or null)
+  const [openPopover, setOpenPopover] = useState<string | null>(null);
+
   // Initialize editing fields when contacts load
   useEffect(() => {
     if (contacts) {
@@ -186,6 +340,15 @@ export default function OutreachPage() {
       setSavedField(null);
     }
   }, [selectedContact?._id]);
+
+  // Sync settings from server when loaded
+  useEffect(() => {
+    if (settings) {
+      setLocalTone(settings.tone || "professional-friendly");
+      setLocalCampaignContext(settings.campaignContext || "");
+      setLocalAdditionalInstructions(settings.additionalInstructions || "");
+    }
+  }, [settings]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -224,6 +387,24 @@ export default function OutreachPage() {
     },
     [selectedContact, updateContact]
   );
+
+  // Save campaign settings
+  const handleSaveSettings = async () => {
+    setSavingSettings(true);
+    try {
+      await updateSettings({
+        tone: localTone,
+        campaignContext: localCampaignContext || undefined,
+        additionalInstructions: localAdditionalInstructions || undefined,
+      });
+      setSavedSettings(true);
+      setTimeout(() => setSavedSettings(false), 2000);
+    } catch (err) {
+      console.error("Failed to save settings:", err);
+    } finally {
+      setSavingSettings(false);
+    }
+  };
 
   const handleToggleSent = async (id: Id<"outreachContacts">) => {
     try {
@@ -343,6 +524,39 @@ export default function OutreachPage() {
         [field]: value,
       },
     }));
+  };
+
+  const handleGenerateEmail = async (
+    contactId: Id<"outreachContacts">,
+    field: "subject" | "body" | "both",
+    userPrompt?: string
+  ) => {
+    const key = `${contactId}-${field}`;
+    setGeneratingFields(prev => new Set(prev).add(key));
+    // Close the popover when generation starts
+    setOpenPopover(null);
+    try {
+      const result = await generateEmail({
+        contactId,
+        field,
+        userPrompt: userPrompt || undefined
+      });
+      // Update local editing state with the generated content
+      if (result.emailSubject !== undefined) {
+        updateEditingField(contactId, "emailSubject", result.emailSubject);
+      }
+      if (result.emailBody !== undefined) {
+        updateEditingField(contactId, "emailBody", result.emailBody);
+      }
+    } catch (err) {
+      console.error("Failed to generate email:", err);
+    } finally {
+      setGeneratingFields(prev => {
+        const next = new Set(prev);
+        next.delete(key);
+        return next;
+      });
+    }
   };
 
   const openMailto = (contact: OutreachContact) => {
@@ -516,6 +730,17 @@ export default function OutreachPage() {
         >
           <UserCircle className="w-4 h-4" />
           Contacts
+        </button>
+        <button
+          onClick={() => setActiveView("settings")}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            activeView === "settings"
+              ? "bg-white text-stone-900 shadow-sm"
+              : "text-stone-600 hover:text-stone-900"
+          }`}
+        >
+          <Settings className="w-4 h-4" />
+          Settings
         </button>
       </div>
 
@@ -777,12 +1002,69 @@ export default function OutreachPage() {
                                     </div>
                                   </div>
 
+                                  {/* Generate All Button */}
+                                  <div className="flex justify-end mb-2">
+                                    <button
+                                      ref={(el) => { popoverAnchorRefs.current[`${contact._id}-both`] = el; }}
+                                      onClick={() => setOpenPopover(`${contact._id}-both`)}
+                                      disabled={generatingFields.has(`${contact._id}-both`) || generatingFields.has(`${contact._id}-subject`) || generatingFields.has(`${contact._id}-body`)}
+                                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-purple-600 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                      {generatingFields.has(`${contact._id}-both`) ? (
+                                        <>
+                                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                          Generating...
+                                        </>
+                                      ) : (
+                                        <>
+                                          <Sparkles className="w-3.5 h-3.5" />
+                                          Generate Email
+                                        </>
+                                      )}
+                                    </button>
+                                    <AnimatePresence>
+                                      <GeneratePopover
+                                        isOpen={openPopover === `${contact._id}-both`}
+                                        onClose={() => setOpenPopover(null)}
+                                        onGenerate={(prompt) => handleGenerateEmail(contact._id, "both", prompt)}
+                                        isGenerating={generatingFields.has(`${contact._id}-both`)}
+                                        fieldLabel="Email"
+                                        anchorRef={{ current: popoverAnchorRefs.current[`${contact._id}-both`] }}
+                                      />
+                                    </AnimatePresence>
+                                  </div>
+
                                   {/* Subject */}
                                   <div>
                                     <div className="flex items-center justify-between mb-1">
-                                      <label className="text-xs font-semibold text-stone-400 uppercase tracking-wider">
-                                        Subject
-                                      </label>
+                                      <div className="flex items-center gap-2">
+                                        <label className="text-xs font-semibold text-stone-400 uppercase tracking-wider">
+                                          Subject
+                                        </label>
+                                        <button
+                                          ref={(el) => { popoverAnchorRefs.current[`${contact._id}-subject`] = el; }}
+                                          onClick={() => setOpenPopover(`${contact._id}-subject`)}
+                                          disabled={generatingFields.has(`${contact._id}-subject`) || generatingFields.has(`${contact._id}-both`)}
+                                          className="flex items-center gap-1 px-1.5 py-0.5 text-xs text-purple-500 hover:text-purple-600 hover:bg-purple-50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                          title="Generate with AI"
+                                        >
+                                          {generatingFields.has(`${contact._id}-subject`) || generatingFields.has(`${contact._id}-both`) ? (
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                          ) : (
+                                            <Sparkles className="w-3.5 h-3.5" />
+                                          )}
+                                        </button>
+                                        <AnimatePresence>
+                                          <GeneratePopover
+                                            isOpen={openPopover === `${contact._id}-subject`}
+                                            onClose={() => setOpenPopover(null)}
+                                            onGenerate={(prompt) => handleGenerateEmail(contact._id, "subject", prompt)}
+                                            isGenerating={generatingFields.has(`${contact._id}-subject`)}
+                                            fieldLabel="Subject"
+                                            anchorRef={{ current: popoverAnchorRefs.current[`${contact._id}-subject`] }}
+                                          />
+                                        </AnimatePresence>
+                                      </div>
                                       <button
                                         onClick={() =>
                                           handleCopy(fields.emailSubject, `subject-${contact._id}`)
@@ -807,15 +1089,41 @@ export default function OutreachPage() {
                                       onChange={(v) => updateEditingField(contact._id, "emailSubject", v)}
                                       onSave={(v) => handleInlineSave(contact._id, "emailSubject", v)}
                                       className="font-medium text-stone-700"
+                                      isGenerating={generatingFields.has(`${contact._id}-subject`) || generatingFields.has(`${contact._id}-both`)}
                                     />
                                   </div>
 
                                   {/* Body */}
                                   <div>
                                     <div className="flex items-center justify-between mb-1">
-                                      <label className="text-xs font-semibold text-stone-400 uppercase tracking-wider">
-                                        Body
-                                      </label>
+                                      <div className="flex items-center gap-2 relative">
+                                        <label className="text-xs font-semibold text-stone-400 uppercase tracking-wider">
+                                          Body
+                                        </label>
+                                        <button
+                                          ref={(el) => { popoverAnchorRefs.current[`${contact._id}-body`] = el; }}
+                                          onClick={() => setOpenPopover(`${contact._id}-body`)}
+                                          disabled={generatingFields.has(`${contact._id}-body`) || generatingFields.has(`${contact._id}-both`)}
+                                          className="flex items-center gap-1 px-1.5 py-0.5 text-xs text-purple-500 hover:text-purple-600 hover:bg-purple-50 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                          title="Generate with AI"
+                                        >
+                                          {generatingFields.has(`${contact._id}-body`) || generatingFields.has(`${contact._id}-both`) ? (
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                          ) : (
+                                            <Sparkles className="w-3.5 h-3.5" />
+                                          )}
+                                        </button>
+                                        <AnimatePresence>
+                                          <GeneratePopover
+                                            isOpen={openPopover === `${contact._id}-body`}
+                                            onClose={() => setOpenPopover(null)}
+                                            onGenerate={(prompt) => handleGenerateEmail(contact._id, "body", prompt)}
+                                            isGenerating={generatingFields.has(`${contact._id}-body`)}
+                                            fieldLabel="Body"
+                                            anchorRef={{ current: popoverAnchorRefs.current[`${contact._id}-body`] }}
+                                          />
+                                        </AnimatePresence>
+                                      </div>
                                       <button
                                         onClick={() =>
                                           handleCopy(fields.emailBody, `body-${contact._id}`)
@@ -842,6 +1150,7 @@ export default function OutreachPage() {
                                       type="textarea"
                                       rows={8}
                                       className="text-stone-600"
+                                      isGenerating={generatingFields.has(`${contact._id}-body`) || generatingFields.has(`${contact._id}-both`)}
                                     />
                                   </div>
                                 </div>
@@ -970,6 +1279,127 @@ export default function OutreachPage() {
                 )}
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Settings View */}
+      {activeView === "settings" && (
+        <div className="max-w-2xl mx-auto space-y-6">
+          {/* Voice & Tone */}
+          <div className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+            <div className="px-5 py-4 border-b border-stone-100 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/10 to-amber-100 flex items-center justify-center">
+                <MessageCircle className="w-4.5 h-4.5 text-primary" />
+              </div>
+              <h2 className="text-base font-bold text-stone-900">Voice & Tone</h2>
+            </div>
+            <div className="p-4">
+              <div className="grid grid-cols-5 gap-2">
+                {[
+                  { value: "professional-friendly", label: "Warm Pro", icon: Coffee },
+                  { value: "casual", label: "Casual", icon: MessageCircle },
+                  { value: "formal", label: "Formal", icon: Briefcase },
+                  { value: "enthusiastic", label: "Energetic", icon: Zap },
+                  { value: "brief-direct", label: "Direct", icon: Target },
+                ].map((tone) => {
+                  const Icon = tone.icon;
+                  const isSelected = localTone === tone.value;
+                  return (
+                    <button
+                      key={tone.value}
+                      onClick={() => setLocalTone(tone.value)}
+                      className={`group relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all ${
+                        isSelected
+                          ? "border-primary bg-primary/5 shadow-sm"
+                          : "border-transparent bg-stone-50 hover:bg-stone-100"
+                      }`}
+                    >
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                        isSelected ? "bg-primary text-white" : "bg-white text-stone-400 group-hover:text-stone-600 shadow-sm"
+                      }`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className={`text-xs font-medium ${isSelected ? "text-primary" : "text-stone-600"}`}>
+                        {tone.label}
+                      </span>
+                      {isSelected && (
+                        <motion.div
+                          layoutId="tone-check"
+                          className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full flex items-center justify-center"
+                        >
+                          <Check className="w-2.5 h-2.5 text-white" />
+                        </motion.div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Campaign Context */}
+          <div className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+            <div className="px-5 py-4 border-b border-stone-100 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+                <Megaphone className="w-4.5 h-4.5 text-blue-600" />
+              </div>
+              <h2 className="text-base font-bold text-stone-900">Campaign Context</h2>
+            </div>
+            <div className="p-4">
+              <textarea
+                value={localCampaignContext}
+                onChange={(e) => setLocalCampaignContext(e.target.value)}
+                placeholder="What's the current phase? Who are you targeting? What's the main goal?"
+                rows={3}
+                className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-white outline-none transition-all text-sm resize-none placeholder:text-stone-400"
+              />
+            </div>
+          </div>
+
+          {/* AI Instructions */}
+          <div className="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+            <div className="px-5 py-4 border-b border-stone-100 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-100 to-violet-100 flex items-center justify-center">
+                <Lightbulb className="w-4.5 h-4.5 text-purple-600" />
+              </div>
+              <h2 className="text-base font-bold text-stone-900">AI Instructions</h2>
+            </div>
+            <div className="p-4">
+              <textarea
+                value={localAdditionalInstructions}
+                onChange={(e) => setLocalAdditionalInstructions(e.target.value)}
+                placeholder="Any specific rules? Words to avoid? Things to always mention?"
+                rows={2}
+                className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-white outline-none transition-all text-sm resize-none placeholder:text-stone-400"
+              />
+            </div>
+          </div>
+
+          {/* Save Button - Floating */}
+          <div className="flex justify-end">
+            <button
+              onClick={handleSaveSettings}
+              disabled={savingSettings}
+              className="flex items-center gap-2 px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {savingSettings ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Saving...
+                </>
+              ) : savedSettings ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  Saved!
+                </>
+              ) : (
+                <>
+                  <Save className="w-4 h-4" />
+                  Save Settings
+                </>
+              )}
+            </button>
           </div>
         </div>
       )}

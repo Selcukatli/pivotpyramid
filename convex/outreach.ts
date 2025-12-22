@@ -1,6 +1,10 @@
 import { v } from "convex/values";
-import { query, mutation, internalMutation } from "./_generated/server";
+import { query, mutation, internalMutation, action } from "./_generated/server";
 import { requireAdmin } from "./adminAuth";
+import { createOpenRouter } from "@openrouter/ai-sdk-provider";
+import { generateObject } from "ai";
+import { z } from "zod";
+import { api } from "./_generated/api";
 
 // List all outreach contacts
 export const list = query({
@@ -198,6 +202,201 @@ export const seedInternal = internalMutation({
     }
 
     return { inserted: ids.length };
+  },
+});
+
+// ==================
+// CAMPAIGN SETTINGS
+// ==================
+
+// Get campaign settings (returns default if none exist)
+export const getSettings = query({
+  args: {},
+  handler: async (ctx) => {
+    await requireAdmin(ctx);
+    const settings = await ctx.db.query("outreachSettings").first();
+    // Return defaults if no settings exist - seeded with context for Pivot Pyramid launch
+    return settings || {
+      tone: "professional-friendly",
+      campaignContext: "Pre-launch outreach for Pivot Pyramid framework. Goal: Get early feedback, testimonials, and distribution partners before Product Hunt launch. The framework is already cited organically by Founders Institute, VentureBeat, and 500 Startups blog.",
+      additionalInstructions: "Keep emails concise (150-250 words). Always mention the free ebook. Reference specific work/background of the contact when available. Make the ask clear but low-friction.",
+    };
+  },
+});
+
+// Update campaign settings (upsert pattern)
+export const updateSettings = mutation({
+  args: {
+    tone: v.string(),
+    campaignContext: v.optional(v.string()),
+    additionalInstructions: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    await requireAdmin(ctx);
+
+    // Check if settings exist
+    const existing = await ctx.db.query("outreachSettings").first();
+
+    if (existing) {
+      await ctx.db.patch(existing._id, {
+        ...args,
+        updatedAt: Date.now(),
+      });
+      return existing._id;
+    } else {
+      const id = await ctx.db.insert("outreachSettings", {
+        ...args,
+        updatedAt: Date.now(),
+      });
+      return id;
+    }
+  },
+});
+
+// Internal settings update (no auth - for CLI seeding only)
+export const updateSettingsInternal = internalMutation({
+  args: {
+    tone: v.string(),
+    campaignContext: v.optional(v.string()),
+    additionalInstructions: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const existing = await ctx.db.query("outreachSettings").first();
+
+    if (existing) {
+      await ctx.db.patch(existing._id, {
+        ...args,
+        updatedAt: Date.now(),
+      });
+      return existing._id;
+    } else {
+      const id = await ctx.db.insert("outreachSettings", {
+        ...args,
+        updatedAt: Date.now(),
+      });
+      return id;
+    }
+  },
+});
+
+// ==================
+// EMAIL GENERATION
+// ==================
+
+// Generate email subject and body using AI
+export const generateEmail = action({
+  args: {
+    contactId: v.id("outreachContacts"),
+    field: v.optional(v.union(v.literal("subject"), v.literal("body"), v.literal("both"))),
+    userPrompt: v.optional(v.string()),
+  },
+  handler: async (ctx, { contactId, field = "both", userPrompt }) => {
+    // Get the contact
+    const contact = await ctx.runQuery(api.outreach.getById, { id: contactId });
+    if (!contact) throw new Error("Contact not found");
+
+    // Get campaign settings
+    const settings = await ctx.runQuery(api.outreach.getSettings, {});
+
+    // Initialize OpenRouter
+    const openrouter = createOpenRouter({
+      apiKey: process.env.OPENROUTER_API_KEY!,
+    });
+
+    // Build the prompt with all available context
+    const contextParts: string[] = [];
+
+    contextParts.push(`**Contact Name:** ${contact.name}`);
+    contextParts.push(`**Organization:** ${contact.organization}`);
+
+    if (contact.background) {
+      contextParts.push(`**Background:** ${contact.background}`);
+    }
+    if (contact.relationship) {
+      contextParts.push(`**Relationship:** ${contact.relationship}`);
+    }
+    if (contact.context) {
+      contextParts.push(`**Outreach Context:** ${contact.context}`);
+    }
+
+    const contextString = contextParts.join("\n");
+
+    // Build tone instructions
+    const toneMap: Record<string, string> = {
+      "professional-friendly": "Write in a professional yet warm and approachable tone. Be personable without being overly casual.",
+      "casual": "Write in a casual, conversational tone like you're reaching out to a friend or peer. Keep it relaxed and natural.",
+      "formal": "Write in a formal, business-appropriate tone. Be respectful and polished.",
+      "enthusiastic": "Write with energy and enthusiasm. Show genuine excitement about the connection and the framework.",
+      "brief-direct": "Be very concise and direct. Get to the point quickly without unnecessary pleasantries.",
+    };
+    const toneInstruction = toneMap[settings.tone] || toneMap["professional-friendly"];
+
+    // Generate based on what field is requested
+    const result = await generateObject({
+      model: openrouter.chat("google/gemini-2.5-flash"),
+      schema: z.object({
+        emailSubject: z.string().describe("A compelling, personalized email subject line (max 60 chars)"),
+        emailBody: z.string().describe("The full email body - professional, personalized, concise"),
+      }),
+      prompt: `You are Selçuk Atlı (YC W14 alum, serial entrepreneur with 3 exits, Venture Partner at 500 Startups).
+You are reaching out to people about your new book/framework: The Pivot Pyramid.
+
+**About The Pivot Pyramid:**
+- A strategic framework for startup founders to decide WHAT to change when things aren't working
+- Has 5 layers: Customers → Problem → Solution → Technology → Growth (from most to least fundamental)
+- The lower you pivot in the pyramid, the more everything above must change (cascade effect)
+- Featured in VentureBeat, used at Founders Institute, MaRS
+- Offers a free ebook and an interactive canvas tool at pivotpyramid.com
+
+**Tone & Style:**
+${toneInstruction}
+
+${settings.campaignContext ? `**Campaign Context:**\n${settings.campaignContext}\n` : ""}
+${settings.additionalInstructions ? `**Additional AI Instructions:**\n${settings.additionalInstructions}\n` : ""}
+
+**Your Goal:**
+Generate a personalized outreach email to introduce the Pivot Pyramid framework. The email should:
+1. Feel personal and genuine - not spammy or templated
+2. Reference their specific work/background when available
+3. Explain why YOU specifically are reaching out to THEM
+4. Make a clear, low-friction ask (usually: check it out, share feedback, or share with their community)
+5. Be concise (150-250 words for the body)
+6. Sound like a real human, not AI-generated
+
+**Contact Information:**
+${contextString}
+
+${contact.emailSubject ? `**Current Subject (for reference):** ${contact.emailSubject}` : ""}
+${contact.emailBody ? `**Current Body (for reference):** ${contact.emailBody}` : ""}
+${userPrompt ? `\n**Additional Instructions from User:** ${userPrompt}` : ""}
+
+Generate a ${field === "subject" ? "subject line only" : field === "body" ? "email body only" : "subject line and email body"} for this outreach.`,
+    });
+
+    // Update the contact with generated content
+    const updates: { emailSubject?: string; emailBody?: string } = {};
+    if (field === "subject" || field === "both") {
+      updates.emailSubject = result.object.emailSubject;
+    }
+    if (field === "body" || field === "both") {
+      updates.emailBody = result.object.emailBody;
+    }
+
+    await ctx.runMutation(api.outreach.update, {
+      id: contactId,
+      ...updates,
+    });
+
+    return updates;
+  },
+});
+
+// Get a single contact by ID (for actions)
+export const getById = query({
+  args: { id: v.id("outreachContacts") },
+  handler: async (ctx, { id }) => {
+    await requireAdmin(ctx);
+    return await ctx.db.get(id);
   },
 });
 
