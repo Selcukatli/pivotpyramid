@@ -36,8 +36,11 @@ export default function EbookLayout({
       <Suspense fallback={null}>
         <PasswordUrlChecker />
       </Suspense>
-      {/* Desktop reading progress - top right (mobile handled in EbookSidebar) */}
-      <ReadingProgress className="hidden lg:block fixed top-6 right-6 z-50" />
+      {/* Desktop reading progress bar - spans top of content area */}
+      <ReadingProgress
+        variant="bar"
+        className="hidden lg:block fixed top-0 left-72 right-0 z-50"
+      />
       <EbookSidebar groups={groups} />
 
       {/* Main content area */}

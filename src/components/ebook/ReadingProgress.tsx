@@ -4,13 +4,30 @@ import { useReadingProgress } from '@/hooks/useReadingProgress';
 
 interface ReadingProgressProps {
   size?: 'sm' | 'md';
+  variant?: 'circular' | 'bar';
   className?: string;
 }
 
-export function ReadingProgress({ size = 'md', className = '' }: ReadingProgressProps) {
+export function ReadingProgress({ size = 'md', variant = 'circular', className = '' }: ReadingProgressProps) {
   const { progress, isVisible } = useReadingProgress();
 
-  // Circular progress indicator
+  if (!isVisible) return null;
+
+  // Horizontal bar variant (for desktop)
+  if (variant === 'bar') {
+    return (
+      <div className={className}>
+        <div className="h-1 bg-stone-200 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-150 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Circular progress indicator (for mobile)
   const radius = size === 'sm' ? 12 : 16;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
@@ -24,8 +41,6 @@ export function ReadingProgress({ size = 'md', className = '' }: ReadingProgress
   const center = size === 'sm' ? 15 : 20;
   const strokeWidth = size === 'sm' ? 2.5 : 3;
   const textSize = size === 'sm' ? 'text-[8px]' : 'text-[10px]';
-
-  if (!isVisible) return null;
 
   return (
     <div className={className}>
