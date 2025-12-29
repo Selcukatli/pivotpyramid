@@ -11,22 +11,23 @@ interface MarkdownRendererProps {
   content: string;
 }
 
-// Helper to check if a paragraph node contains only an image
-function isImageOnlyParagraph(node: Element | undefined): boolean {
+// Helper to check if a paragraph node contains an image (even with other content)
+function containsImage(node: Element | undefined): boolean {
   if (!node || !node.children) return false;
 
-  // Filter out text nodes that are just whitespace
-  const meaningfulChildren = node.children.filter(child => {
-    if (child.type === 'text') {
-      return child.value.trim() !== '';
+  // Check if any child is an image (recursively check all children)
+  function hasImage(children: typeof node.children): boolean {
+    for (const child of children) {
+      if (child.type === 'element') {
+        const el = child as Element;
+        if (el.tagName === 'img') return true;
+        if (el.children && hasImage(el.children as typeof node.children)) return true;
+      }
     }
-    return true;
-  });
+    return false;
+  }
 
-  // Check if there's exactly one child and it's an image
-  return meaningfulChildren.length === 1 &&
-         meaningfulChildren[0].type === 'element' &&
-         (meaningfulChildren[0] as Element).tagName === 'img';
+  return hasImage(node.children);
 }
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
@@ -67,12 +68,12 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         {children}
       </h4>
     ),
-    // Style paragraphs - unwrap if only contains an image to avoid hydration error
+    // Style paragraphs - unwrap if contains an image to avoid hydration error
+    // (<figure> with <div> cannot be inside <p>)
     p: ({ children, node }) => {
-      // If the paragraph only contains an image, return the image directly
-      // This avoids the hydration error of <div> inside <p>
-      if (isImageOnlyParagraph(node)) {
-        return <>{children}</>;
+      // If the paragraph contains any image, render as div to avoid hydration error
+      if (containsImage(node)) {
+        return <div className="text-stone-700 leading-relaxed mb-4 text-base md:text-lg">{children}</div>;
       }
       return (
         <p className="text-stone-700 leading-relaxed mb-4 text-base md:text-lg">

@@ -1,3 +1,15 @@
+/**
+ * Ebook Parser (Filesystem-based)
+ *
+ * This module reads ebook content from the local markdown file.
+ * Used for:
+ *   - PDF generation scripts
+ *   - Figure generation scripts
+ *   - Static builds (fallback)
+ *
+ * For the HTML ebook, use ebook-convex.ts which reads from Convex database.
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { transformFigureSpecs, hasPendingFigures as checkPendingFigures, getPendingFigures } from './ebook-figure-parser';

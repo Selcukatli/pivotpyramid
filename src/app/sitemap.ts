@@ -1,9 +1,9 @@
 import { MetadataRoute } from "next";
-import { getAllChapterSlugs } from "@/lib/ebook-parser";
+import { getAllChapterSlugs } from "@/lib/ebook-convex";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://pivotpyramid.com";
-  const chapterSlugs = getAllChapterSlugs();
+  const chapterSlugs = await getAllChapterSlugs();
 
   const ebookPages: MetadataRoute.Sitemap = chapterSlugs.map((slug) => ({
     url: `${baseUrl}/ebook/${slug}`,

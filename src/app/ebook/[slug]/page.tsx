@@ -1,5 +1,9 @@
 import { notFound } from 'next/navigation';
-import { getChapterBySlug, getAdjacentChapters, getAllChapterSlugs } from '@/lib/ebook-parser';
+import {
+  getChapterBySlug,
+  getAdjacentChapters,
+  getAllChapterSlugs,
+} from '@/lib/ebook-convex';
 import { MarkdownRenderer, ChapterNav } from '@/components/ebook';
 import { EbookAccessGate } from '@/components/ebook/EbookAccessGate';
 import type { Metadata } from 'next';
@@ -9,13 +13,13 @@ interface ChapterPageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllChapterSlugs();
+  const slugs = await getAllChapterSlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: ChapterPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const chapter = getChapterBySlug(slug);
+  const chapter = await getChapterBySlug(slug);
 
   if (!chapter) {
     return {
@@ -123,13 +127,13 @@ function getBreadcrumbJsonLd(slug: string, title: string) {
 
 export default async function ChapterPage({ params }: ChapterPageProps) {
   const { slug } = await params;
-  const chapter = getChapterBySlug(slug);
+  const chapter = await getChapterBySlug(slug);
 
   if (!chapter) {
     notFound();
   }
 
-  const { previous, next } = getAdjacentChapters(slug);
+  const { previous, next } = await getAdjacentChapters(slug);
 
   const title = chapter.type === 'chapter' && chapter.chapterNumber
     ? `Chapter ${chapter.chapterNumber}: ${chapter.title}`

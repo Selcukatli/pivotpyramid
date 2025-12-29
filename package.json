@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "copy-outreach-to-prod": "node scripts/copy-outreach-to-prod.mjs",
-    "ebook:generate-figures": "node scripts/generate-ebook-figures.mjs"
+    "ebook:generate-figures": "node scripts/generate-ebook-figures.mjs",
+    "ebook:migrate-figures": "node scripts/migrate-figures-to-convex.mjs",
+    "ebook:import-content": "node scripts/import-ebook-to-convex.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.5",

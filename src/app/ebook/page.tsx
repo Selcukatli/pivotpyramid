@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, ArrowRight, FileText, ImageIcon } from 'lucide-react';
-import { getGroupedTableOfContents, getTableOfContents } from '@/lib/ebook-parser';
+import { getGroupedTableOfContents, getTableOfContents } from '@/lib/ebook-convex';
 import { BookCoverVideo } from '@/components/ebook/BookCoverVideo';
 import { EbookCTAButtons } from '@/components/ebook/EbookCTAButtons';
 import type { Metadata } from 'next';
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
 };
 
 // Book structured data for Google
-function getBookJsonLd() {
-  const toc = getTableOfContents();
+async function getBookJsonLd() {
+  const toc = await getTableOfContents();
   const chapters = toc.filter(item => item.type === 'chapter');
 
   return {
@@ -106,9 +106,9 @@ const breadcrumbJsonLd = {
   ],
 };
 
-export default function EbookLandingPage() {
-  const groups = getGroupedTableOfContents();
-  const bookJsonLd = getBookJsonLd();
+export default async function EbookLandingPage() {
+  const groups = await getGroupedTableOfContents();
+  const bookJsonLd = await getBookJsonLd();
 
   // Get first chapter for the CTA
   const firstChapter = groups[0]?.items[0];

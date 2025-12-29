@@ -13,6 +13,26 @@ const startupProfileValidator = v.object({
   description: v.string(), // Freeform description of the startup
 });
 
+// Block types for ebook content (Notion-like)
+const ebookBlockTypeValidator = v.union(
+  v.literal("paragraph"),
+  v.literal("heading2"),
+  v.literal("heading3"),
+  v.literal("heading4"),
+  v.literal("blockquote"),
+  v.literal("list"),
+  v.literal("table"),
+  v.literal("figure"),
+  v.literal("code")
+);
+
+// Chapter types
+const ebookChapterTypeValidator = v.union(
+  v.literal("intro"),
+  v.literal("chapter"),
+  v.literal("appendix")
+);
+
 export default defineSchema({
   // Users (synced from Clerk)
   users: defineTable({
@@ -162,4 +182,94 @@ export default defineSchema({
     .index("by_tier", ["tier"])
     .index("by_sent", ["isSent"])
     .index("by_email", ["email"]),
+
+  // ===========================================
+  // EBOOK CONTENT MANAGEMENT
+  // Hierarchical structure: Draft → Parts → Chapters → Blocks
+  // ===========================================
+
+  // Ebook drafts (version control / branches)
+  ebookDrafts: defineTable({
+    name: v.string(), // "main", "v2-rewrite", etc.
+    description: v.optional(v.string()),
+    isPublished: v.boolean(), // Only one can be published at a time
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_published", ["isPublished"]),
+
+  // Parts (Part I, Part II, etc.)
+  ebookParts: defineTable({
+    draftId: v.id("ebookDrafts"),
+    title: v.string(), // "Part I: The Framework"
+    order: v.number(), // 0, 1, 2, 3, 4
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_draft", ["draftId"])
+    .index("by_draft_order", ["draftId", "order"]),
+
+  // Chapters
+  ebookChapters: defineTable({
+    draftId: v.id("ebookDrafts"),
+    partId: v.optional(v.id("ebookParts")), // null for intro sections (foreword, etc.)
+    slug: v.string(), // "chapter-1", "foreword", "appendix-a"
+    title: v.string(), // "The Pivot Pyramid Foundation"
+    type: ebookChapterTypeValidator,
+    chapterNumber: v.optional(v.number()), // 1-14 for chapters
+    order: v.number(), // Global order within draft
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_draft", ["draftId"])
+    .index("by_draft_slug", ["draftId", "slug"])
+    .index("by_part", ["partId"])
+    .index("by_draft_order", ["draftId", "order"]),
+
+  // Content blocks (Notion-like paragraphs/headings/etc.)
+  ebookBlocks: defineTable({
+    chapterId: v.id("ebookChapters"),
+    type: ebookBlockTypeValidator,
+    content: v.string(), // Markdown content
+
+    // For figures only
+    figureId: v.optional(v.id("ebookFigures")),
+
+    // For list blocks
+    listType: v.optional(v.union(v.literal("bullet"), v.literal("numbered"))),
+
+    order: v.number(), // Position within chapter
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_chapter", ["chapterId"])
+    .index("by_chapter_order", ["chapterId", "order"]),
+
+  // Figures (separate table for reusability and metadata)
+  ebookFigures: defineTable({
+    draftId: v.id("ebookDrafts"),
+
+    // Identity
+    figureId: v.string(), // "pivot-pyramid-foundation" (filename without extension)
+
+    // Storage
+    storageId: v.id("_storage"), // Convex storage reference
+
+    // Display
+    alt: v.string(), // Alt text for accessibility
+    caption: v.optional(v.string()), // Figure caption
+
+    // Generation metadata (from figure spec)
+    prompt: v.optional(v.string()), // Original generation prompt
+    enhancedPrompt: v.optional(v.string()), // LLM-enhanced prompt
+    style: v.optional(v.string()), // diagram, flowchart, matrix, etc.
+
+    // Dimensions
+    width: v.optional(v.number()),
+    height: v.optional(v.number()),
+
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_draft", ["draftId"])
+    .index("by_draft_figure_id", ["draftId", "figureId"]),
 });

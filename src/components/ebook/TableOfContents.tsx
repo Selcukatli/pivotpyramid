@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, BookOpen, Home } from 'lucide-react';
-import type { TableOfContentsItem } from '@/lib/ebook-parser';
+import type { TableOfContentsItem } from '@/lib/ebook-convex';
 
 interface TableOfContentsProps {
   groups: { part: string | null; items: TableOfContentsItem[] }[];
