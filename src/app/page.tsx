@@ -205,7 +205,7 @@ export default function PivotPyramidPage() {
         <div className="max-w-4xl mx-auto px-6 md:px-8">
           <div className="text-center mb-12">
             <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-700 mb-4">
-              Original Business Model Framework by Selçuk Atlı
+              A framework for startup experimentation by Selçuk Atlı
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-6">
               The Pivot Pyramid
