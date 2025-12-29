@@ -187,9 +187,9 @@ export const insertBlock = mutation({
         newOrder = afterBlock.order + 1;
       }
     } else {
-      // Insert at the beginning
-      const firstBlock = blocks[0];
-      newOrder = firstBlock ? firstBlock.order - 1 : 0;
+      // Insert at the end (append)
+      const lastBlock = blocks[blocks.length - 1];
+      newOrder = lastBlock ? lastBlock.order + 1 : 0;
     }
 
     return await ctx.db.insert("ebookBlocks", {
@@ -408,6 +408,50 @@ export const createFigure = mutation({
       createdAt: now,
       updatedAt: now,
     });
+  },
+});
+
+// Clear all chapters, parts, and blocks from a draft (for reimport)
+export const clearDraftContent = mutation({
+  args: {
+    draftId: v.id("ebookDrafts"),
+  },
+  handler: async (ctx, args) => {
+    // Get all chapters in draft
+    const chapters = await ctx.db
+      .query("ebookChapters")
+      .withIndex("by_draft_order", (q) => q.eq("draftId", args.draftId))
+      .collect();
+
+    // Delete all blocks for each chapter
+    for (const chapter of chapters) {
+      const blocks = await ctx.db
+        .query("ebookBlocks")
+        .withIndex("by_chapter_order", (q) => q.eq("chapterId", chapter._id))
+        .collect();
+
+      for (const block of blocks) {
+        await ctx.db.delete(block._id);
+      }
+
+      // Delete the chapter
+      await ctx.db.delete(chapter._id);
+    }
+
+    // Delete all parts
+    const parts = await ctx.db
+      .query("ebookParts")
+      .withIndex("by_draft_order", (q) => q.eq("draftId", args.draftId))
+      .collect();
+
+    for (const part of parts) {
+      await ctx.db.delete(part._id);
+    }
+
+    return {
+      chaptersDeleted: chapters.length,
+      partsDeleted: parts.length,
+    };
   },
 });
 

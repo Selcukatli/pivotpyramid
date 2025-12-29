@@ -441,10 +441,17 @@ async function main() {
   // Check if draft already has chapters
   const existingChapters = await client.query("ebook/queries:getChapters", { draftId });
   if (existingChapters.length > 0) {
-    console.log(`\n⚠️  Draft "${draftName}" already has ${existingChapters.length} chapters.`);
-    console.log("   Skipping import to avoid duplicates.");
-    console.log("   To reimport, create a new draft with --draft flag.");
-    process.exit(0);
+    const forceFlag = args.includes("--force");
+    if (!forceFlag) {
+      console.log(`\n⚠️  Draft "${draftName}" already has ${existingChapters.length} chapters.`);
+      console.log("   Skipping import to avoid duplicates.");
+      console.log("   To reimport, use --force flag to clear and reimport.");
+      process.exit(0);
+    }
+
+    console.log(`\n⚠️  Draft has ${existingChapters.length} chapters. Clearing with --force...`);
+    const result = await client.mutation("ebook/mutations:clearDraftContent", { draftId });
+    console.log(`   ✓ Cleared ${result.chaptersDeleted} chapters and ${result.partsDeleted} parts`);
   }
 
   // Get existing figures for linking
