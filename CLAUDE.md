@@ -181,63 +181,117 @@ The markdown references optimized figures: `./figures/optimized/filename.png`
 
 ### Generating Figures
 
-Figures are generated using **Fal AI's Recraft v3 (nano-banana-pro)** model via Convex actions, then stored in Convex storage.
+Figures are generated using **Fal AI's nano-banana-pro** model via Convex actions, with LLM-enhanced prompts for consistent styling.
 
-#### Generation Process
+#### Figure Spec Syntax
 
-1. **Use Fal Actions**: Generate images using the `fal-ai/recraft-v3` model (nano-banana-pro)
-2. **Store in Convex**: Upload generated images to Convex storage for persistence
-3. **Download for Ebook**: Export images from Convex storage to `ebook/figures/`
+Instead of manually generating and linking images, use the `figure` code fence syntax in the markdown. This embeds generation prompts directly in the document:
 
-#### Design Guidelines (IMPORTANT)
-
-All figures must follow these guidelines for consistency:
-
-1. **Flat, Front-Facing Perspective**
-   - Diagrams and charts must be presented **directly facing the screen**
-   - **NO 3D angles or isometric views** for informational graphics
-   - Text and labels should be horizontal and readable
-
-2. **Brand Alignment**
-   - Use the amber/orange color scheme (#f59e0b, #d97706, #ea580c)
-   - Consistent illustration style across all figures
-   - Professional, clean aesthetic matching the ebook design
-
-3. **Visual Consistency**
-   - Same illustration style for all figures (flat design with subtle shadows)
-   - Consistent use of the pyramid motif where relevant
-   - Unified color palette: amber/orange for primary, teal for accents, stone grays for neutrals
-
-#### Example Prompt Structure
-
+````markdown
+```figure
+id: my-diagram
+prompt: "A pyramid with 5 layers showing the startup foundation"
+alt: My Diagram Title
+style: diagram
+aspect_ratio: 4:3
+resolution: 2K
 ```
-Create a professional business diagram showing [concept].
+*Caption text in italics*
+````
 
-Style requirements:
-- Flat, 2D design viewed directly from the front (not at an angle)
-- Clean, minimal aesthetic with amber/orange (#f59e0b) as primary color
-- Professional business illustration style
-- Clear labels and text that are horizontal and readable
-- Light gray or white background
-- Subtle shadows for depth, but diagram should face the viewer directly
-```
+**Fields:**
+| Field | Required | Description |
+|-------|----------|-------------|
+| `id` | Yes | Unique identifier, used as filename |
+| `prompt` | Yes | Generation prompt for Fal AI |
+| `alt` | Yes | Alt text for accessibility |
+| `style` | No | Style preset (see below). Default: `diagram` |
+| `aspect_ratio` | No | Image ratio. Default: `4:3` |
+| `resolution` | No | `1K`, `2K`, or `4K`. Default: `2K` |
+| `src` | Auto | Added automatically after generation (locks the figure) |
 
-#### Adding New Figures
+#### Style Presets
 
-1. Generate figure using Fal AI with the design guidelines above
-2. Store in Convex storage
-3. Download and save to `ebook/figures/`
-4. Create optimized version in `ebook/figures/optimized/`:
+The generation script uses an LLM to enhance prompts with style-specific requirements for visual consistency:
+
+| Style | Description |
+|-------|-------------|
+| `diagram` | Technical diagrams, framework visualizations (like the Pivot Pyramid) |
+| `flowchart` | Process flows, decision trees |
+| `matrix` | Grids, comparison matrices |
+| `canvas` | Worksheets, planning templates |
+| `conceptual` | Abstract concept illustrations |
+
+All styles apply the ebook's visual identity:
+- **3D isometric perspective** with depth and polish
+- **Color palette**: Dark teal/navy (#1e3a5f), amber/gold (#f59e0b), muted teal-greens
+- **Glossy surfaces** with gradients and lighting effects
+- **Clean light gray backgrounds**
+- **Professional business illustration style**
+
+#### Generation Workflow
+
+1. **Add figure spec** to markdown (without `src` field)
+2. **Run generation script**:
    ```bash
-   cd ebook/figures
-   magick "new-figure.png" -resize 1200x1200\> -quality 85 "optimized/new-figure.png"
+   npm run ebook:generate-figures
    ```
-5. Reference in markdown:
-   ```markdown
-   ![Figure Title](./figures/optimized/figure-name.png)
+3. **Script automatically**:
+   - Finds all figures without `src` paths
+   - Enhances prompts using LLM + style presets
+   - Generates images via Fal AI (in parallel)
+   - Downloads to `ebook/figures/optimized/`
+   - Copies to `public/ebook/figures/`
+   - Updates markdown with `src` path
 
-   *Caption text in italics*
+#### Regenerating Figures
+
+```bash
+# Regenerate only figures without src paths
+npm run ebook:generate-figures
+
+# Force regenerate ALL figures (even those with src)
+npm run ebook:generate-figures -- --force
+```
+
+To regenerate a single figure:
+1. Delete the `src:` line from its figure spec
+2. Run `npm run ebook:generate-figures`
+
+#### How Locking Works
+
+- **Without `src`**: Figure is pending generation
+- **With `src`**: Figure is "locked" - won't be regenerated unless `--force` is used
+- The `prompt` is always preserved for documentation, even after generation
+
+#### Key Files
+
+| File | Purpose |
+|------|---------|
+| `scripts/generate-ebook-figures.mjs` | CLI script for figure generation |
+| `src/lib/ebook-figure-parser.ts` | Parses figure specs from markdown |
+| `src/lib/ebook-parser.ts` | Transforms figure specs to standard images |
+| `convex/lib/fal/actions/generateEbookFigure.ts` | Convex action with LLM enhancement |
+
+#### Adding New Figures (Simplified)
+
+1. Add figure spec to markdown:
+   ````markdown
+   ```figure
+   id: new-concept-diagram
+   prompt: "Visual representation of the concept"
+   alt: New Concept Diagram
+   style: diagram
    ```
+   *Figure caption*
+   ````
+
+2. Generate:
+   ```bash
+   npm run ebook:generate-figures
+   ```
+
+3. Done! The `src` path is automatically added and the figure is ready.
 
 ### Markdown Structure
 
@@ -372,6 +426,9 @@ Set `NEXT_PUBLIC_CONVEX_URL` in Vercel environment variables.
 | `src/app/ebook/page.tsx` | HTML ebook landing page |
 | `src/app/ebook/[slug]/page.tsx` | Dynamic chapter pages |
 | `src/lib/ebook-parser.ts` | Ebook markdown parser |
+| `src/lib/ebook-figure-parser.ts` | Figure spec parser |
+| `scripts/generate-ebook-figures.mjs` | Figure generation CLI script |
+| `convex/lib/fal/actions/generateEbookFigure.ts` | Fal AI figure generation action |
 | `convex/canvases.ts` | Canvas CRUD + AI generation |
 | `convex/canvasStream.ts` | AI streaming for chat |
 | `src/lib/pivot-pyramid-data.ts` | Layer definitions and prompts |

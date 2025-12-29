@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { transformFigureSpecs, hasPendingFigures as checkPendingFigures, getPendingFigures } from './ebook-figure-parser';
 
 export interface Chapter {
   slug: string;
@@ -95,8 +96,39 @@ function stripPartHeaders(content: string): string {
 export function getEbookContent(): string {
   const ebookPath = path.join(process.cwd(), 'ebook', 'pivot-pyramid-ebook.md');
   const content = fs.readFileSync(ebookPath, 'utf-8');
-  return transformFigurePaths(content);
+  // First transform figure specs to standard markdown, then transform paths
+  const withFigures = transformFigureSpecs(content);
+  return transformFigurePaths(withFigures);
 }
+
+/**
+ * Get raw ebook content without any transformations
+ * Used by the generation script to find pending figures
+ */
+export function getRawEbookContent(): string {
+  const ebookPath = path.join(process.cwd(), 'ebook', 'pivot-pyramid-ebook.md');
+  return fs.readFileSync(ebookPath, 'utf-8');
+}
+
+/**
+ * Get the path to the ebook file
+ */
+export function getEbookPath(): string {
+  return path.join(process.cwd(), 'ebook', 'pivot-pyramid-ebook.md');
+}
+
+/**
+ * Check if the ebook has any figures pending generation
+ */
+export function hasPendingFigures(): boolean {
+  const content = getRawEbookContent();
+  return checkPendingFigures(content);
+}
+
+/**
+ * Re-export getPendingFigures for use in generation script
+ */
+export { getPendingFigures } from './ebook-figure-parser';
 
 export function parseChapters(): Chapter[] {
   const content = getEbookContent();

@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "copy-outreach-to-prod": "node scripts/copy-outreach-to-prod.mjs"
+    "copy-outreach-to-prod": "node scripts/copy-outreach-to-prod.mjs",
+    "ebook:generate-figures": "node scripts/generate-ebook-figures.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.5",
