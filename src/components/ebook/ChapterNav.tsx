@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import type { TableOfContentsItem } from '@/lib/ebook-parser';
+import type { TableOfContentsItem } from '@/lib/ebook-convex';
 
 interface ChapterNavProps {
   previous: TableOfContentsItem | null;

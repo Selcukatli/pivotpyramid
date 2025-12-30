@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, BookOpen, Home } from 'lucide-react';
-import type { TableOfContentsItem } from '@/lib/ebook-parser';
+import type { TableOfContentsItem } from '@/lib/ebook-convex';
 
 interface TableOfContentsProps {
   groups: { part: string | null; items: TableOfContentsItem[] }[];
@@ -12,8 +12,16 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ groups, onItemClick }: TableOfContentsProps) {
   const pathname = usePathname();
-  const currentSlug = pathname.split('/').pop();
+  const isEditMode = pathname.endsWith('/edit');
+  // Extract current slug - if in edit mode, get the slug before '/edit'
+  const pathParts = pathname.split('/');
+  const currentSlug = isEditMode ? pathParts[pathParts.length - 2] : pathParts[pathParts.length - 1];
   const isWelcomePage = pathname === '/ebook';
+
+  // Generate href based on edit mode
+  const getHref = (slug: string) => {
+    return isEditMode ? `/ebook/${slug}/edit` : `/ebook/${slug}`;
+  };
 
   return (
     <nav className="space-y-6">
@@ -57,7 +65,7 @@ export function TableOfContents({ groups, onItemClick }: TableOfContentsProps) {
             return (
               <Link
                 key={item.slug}
-                href={`/ebook/${item.slug}`}
+                href={getHref(item.slug)}
                 onClick={onItemClick}
                 className={`
                   flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors

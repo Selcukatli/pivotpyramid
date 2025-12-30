@@ -6,7 +6,7 @@ import { Menu, X, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TableOfContents } from './TableOfContents';
 import { ReadingProgress } from './ReadingProgress';
-import type { TableOfContentsItem } from '@/lib/ebook-parser';
+import type { TableOfContentsItem } from '@/lib/ebook-convex';
 
 interface EbookSidebarProps {
   groups: { part: string | null; items: TableOfContentsItem[] }[];

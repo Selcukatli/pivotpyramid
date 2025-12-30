@@ -5558,3 +5558,23 @@ And to you, the reader: Thank you for investing your time in this framework. I h
 
 *All rights reserved.*
 
+---
+
+<!-- TEST SECTION: Remove after testing figure generation -->
+
+## Test Figure Generation
+
+This section tests the new figure spec syntax for automatic image generation.
+
+```figure
+id: test-pyramid-diagram
+prompt: "A pyramid with 5 horizontal layers labeled from bottom to top: Customers, Problem, Solution, Technology, Growth"
+alt: Test Pivot Pyramid Diagram
+style: diagram
+aspect_ratio: 4:3
+resolution: 2K
+src: ./figures/optimized/test-pyramid-diagram.png
+```
+*A test figure showing the Pivot Pyramid layers.*
+
+<!-- END TEST SECTION -->
