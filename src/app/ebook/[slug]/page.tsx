@@ -4,7 +4,7 @@ import {
   getAdjacentChapters,
   getAllChapterSlugs,
 } from '@/lib/ebook-convex';
-import { MarkdownRenderer, ChapterNav } from '@/components/ebook';
+import { MarkdownRenderer, ChapterNav, EditButton } from '@/components/ebook';
 import { EbookAccessGate } from '@/components/ebook/EbookAccessGate';
 import type { Metadata } from 'next';
 
@@ -169,6 +169,9 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           {/* Navigation */}
           <ChapterNav previous={previous} next={next} />
         </article>
+
+        {/* Edit button for authorized users */}
+        <EditButton slug={slug} />
       </EbookAccessGate>
     </>
   );

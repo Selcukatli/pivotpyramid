@@ -478,3 +478,101 @@ export const storeFigureFromUpload = internalMutation({
     });
   },
 });
+
+// ===========================================
+// UPLOAD MUTATIONS (for figure uploads)
+// ===========================================
+
+// Generate an upload URL for client-side file upload
+export const generateUploadUrl = mutation({
+  args: {},
+  returns: v.string(),
+  handler: async (ctx) => {
+    return await ctx.storage.generateUploadUrl();
+  },
+});
+
+// Create or update a figure after uploading an image
+export const createFigureFromUpload = mutation({
+  args: {
+    draftId: v.id("ebookDrafts"),
+    storageId: v.id("_storage"),
+    alt: v.string(),
+    caption: v.optional(v.string()),
+  },
+  returns: v.id("ebookFigures"),
+  handler: async (ctx, args) => {
+    const now = Date.now();
+    // Generate a unique figure ID
+    const figureId = `figure-${now}-${Math.random().toString(36).slice(2, 8)}`;
+    return await ctx.db.insert("ebookFigures", {
+      draftId: args.draftId,
+      figureId,
+      storageId: args.storageId,
+      alt: args.alt,
+      caption: args.caption,
+      createdAt: now,
+      updatedAt: now,
+    });
+  },
+});
+
+// Update figure metadata (alt text, caption, prompt, style, etc.)
+export const updateFigure = mutation({
+  args: {
+    figureId: v.id("ebookFigures"),
+    alt: v.optional(v.string()),
+    caption: v.optional(v.string()),
+    prompt: v.optional(v.string()),
+    enhancedPrompt: v.optional(v.string()),
+    style: v.optional(v.string()),
+    width: v.optional(v.number()),
+    height: v.optional(v.number()),
+  },
+  handler: async (ctx, args) => {
+    const updates: Record<string, unknown> = { updatedAt: Date.now() };
+    if (args.alt !== undefined) updates.alt = args.alt;
+    if (args.caption !== undefined) updates.caption = args.caption;
+    if (args.prompt !== undefined) updates.prompt = args.prompt;
+    if (args.enhancedPrompt !== undefined) updates.enhancedPrompt = args.enhancedPrompt;
+    if (args.style !== undefined) updates.style = args.style;
+    if (args.width !== undefined) updates.width = args.width;
+    if (args.height !== undefined) updates.height = args.height;
+    await ctx.db.patch(args.figureId, updates);
+  },
+});
+
+// Replace a figure's image (delete old storage, link new one)
+export const replaceFigureImage = mutation({
+  args: {
+    figureId: v.id("ebookFigures"),
+    newStorageId: v.id("_storage"),
+  },
+  handler: async (ctx, args) => {
+    const figure = await ctx.db.get(args.figureId);
+    if (!figure) throw new Error("Figure not found");
+
+    // Delete old storage file
+    await ctx.storage.delete(figure.storageId);
+
+    // Update with new storage ID
+    await ctx.db.patch(args.figureId, {
+      storageId: args.newStorageId,
+      updatedAt: Date.now(),
+    });
+  },
+});
+
+// Link a figure to a block
+export const linkFigureToBlock = mutation({
+  args: {
+    blockId: v.id("ebookBlocks"),
+    figureId: v.id("ebookFigures"),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.blockId, {
+      figureId: args.figureId,
+      updatedAt: Date.now(),
+    });
+  },
+});

@@ -193,9 +193,12 @@ export default defineSchema({
     name: v.string(), // "main", "v2-rewrite", etc.
     description: v.optional(v.string()),
     isPublished: v.boolean(), // Only one can be published at a time
+    createdById: v.optional(v.id("users")), // Owner of the draft
     createdAt: v.number(),
     updatedAt: v.number(),
-  }).index("by_published", ["isPublished"]),
+  })
+    .index("by_published", ["isPublished"])
+    .index("by_creator", ["createdById"]),
 
   // Parts (Part I, Part II, etc.)
   ebookParts: defineTable({

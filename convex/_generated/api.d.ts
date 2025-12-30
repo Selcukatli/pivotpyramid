@@ -13,6 +13,7 @@ import type * as canvasMessages from "../canvasMessages.js";
 import type * as canvasStream from "../canvasStream.js";
 import type * as canvases from "../canvases.js";
 import type * as ebook_actions from "../ebook/actions.js";
+import type * as ebook_auth from "../ebook/auth.js";
 import type * as ebook_mutations from "../ebook/mutations.js";
 import type * as ebook_queries from "../ebook/queries.js";
 import type * as ebookAccess from "../ebookAccess.js";
@@ -64,6 +65,7 @@ declare const fullApi: ApiFromModules<{
   canvasStream: typeof canvasStream;
   canvases: typeof canvases;
   "ebook/actions": typeof ebook_actions;
+  "ebook/auth": typeof ebook_auth;
   "ebook/mutations": typeof ebook_mutations;
   "ebook/queries": typeof ebook_queries;
   ebookAccess: typeof ebookAccess;

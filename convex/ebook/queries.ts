@@ -1,5 +1,6 @@
 import { query } from "../_generated/server";
 import { v } from "convex/values";
+import { checkEbookEditAccess } from "./auth";
 
 /**
  * Ebook Content Queries
@@ -21,6 +22,7 @@ export const getPublishedDraft = query({
       name: v.string(),
       description: v.optional(v.string()),
       isPublished: v.boolean(),
+      createdById: v.optional(v.id("users")),
       createdAt: v.number(),
       updatedAt: v.number(),
     }),
@@ -33,6 +35,36 @@ export const getPublishedDraft = query({
       .collect();
 
     return drafts[0] ?? null;
+  },
+});
+
+// Check if current user can edit a specific draft
+export const canEditDraft = query({
+  args: {
+    draftId: v.id("ebookDrafts"),
+  },
+  returns: v.boolean(),
+  handler: async (ctx, args) => {
+    const result = await checkEbookEditAccess(ctx, args.draftId);
+    return result.canEdit;
+  },
+});
+
+// Check if current user can edit the published draft
+export const canEditPublishedDraft = query({
+  args: {},
+  returns: v.boolean(),
+  handler: async (ctx) => {
+    const drafts = await ctx.db
+      .query("ebookDrafts")
+      .withIndex("by_published", (q) => q.eq("isPublished", true))
+      .collect();
+
+    const draft = drafts[0];
+    if (!draft) return false;
+
+    const result = await checkEbookEditAccess(ctx, draft._id);
+    return result.canEdit;
   },
 });
 
