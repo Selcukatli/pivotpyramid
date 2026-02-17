@@ -9,7 +9,7 @@
 *By Selçuk Atlı*
 
 *Creator of the Pivot Pyramid Framework*
-*YC W14 · 500 Startups Venture Partner*
+*YC W14 · Fulbright Scholar · Endeavor Entrepreneur · 500 Startups Venture Partner*
 
 ---
 
@@ -22,6 +22,8 @@ Some would pivot their entire business when they just needed a new marketing cha
 The cost of getting this wrong was huge—wasted months, burned runway, demoralized teams.
 
 I created the Pivot Pyramid to give founders a simple mental model for these decisions. It was first published on the 500 Startups blog and has since been featured in VentureBeat, Founder Institute, and many other publications. The framework has been used by thousands of founders navigating the search for product-market fit.
+
+Since then, I've continued to live the framework. At Bunch, we pivoted multiple times—from a team-building tool to a social gaming platform that reached over 10 million players. Every pivot decision went through the same diagnostic process you'll learn in this book: identify the broken layer, assess the cascade impact, and execute with discipline.
 
 This book is the complete guide I wish I'd had during my own pivots—the frameworks, case studies, and practical tools that would have saved me years of trial and error.
 
@@ -99,13 +101,13 @@ Or consider the opposite scenario: A startup with solid traction among their ini
 
 **Case Study: The Over-Pivoter**
 
-Fab.com is perhaps the most spectacular example of over-pivoting in startup history. Jason Goldberg's company raised over $330 million and was valued at over $1 billion at its peak—then collapsed.
+Fab.com is perhaps the most spectacular example of over-pivoting in startup history. Jason Goldberg's company raised over $330 million and was reported to be valued at $1 billion at its peak—though the actual valuation was likely closer to $875 million—then collapsed.
 
 The company started as Fabulis, a gay social network. When that didn't gain traction, Goldberg pivoted to Fab.com, a flash-sales site for design products. This pivot actually worked—Fab grew rapidly and became a media darling.
 
 But then Goldberg kept pivoting. First, from flash sales to e-commerce marketplace. Then from marketplace to private-label products. Then to a focus on Europe. Each pivot meant new customers, new problems, new solutions, new operations. The company hemorrhaged cash and talent with each transformation.
 
-By 2015, Fab had burned through its massive funding, laid off most of its 700+ employees, and was eventually sold for parts. Several competitors who stayed focused on their original niches—like One Kings Lane and Gilt Groupe—achieved better outcomes with far less capital.
+By 2015, Fab had burned through its massive funding, laid off most of its 700+ employees, and was eventually sold for parts. Meanwhile, competitors who stayed focused on their original niches—like Etsy in handmade goods and Wayfair in home furnishings—built durable businesses by deepening their expertise rather than constantly reinventing themselves.
 
 Goldberg didn't fail because he pivoted. He failed because he pivoted *everything*, *repeatedly*, without understanding which layer of his business was actually broken. The first pivot (Fabulis to Fab) was a legitimate Customer pivot. The subsequent pivots were unnecessary thrashing that destroyed a working business.
 
@@ -127,13 +129,13 @@ Under-pivoting—making surface-level changes when the foundation is broken—is
 
 My own journey taught me these lessons the hard way.
 
-In 2012, I co-founded Socialwire, a product recommendation engine for online retailers. Our technology analyzed shopping behavior and suggested products customers were likely to buy.
+In 2011, I co-founded Socialwire, a product recommendation engine for online retailers. Our technology analyzed shopping behavior and suggested products customers were likely to buy.
 
 Sounds reasonable, right? The problem was that we were solving a real problem (product discovery) for customers who didn't value it enough to pay (mid-market e-commerce companies) using technology that worked but wasn't differentiated (collaborative filtering).
 
 We eventually pivoted—not to a new technology, but to a new solution: product advertising instead of product recommendations. Same customers. Same underlying problem. But a solution they would actually pay for.
 
-That pivot worked. We were acquired by Rakuten in 2014.
+That pivot worked. We were acquired by Rakuten in 2016.
 
 But the pivot only worked because we changed the right layer. If we'd pivoted to different customers, we would have abandoned our hard-won relationships. If we'd pivoted to different technology, we would have been in a race we couldn't win.
 
@@ -281,7 +283,7 @@ Always ask: "Why is this a problem?" at least three times. The root problem is u
 
 **The "Hair on Fire" Test**
 
-Investor Marc Andreessen popularized this metaphor: the best problems are like your customer's hair being on fire. They don't need to be convinced they have a problem. They're desperately searching for water.
+This metaphor is popular in venture capital circles: the best problems are like your customer's hair being on fire. They don't need to be convinced they have a problem. They're desperately searching for water.
 
 Signs of a "hair on fire" problem:
 
@@ -303,7 +305,7 @@ Signs of a "hair on fire" problem:
 
 > **Twitter** (originally Odeo) was solving the problem of "I want to discover and subscribe to podcasts." When Apple added podcasting to iTunes, that problem became much less acute. They pivoted to "I want to broadcast short thoughts in real-time." Same tech-savvy audience—completely different problem.
 
-> **Notion** started as a tool for developers to create documentation. When they pivoted to "teams need a unified workspace for notes, docs, and tasks," they found a much more urgent problem with broader appeal. The problem pivot expanded their market dramatically.
+> **Notion** started as a no-code tool builder for non-technical users. When they pivoted to "teams need a unified workspace for notes, docs, and tasks," they found a much more urgent problem with broader appeal. The problem pivot expanded their market dramatically.
 
 ---
 
@@ -652,7 +654,7 @@ Let me walk through how a pivot at one layer cascades through everything above i
 
 **The Restaurant Tech Pivot Pattern**
 
-During COVID-19, dozens of restaurant tech startups discovered the same insight that companies like **ChowNow** (raised $100M+), **Owner.com**, and **Toast** had understood earlier: restaurants' real problem wasn't digital menus—it was the 30% commission they paid to DoorDash and Uber Eats on every delivery order.
+During COVID-19, dozens of restaurant tech startups discovered the same insight that companies like **ChowNow** (raised over $60M), **Owner.com**, and **Toast** had understood earlier: restaurants' real problem wasn't digital menus—it was the 30% commission they paid to DoorDash and Uber Eats on every delivery order.
 
 Consider a typical restaurant tech startup's initial configuration:
 
@@ -1252,7 +1254,7 @@ This is a **Solution layer** issue, not a Growth layer issue.
 
 *Actual diagnosis:* Customer layer—targeting startups who don't have budget for premium tools. Startups in this market bootstrapped with spreadsheets until they hit significant revenue.
 
-*Real-world example:* **Superhuman** recognized this early. Rather than trying to convert everyone to a $30/month email client, they focused exclusively on high-volume email power users—executives, VCs, founders—who valued speed enough to pay a premium. **Intercom** made a similar discovery: they started as a messaging widget for blogs but found their real customers were SaaS companies who needed customer communication tools and had budget for them.
+*Real-world example:* **Superhuman** recognized this early. Rather than trying to convert everyone to a $30/month email client, they focused exclusively on high-volume email power users—executives, VCs, founders—who valued speed enough to pay a premium. **Intercom** made a similar discovery: they started as a simple in-app messaging widget but found their real customers were SaaS companies who needed customer communication tools and had budget for them.
 
 *Correct pivot:* Change target customer from "all startups" to a specific segment with budget and urgency.
 
@@ -1274,7 +1276,7 @@ This is a **Solution layer** issue, not a Growth layer issue.
 
 *Actual diagnosis:* Problem layer—the problem being solved wasn't urgent enough. Customers complained about it but wouldn't take action to fix it.
 
-*Real-world example:* **Loom** discovered that the problem wasn't "video calls are hard to schedule" (nice-to-have) but "I need to explain something asynchronously right now" (must-have). **Calendly** succeeded not because meetings were hard to manage (too broad) but because scheduling back-and-forth was immediately painful for anyone who scheduled external meetings. The problem framing made all the difference.
+*Real-world example:* **Loom** discovered that the problem wasn't usability testing (their original product, Opentest) but "I need to explain something asynchronously right now" (must-have). **Calendly** succeeded not because meetings were hard to manage (too broad) but because scheduling back-and-forth was immediately painful for anyone who scheduled external meetings. The problem framing made all the difference.
 
 *Correct pivot:* Reframe from a broad "nice-to-have" problem to a specific "must-have" problem with immediate urgency.
 
@@ -1537,9 +1539,9 @@ It took years, but Airbnb eventually hit product-market fit. If they'd pivoted i
 
 ---
 
-**Mailchimp: Nine Years as a Side Project**
+**Mailchimp: From Side Project to $12 Billion**
 
-Mailchimp was founded in 2001 as a side project. For nine years, it grew slowly, serving small businesses with simple email marketing.
+Mailchimp was founded in 2001 as a side project of a web design agency. For six years, the founders ran it alongside their agency before going full-time on Mailchimp in 2007. Even then, it grew slowly, serving small businesses with simple email marketing.
 
 During that period, the founders could have pivoted many times:
 - To enterprise (bigger contracts)
@@ -1560,11 +1562,11 @@ Notion nearly died multiple times. In 2015-2016, they had a skeleton crew and al
 
 Many advisors suggested they pivot—maybe to a different market, or a different product category entirely.
 
-Instead, the team went to Japan (lower cost of living), rebuilt the product from scratch, and re-launched with the same fundamental hypothesis: people need flexible, all-in-one workspace tools.
+Instead, the team went to Japan (lower cost of living), rebuilt the product from scratch, and re-launched with an evolved hypothesis: instead of a no-code app builder, they focused on flexible, all-in-one workspace tools.
 
 The second launch found traction. By sticking with their core hypothesis and improving execution, Notion became one of the most beloved productivity tools.
 
-**Lesson:** The customer, problem, and solution layers were fundamentally sound. What needed to change was technology (rebuilt product) and execution quality—not the strategy.
+**Lesson:** The customer layer (knowledge workers and teams) was sound, but the solution needed to evolve from "build your own tools" to "flexible pre-built workspace." The technology rebuild enabled this new solution to work reliably—a case where a solution pivot plus a technology pivot unlocked the company's potential.
 
 ---
 
@@ -2544,9 +2546,9 @@ Growth: May need adjustment if value prop changes significantly
 
 ---
 
-### Case Study: YouTube's Solution Pivot
+### Case Study: YouTube's Multi-Layer Pivot
 
-YouTube started as a video dating site where people would upload videos introducing themselves and looking for dates. When that didn't work, they pivoted to general video sharing while keeping the same technology.
+YouTube started as a video dating site where people would upload videos introducing themselves and looking for dates. When that didn't work, they pivoted to general video sharing while keeping the same technology. Though the solution change was the catalyst, this pivot ultimately touched four of five layers—making it a true multi-layer pivot.
 
 **The Pivot:**
 
@@ -3034,7 +3036,7 @@ Dropbox famously pivoted from paid advertising to viral referral growth—one of
 
 - **New Channel**: Referral program (free space for referrals)
 - **Mechanics**: Give space, get space (both parties benefit)
-- **Result**: 60% of all signups came from referrals; signups increased 60%
+- **Result**: 35% of daily signups came from referrals; overall signups increased 60%
 
 **Why It Worked:**
 
@@ -3431,7 +3433,7 @@ Example: You pivot your Customer (from consumers to businesses), which requires 
 
 Your fundamental hypothesis was so wrong that nearly everything needs to change.
 
-Example: Slack's pivot from gaming (Glitch) to enterprise messaging required changing Customers, Problem, Solution, and Growth—nearly a complete company rebuild.
+Example: Slack's pivot from gaming (Glitch) to workplace messaging required changing Customers, Problem, Solution, and Growth—nearly a complete company rebuild.
 
 **Scenario 3: The Market Shift**
 
@@ -3542,8 +3544,8 @@ Twitter (originally Odeo) represents a classic multi-layer pivot:
 **Before (Odeo):**
 - Customers: Podcast listeners
 - Problem: Discovering podcasts
-- Solution: Podcast directory
-- Technology: Audio indexing
+- Solution: Podcast platform
+- Technology: Audio recording and RSS syndication
 - Growth: Consumer marketing
 
 **After (Twitter):**
@@ -3755,18 +3757,18 @@ This isn't failure—it's iteration. Each pivot teaches you something that makes
 
 Studying companies that pivoted multiple times reveals common patterns:
 
-**Pattern 1: The Narrowing Funnel**
+**Pattern 1: The Expanding Wedge**
 
-Start broad, narrow with each pivot:
+Start narrow, expand with each pivot:
 
-Broad Target → Narrower Target → Specific Niche → Expand from niche
+Specific Niche → Broader Target → Even Broader → Mass Market
 
 Example:
-- V1: "Social networking for everyone"
-- V2: "Social networking for college students"
-- V3: "Social networking for Ivy League students"
-- V4: "Social networking for Harvard"
-- Success → Then expand outward
+- V1: "Social networking for Harvard"
+- V2: "Social networking for Ivy League students"
+- V3: "Social networking for college students"
+- V4: "Social networking for everyone"
+- Success at each stage → Then expand outward
 
 **Pattern 2: The Customer Hop**
 
@@ -4020,7 +4022,7 @@ Some founders thrive on serial pivoting. Others find it depleting. Know yourself
 **Chapter 12 Key Takeaways:**
 
 - Serial pivoting is normal—most successful companies pivoted multiple times
-- Common patterns include narrowing funnel, customer hop, problem adjacency, and technology transfer
+- Common patterns include expanding wedge, customer hop, problem adjacency, technology transfer, and retreat and advance
 - Pivot velocity should match signal strength—neither too fast nor too slow
 - Know when to stop pivoting: product-market fit, runway constraints, hypothesis exhaustion, or team fatigue
 - Capture learnings from every pivot through structured retrospectives
@@ -5059,7 +5061,7 @@ A collection of notable pivots organized by type.
 | Company | From | To | Outcome |
 |---------|------|-----|---------|
 | YouTube | Video dating | Video sharing | $1.65B acquisition |
-| Twitter | Podcast directory | Microblogging | IPO |
+| Twitter | Podcast platform | Microblogging | IPO |
 | Burbn/Instagram | Feature-rich app | Simple photo app | $1B acquisition |
 | Nintendo | Playing cards | Video games | Gaming giant |
 | Nokia | Paper mill | Mobile phones | (then failed to pivot again) |
@@ -5073,7 +5075,7 @@ A collection of notable pivots organized by type.
 | Netflix | DVD mail | Streaming | $150B+ market cap |
 | Adobe | Perpetual licenses | SaaS subscriptions | $200B+ market cap |
 | Microsoft | On-premise | Cloud (Azure) | $2T+ market cap |
-| Salesforce | Perpetual software | Cloud CRM | $200B+ market cap |
+| Oracle | On-premise databases | Cloud infrastructure | $300B+ market cap |
 | IBM | Hardware | Services + Cloud | Survived decline |
 
 ---
@@ -5084,8 +5086,8 @@ A collection of notable pivots organized by type.
 |---------|------|-----|---------|
 | Dropbox | Paid ads ($233+ CAC) | Referral program | Multi-billion valuation |
 | Hotmail | Traditional marketing | Viral signature | Acquired by Microsoft |
-| LinkedIn | Direct sales | Network effects | $26B acquisition |
-| Zoom | Enterprise sales | Freemium + viral | $100B+ market cap |
+| LinkedIn | Direct sales | Network effects | $26.2B acquisition |
+| HubSpot | Inbound marketing blog | Freemium CRM + platform | $30B+ market cap |
 | Calendly | Sales-led | Product-led | $3B+ valuation |
 
 ---
@@ -5216,21 +5218,15 @@ The gap between early adopters and mainstream markets.
 
 ## About the Author
 
-**Selçuk Atlı** is a serial entrepreneur, investor, and startup advisor with over 15 years of experience building and scaling technology companies.
+**Selçuk Atlı** is a serial entrepreneur, investor, and startup advisor who has raised over $50 million in venture capital across four companies, completed three successful exits, and been granted five U.S. patents—cited by Google, Meta, Salesforce, Nike, and ByteDance, among others.
 
-As a Y Combinator alum (W14) and Venture Partner at 500 Startups, Selçuk has been on both sides of the startup journey—building companies and helping others do the same. He has seen hundreds of pivots, successful and unsuccessful, and developed the Pivot Pyramid framework to codify the patterns that separate the two.
+Selçuk is the co-founder and CEO of **Bunch**, a social gaming platform that has attracted over 10 million players and raised $28 million from investors including General Catalyst and Electronic Arts. Before Bunch, he founded **Manifest** (acquired by Rakuten), a product advertising platform for online retailers, and co-founded **Boostable** (acquired by Metric Collective), a Y Combinator–backed adtech platform. He also co-founded **Nomadic Mentors** (acquired by The Family), a nonprofit connecting startup mentors to emerging technology ecosystems.
 
-His experience includes:
-
-- **Founder experience**: Built and pivoted multiple venture-backed companies
-- **Investor perspective**: Evaluated thousands of startups, advised hundreds
-- **Pattern recognition**: Studied successful pivots across industries and stages
-- **Teaching**: Shared frameworks with entrepreneurs globally
-
-The Pivot Pyramid framework emerged from this experience—a practical tool for founders facing one of the most consequential decisions they'll make.
+As a **Y Combinator** alum (W14), **Fulbright Scholar**, **Endeavor Entrepreneur**, and **Venture Partner at 500 Startups**, Selçuk has been on both sides of the startup journey—building companies and helping others do the same. He has made over 30 angel investments and advised companies including MobileAction and GetStream. Having seen hundreds of pivots, successful and unsuccessful, he developed the Pivot Pyramid framework to codify the patterns that separate the two.
 
 **Connect with Selçuk:**
-- Website: selcukatli.com
+- Website: pivotpyramid.com
+- Personal: selcukatli.com
 - Twitter: @selcukatli
 - LinkedIn: linkedin.com/in/selcukatli
 
@@ -5314,8 +5310,8 @@ The case studies and examples in this book are drawn from publicly available sou
 ### Company Pivots and Acquisitions
 
 **Slack (Tiny Speck/Glitch to Enterprise Messaging)**
-- Salesforce acquired Slack for $27.7 billion in December 2020, announced July 2021
-- Slack originated from internal communication tools built during the development of Glitch (originally Tiny Speck), a gaming company
+- Salesforce announced the acquisition of Slack for $27.7 billion in December 2020, completed July 2021
+- Slack originated from internal communication tools built during the development of Glitch, a game by Tiny Speck
 - Sources: Salesforce Press Release (2021); TechCrunch; The Verge
 
 **Instagram (Burbn to Photo Sharing)**
@@ -5362,9 +5358,9 @@ The case studies and examples in this book are drawn from publicly available sou
 ### Growth and Marketing Case Studies
 
 **Dropbox (Referral Program)**
-- Dropbox's referral program offered 500MB free storage for referrals
+- Dropbox's referral program offered 250MB free storage per referral (later increased to 500MB)
 - Reduced customer acquisition cost from estimated $233-$388 to near-zero for referred users
-- Grew from 100,000 to 4 million users in 15 months (September 2008 - January 2010)
+- Grew from 100,000 to 4 million users in 15 months (September 2008 - December 2009)
 - Sources: Drew Houston (Y Combinator Startup School talks); Viral Loop Case Studies; Forbes
 
 **Hotmail (Viral Signature)**
@@ -5399,7 +5395,7 @@ The case studies and examples in this book are drawn from publicly available sou
 
 **Notion (Japan Rebuild)**
 - Nearly failed, rebuilt product in Japan with reduced team
-- Reached profitability without venture funding before raising Series A
+- Reached profitability after seed funding but before raising Series A
 - Sources: Ivan Zhao interviews (The Verge, Protocol); TechCrunch
 
 **Airbnb (2008-2009 Crisis)**
@@ -5413,14 +5409,14 @@ The case studies and examples in this book are drawn from publicly available sou
 
 **Quibi (Mobile-First Premium Content)**
 - Launched April 2020 with $1.75 billion in funding
-- Shut down October 2020 after failing to gain user traction
+- Announced shutdown October 2020 after failing to gain user traction
 - Lessons: Validated technology without validating problem urgency; COVID-19 timing eliminated mobile commute use case
 - Sources: The Wall Street Journal; Variety; The Verge
 
 **Kodak (Film to Digital)**
 - Invented digital camera technology in 1975 but failed to pivot business model
 - Filed for bankruptcy in 2012
-- Sources: Harvard Business Review; The New York Times; Vicki Barad-Rosenzweig interviews
+- Sources: Harvard Business Review; The New York Times
 
 **Fab.com (Over-Pivoting Failure)**
 - Founded as Fabulis (gay social network), pivoted to Fab.com (flash sales), then e-commerce
@@ -5434,7 +5430,7 @@ The case studies and examples in this book are drawn from publicly available sou
 
 **ChowNow (Commission-Free Ordering)**
 - Provides commission-free online ordering for restaurants
-- Raised over $100 million in funding
+- Raised over $90 million in funding
 - Serves over 20,000 restaurants
 - Sources: Crunchbase; Forbes; ChowNow Press Releases
 
@@ -5455,13 +5451,13 @@ The case studies and examples in this book are drawn from publicly available sou
 - Sources: First Round Review; Forbes; TechCrunch
 
 **Intercom (Customer Messaging)**
-- Started as messaging widget for blogs
+- Started as in-app messaging widget for web apps
 - Pivoted to focus on SaaS companies needing customer communication tools
 - Reached $1+ billion valuation
 - Sources: Intercom Blog; Forbes; TechCrunch
 
 **Loom (Async Video)**
-- Pivoted from video conferencing to asynchronous video messaging
+- Pivoted from usability testing (Opentest) to asynchronous video messaging
 - Found "must-have" problem in explaining things asynchronously
 - Acquired by Atlassian for $975 million in 2023
 - Sources: Atlassian Press Release; TechCrunch; The Verge
@@ -5513,7 +5509,7 @@ The case studies and examples in this book are drawn from publicly available sou
 
 **Lean Startup Methodology**
 - Eric Ries, "The Lean Startup" (2011)
-- Steve Blank, "The Four Steps to the Epiphany" (2005)
+- Steve Blank, "The Four Steps to the Epiphany" (2003)
 
 **Customer Development**
 - Steve Blank, "The Startup Owner's Manual" (2012)
