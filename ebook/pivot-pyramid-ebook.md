@@ -256,7 +256,7 @@ Many founders fall into one of two traps:
 
 > **Slack** began as a game company called Tiny Speck, building a multiplayer game called Glitch. The game never found an audience, but the internal communication tools they built for their distributed team turned out to be what people wanted. Complete customer pivot—from gamers to enterprise teams.
 
-> **Figma** initially targeted individual designers. When they pivoted to design teams at companies, their collaborative features went from "nice to have" to "essential." Same tool, but the customer pivot changed the value proposition entirely.
+> **Figma** was designed as a collaborative tool from the start, but initially gained traction with individual designers. Their growth pivot came when they shifted go-to-market to focus on design teams at companies, where collaborative features went from "nice to have" to "essential." Same tool, but the go-to-market pivot changed the value proposition entirely.
 
 ---
 
@@ -305,7 +305,7 @@ Signs of a "hair on fire" problem:
 
 > **Twitter** (originally Odeo) was solving the problem of "I want to discover and subscribe to podcasts." When Apple added podcasting to iTunes, that problem became much less acute. They pivoted to "I want to broadcast short thoughts in real-time." Same tech-savvy audience—completely different problem.
 
-> **Notion** started as a no-code tool builder for non-technical users. When they pivoted to "teams need a unified workspace for notes, docs, and tasks," they found a much more urgent problem with broader appeal. The problem pivot expanded their market dramatically.
+> **Notion** started as a no-code tool builder for non-technical users. When they pivoted to "teams need a unified workspace for notes, docs, and tasks," they found a much more urgent problem with broader appeal. The problem shift also required a new solution and a technology rebuild (explored in Chapter 6), but it started with recognizing a more compelling problem.
 
 ---
 
@@ -352,9 +352,9 @@ That dimension might be:
 
 > **Netflix** solved the problem of "I want entertainment at home without leaving the house" first with DVD-by-mail, then with streaming. Same customers (home entertainment seekers), same problem (convenience and selection), different solution. The technology evolved, but the solution pivot came first.
 
-> **Duolingo** started with a solution of crowdsourced translation—users would learn by translating real documents. When this proved too complex and unmotivating, they pivoted to gamified self-study. Same customers (language learners), same problem (accessible language education), fundamentally different solution.
+> **Duolingo** started with a business model built on crowdsourced translation—users would learn by translating real documents, generating revenue from the translations. When this model proved unsustainable, they dropped it and focused entirely on the gamified learning experience (which had been present from the start). Same customers (language learners), same problem (accessible language education), but a solution pivot that stripped away the translation layer.
 
-> **YouTube** was originally intended as a video dating site where people would upload videos describing themselves and what they were looking for. When that didn't take off, they opened the platform to any video. Same technology, same basic mechanics, but a solution pivot from "find a date" to "share any video."
+> **YouTube** was originally intended as a video dating site where people would upload videos describing themselves and what they were looking for. When that didn't take off, they opened the platform to any video. While the video technology stayed the same, nearly everything else changed—customers, problem, and solution—making this a multi-layer pivot explored further in Chapter 9. The solution shift from "video dating profiles" to "open video platform" was the catalyst.
 
 ---
 
@@ -440,7 +440,9 @@ Unlike lower layers, growth *should* change frequently. If you're not testing ne
 
 > **Dropbox** struggled with paid acquisition—CAC exceeded LTV for their freemium product. Their referral program pivot (give space, get space) transformed their growth economics without changing anything below Layer 5. Same product, same customers, dramatically different growth curve.
 
-> **LinkedIn** started with a professional sales motion but pivoted to network-effects-driven growth (connections, endorsements). The growth layer pivot enabled them to scale far beyond what direct sales could achieve.
+> **LinkedIn** was built around network effects from day one, but its early growth relied on Reid Hoffman's personal network and manual outreach. The growth pivot came when they introduced viral mechanisms—address book imports, connection suggestions, and later endorsements—that let the platform's network effects compound organically. The growth layer pivot enabled them to scale far beyond what manual seeding could achieve.
+
+> **Udemy** faced the classic marketplace cold-start problem: no instructors meant no students, and no students meant no instructors. To bootstrap supply, they seeded the platform with OpenCourseWare content and freely available educational videos—university lectures, conference talks, and public expert content—launching with over 100 free courses before they had real instructors. The product vision (an open course marketplace) never changed, but the growth tactic of borrowing existing content to create initial liquidity solved the chicken-and-egg problem long enough for organic supply to take over.
 
 ---
 
@@ -702,7 +704,7 @@ When startups pivoted from "menu updates" to "commission-free online ordering," 
 
 **The Outcome**
 
-Companies that made this pivot—like ChowNow, which serves over 20,000 restaurants—found that the new problem was urgent ("hair on fire"). Every order processed saved the restaurant real money. The commission-free ordering model powered companies to significant valuations: Toast went public at a $20B+ valuation, largely on the strength of solving this exact problem for restaurants.
+Companies that made this pivot—like ChowNow, which serves over 20,000 restaurants—found that the new problem was urgent ("hair on fire"). Every order processed saved the restaurant real money. The commission-free ordering model powered companies to significant valuations: Toast went public at a $20B+ valuation, building a comprehensive restaurant technology platform that includes POS, ordering, payments, and team management—with commission-free ordering as a key part of their value proposition.
 
 **The Lesson**
 
@@ -1298,7 +1300,7 @@ This is a **Solution layer** issue, not a Growth layer issue.
 
 *Actual diagnosis:* Solution layer—speed and reliability weren't the real problem. The real problem was that customers couldn't get value without significant configuration.
 
-*Real-world example:* **Segment** initially required substantial setup to get value from their analytics platform. They invested in infrastructure improvements, but the breakthrough came when they added pre-built integrations and templates. **Zapier** built their entire business on this insight: the technology of connecting APIs existed, but the solution of making those connections instant and configuration-free is what created value. **Airtable** did the same for databases.
+*Real-world example:* **Segment** started as a classroom feedback tool, then built an analytics product that required substantial setup. The breakthrough came when they open-sourced analytics.js—a single JavaScript library that routed data to multiple analytics services—which went viral on Hacker News. The product concept itself changed from "analytics platform" to "customer data pipeline." **Zapier** built their entire business on this insight: the technology of connecting APIs existed, but the solution of making those connections instant and configuration-free is what created value. **Airtable** did the same for databases.
 
 *Correct pivot:* Make the solution more turnkey. Add pre-built templates, integrations, and default configurations so customers can get value immediately.
 
@@ -2563,9 +2565,9 @@ YouTube started as a video dating site where people would upload videos introduc
 **What Made It Work:**
 
 1. **Technology foundation was sound**: The video infrastructure worked well
-2. **Observed user behavior**: People were uploading non-dating videos
+2. **Recognized total failure quickly**: After five days with zero uploads—even offering $20 bounties on Craigslist—the founders made a proactive decision to open the platform
 3. **Removed constraints**: Stopped requiring dating-specific content
-4. **Let users lead**: Allowed the platform to become what users wanted
+4. **Followed the opportunity**: Allowed the platform to become what users wanted once barriers were removed
 
 ---
 
@@ -2677,7 +2679,7 @@ Netflix's transition from DVD mailing to streaming represents one of the most su
 |-------|--------|-------|
 | Customers | Movie watchers (unchanged) | Movie watchers (unchanged) |
 | Problem | Access to movies (unchanged) | Access to movies (unchanged) |
-| Solution | Rental service (unchanged) | Rental service (unchanged) |
+| Solution | DVD rental service (subscription) | Instant streaming service (subscription) |
 | Technology | Physical DVDs + mail | Digital streaming |
 | Growth | Evolved to support streaming model | Recommendation engine + global |
 
@@ -5039,8 +5041,6 @@ A collection of notable pivots organized by type.
 | Slack | Gamers | Business teams | $27.7B acquisition |
 | Shopify | Snowboard buyers | Online merchants | $100B+ market cap |
 | Groupon | Social activism platform | Deal-of-the-day | IPO (later declined) |
-| PayPal | Palm Pilot payments | Email payments | $1.5B acquisition by eBay |
-| Starbucks | Coffee bean retail | Coffee experience | Global brand |
 
 ---
 
@@ -5053,6 +5053,7 @@ A collection of notable pivots organized by type.
 | Flickr | Online gaming | Photo sharing | Yahoo acquisition |
 | Yelp | Email recommendations | Business reviews | IPO |
 | Android | Camera OS | Mobile OS | Google acquisition |
+| Groupon | Social activism | Daily deals | IPO (later declined) |
 
 ---
 
@@ -5061,10 +5062,13 @@ A collection of notable pivots organized by type.
 | Company | From | To | Outcome |
 |---------|------|-----|---------|
 | YouTube | Video dating | Video sharing | $1.65B acquisition |
-| Twitter | Podcast platform | Microblogging | IPO |
 | Burbn/Instagram | Feature-rich app | Simple photo app | $1B acquisition |
+| PayPal | Palm Pilot payments | Email payments | $1.5B acquisition by eBay |
+| Starbucks | Coffee bean retail | Coffee experience | Global brand |
 | Nintendo | Playing cards | Video games | Gaming giant |
 | Nokia | Paper mill | Mobile phones | (then failed to pivot again) |
+
+> **Note:** Some pivots appear in multiple categories because they involved changes across several layers. Instagram appears in both Problem Pivots (the user need changed) and Solution Pivots (the product was rebuilt). Twitter/Odeo appears in Multi-Layer Pivots below, reflecting its full five-layer transformation.
 
 ---
 
@@ -5072,8 +5076,8 @@ A collection of notable pivots organized by type.
 
 | Company | From | To | Outcome |
 |---------|------|-----|---------|
-| Netflix | DVD mail | Streaming | $150B+ market cap |
-| Adobe | Perpetual licenses | SaaS subscriptions | $200B+ market cap |
+| Netflix | DVD mail | Streaming (Solution + Technology) | $150B+ market cap |
+| Adobe | Perpetual licenses | SaaS subscriptions (Business model) | $200B+ market cap |
 | Microsoft | On-premise | Cloud (Azure) | $2T+ market cap |
 | Oracle | On-premise databases | Cloud infrastructure | $300B+ market cap |
 | IBM | Hardware | Services + Cloud | Survived decline |
@@ -5086,9 +5090,10 @@ A collection of notable pivots organized by type.
 |---------|------|-----|---------|
 | Dropbox | Paid ads ($233+ CAC) | Referral program | Multi-billion valuation |
 | Hotmail | Traditional marketing | Viral signature | Acquired by Microsoft |
-| LinkedIn | Direct sales | Network effects | $26.2B acquisition |
+| LinkedIn | Manual seeding | Viral network effects | $26.2B acquisition |
 | HubSpot | Inbound marketing blog | Freemium CRM + platform | $30B+ market cap |
-| Calendly | Sales-led | Product-led | $3B+ valuation |
+| Calendly | Early-stage outreach | Product-led viral loop | $3B+ valuation |
+| Udemy | No supply (cold-start) | Seeded with free OpenCourseWare content | IPO |
 
 ---
 
