@@ -616,14 +616,15 @@ export default function PivotPyramidPage() {
                 AI-Powered Tool
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-stone-800">
-                Pivot Pyramid Plugin for Claude Code
+                Pivot Pyramid AI Skill
               </h2>
             </div>
           </div>
           <p className="text-stone-600 leading-relaxed mb-6 max-w-2xl">
-            Turn Claude into your startup pivot advisor. Describe your startup and the plugin runs a guided
+            Turn your AI coding agent into a startup pivot advisor. Describe your startup and it runs a guided
             diagnostic interview — mapping your layers, scoring each one, identifying what&apos;s broken, and
             recommending whether to persist, optimize, or pivot with the right playbook and case studies.
+            Works with Claude Code, Codex, Cursor, Windsurf, and more.
           </p>
           <div className="bg-stone-900 rounded-lg p-4 mb-6 max-w-lg">
             <code className="text-sm text-stone-300">
