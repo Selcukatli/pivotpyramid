@@ -21,9 +21,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# IDE
+# IDE / Local config
 .idea/
 .vscode/
+.obsidian/
+.claude/
 *.swp
 *.swo
 
@@ -49,6 +51,7 @@ coverage/
 
 # Script temp files
 scripts/.temp-export/
+ebook/figures/temp/
 pivot-pyramid-coach.zip
 
 # KDP manuscript binaries (too large for git)
