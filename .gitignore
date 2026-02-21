@@ -54,6 +54,7 @@ scripts/.temp-export/
 ebook/figures/temp/
 pivot-pyramid-coach.zip
 
-# KDP manuscript binaries (too large for git)
+# KDP manuscript binaries (regenerate from ebook markdown source)
 kdp/manuscript/*.epub
 kdp/manuscript/*.docx
+kdp/manuscript/*.pdf

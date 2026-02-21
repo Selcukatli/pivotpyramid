@@ -265,6 +265,58 @@ Content paragraphs...
 
 ---
 
+## KDP Manuscript Generation
+
+The KDP manuscript files (PDF, EPUB, DOCX) are generated from the same `ebook/pivot-pyramid-ebook.md` source. These are gitignored since they're large (40-50MB each) and fully regenerable.
+
+### Regenerating Manuscript Files
+
+Requires `pandoc` (install via `brew install pandoc`).
+
+```bash
+cd kdp/manuscript
+
+# EPUB (for KDP ebook upload)
+pandoc ../../ebook/pivot-pyramid-ebook.md -o pivot-pyramid.epub \
+  --metadata title="The Pivot Pyramid" \
+  --metadata author="Selçuk Atlı" \
+  --toc --toc-depth=2
+
+# DOCX (for KDP paperback interior)
+pandoc ../../ebook/pivot-pyramid-ebook.md -o pivot-pyramid.docx \
+  --metadata title="The Pivot Pyramid" \
+  --metadata author="Selçuk Atlı" \
+  --toc --toc-depth=2
+
+# Paperback PDF (via md-to-pdf with print styling)
+cd ../../ebook
+npx md-to-pdf pivot-pyramid-ebook.md \
+  --stylesheet ebook-styles.css \
+  --pdf-options '{"format": "Letter", "margin": {"top": "0.75in", "bottom": "0.75in", "left": "0.85in", "right": "0.85in"}}'
+cp pivot-pyramid-ebook.pdf ../kdp/manuscript/pivot-pyramid-paperback.pdf
+
+# Audiobook script (plain text extraction)
+pandoc ../../ebook/pivot-pyramid-ebook.md -t plain -o pivot-pyramid-audiobook-script.txt
+```
+
+### KDP File Structure
+
+```
+kdp/
+├── checklist.md                    # KDP publishing checklist
+├── covers/                         # Cover assets (committed)
+│   ├── front-cover-seedream.jpg
+│   ├── paperback-cover-full.png
+│   └── the-pivot-pyramid-cover.jpg
+└── manuscript/                     # Generated files (gitignored except .txt)
+    ├── pivot-pyramid.epub          # Gitignored - regenerate with pandoc
+    ├── pivot-pyramid.docx          # Gitignored - regenerate with pandoc
+    ├── pivot-pyramid-paperback.pdf # Gitignored - regenerate with md-to-pdf
+    └── pivot-pyramid-audiobook-script.txt  # Plain text, small enough to commit
+```
+
+---
+
 ## HTML Ebook
 
 The ebook is also available as an HTML version with individual chapter pages, optimized for web reading.

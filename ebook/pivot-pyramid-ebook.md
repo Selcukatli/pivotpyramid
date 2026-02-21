@@ -13,6 +13,22 @@
 
 ---
 
+## About the Author
+
+**Selçuk Atlı** is a serial entrepreneur, investor, and startup advisor who has raised over $50 million in venture capital across four companies, completed multiple successful exits, and been granted five U.S. patents.
+
+Selçuk is the co-founder and CEO of **Bunch**, a social gaming platform that has attracted over 10 million players and raised $28 million from investors including General Catalyst and Electronic Arts. Before Bunch, he founded **Manifest** (acquired by Rakuten), a product advertising platform for online retailers, and co-founded **Boostable** (acquired by Metric Collective), a Y Combinator–backed adtech platform. He also co-founded **Nomadic Mentors** (acquired by The Family), a nonprofit connecting startup mentors to emerging technology ecosystems.
+
+As a **Y Combinator** alum (W14), **Fulbright Scholar**, **Endeavor Entrepreneur**, and **Venture Partner at 500 Startups**, Selçuk has been on both sides of the startup journey—building companies and helping others do the same. He has made over 30 angel investments and advised companies including MobileAction and GetStream. Having seen hundreds of pivots, successful and unsuccessful, he developed the Pivot Pyramid framework to codify the patterns that separate the two.
+
+**Connect with Selçuk:**
+- Website: pivotpyramid.com
+- Personal: selcukatli.com
+- Twitter: @selcukatli
+- LinkedIn: linkedin.com/in/selcukatli
+
+---
+
 # Why I Wrote This Book
 
 In 2016, after my second startup exit, I joined 500 Startups as a Venture Partner. Having been through my own journey pivoting Socialwire from a product recommendation engine for online retailers to a product advertising platform, I recognized a familiar struggle in the founders I was working with: deciding *what* to change when things weren't working.
@@ -26,42 +42,6 @@ I created the Pivot Pyramid to give founders a simple mental model for these dec
 Since then, I've continued to live the framework. At Bunch, we pivoted multiple times—from a team-building tool to a social gaming platform that reached over 10 million players. Every pivot decision went through the same diagnostic process you'll learn in this book: identify the broken layer, assess the cascade impact, and execute with discipline.
 
 This book is the complete guide I wish I'd had during my own pivots—the frameworks, case studies, and practical tools that would have saved me years of trial and error.
-
----
-
-# Table of Contents
-
-### Part I: The Framework
-
-1. [Why Startups Fail at Pivoting](#chapter-1-why-startups-fail-at-pivoting)
-2. [The Five Layers Explained](#chapter-2-the-five-layers-explained)
-3. [The Cascade Principle](#chapter-3-the-cascade-principle)
-
-### Part II: Diagnosis
-
-4. [Identifying Your Current State](#chapter-4-identifying-your-current-state)
-5. [Finding the Broken Layer](#chapter-5-finding-the-broken-layer)
-6. [When NOT to Pivot](#chapter-6-when-not-to-pivot)
-
-### Part III: Execution
-
-7. [Planning Your Pivot](#chapter-7-planning-your-pivot)
-8. [Customer and Problem Pivots](#chapter-8-customer-and-problem-pivots)
-9. [Solution and Technology Pivots](#chapter-9-solution-and-technology-pivots)
-10. [Growth Pivots](#chapter-10-growth-pivots)
-
-### Part IV: Advanced Topics
-
-11. [The Multi-Track Trap](#chapter-11-the-multi-track-trap)
-12. [Pivoting with Investors](#chapter-12-pivoting-with-investors)
-13. [Building a Pivot-Ready Organization](#chapter-13-building-a-pivot-ready-organization)
-
-### Part V: Tools and Resources
-
-14. [The Pivot Pyramid Toolkit](#chapter-14-the-pivot-pyramid-toolkit)
-- [Appendix A: Complete Worksheet Collection](#appendix-a-complete-worksheet-collection)
-- [Appendix B: Extended Case Studies](#appendix-b-extended-case-studies)
-- [Appendix C: Recommended Reading](#appendix-c-recommended-reading)
 
 ---
 
@@ -252,11 +232,11 @@ Many founders fall into one of two traps:
 
 **Real-World Customer Pivots:**
 
-> **Shopify** started as Snowdevil, selling snowboards online. When they built internal tools to manage their store, they realized the bigger opportunity was selling those tools to other merchants. Same problem space (e-commerce), but pivoting from being a merchant to serving merchants. Everything else had to change.
+**Shopify** started as Snowdevil, selling snowboards online. When they built internal tools to manage their store, they realized the bigger opportunity was selling those tools to other merchants. Same problem space (e-commerce), but pivoting from being a merchant to serving merchants. Everything else had to change.
 
-> **Slack** began as a game company called Tiny Speck, building a multiplayer game called Glitch. The game never found an audience, but the internal communication tools they built for their distributed team turned out to be what people wanted. Complete customer pivot—from gamers to enterprise teams.
+**Slack** began as a game company called Tiny Speck, building a multiplayer game called Glitch. The game never found an audience, but the internal communication tools they built for their distributed team turned out to be what people wanted. Complete customer pivot—from gamers to enterprise teams.
 
-> **Figma** was designed as a collaborative tool from the start, but initially gained traction with individual designers. Their growth pivot came when they shifted go-to-market to focus on design teams at companies, where collaborative features went from "nice to have" to "essential." Same tool, but the go-to-market pivot changed the value proposition entirely.
+**Figma** was designed as a collaborative tool from the start, but initially gained traction with individual designers. Their growth pivot came when they shifted go-to-market to focus on design teams at companies, where collaborative features went from "nice to have" to "essential." Same tool, but the go-to-market pivot changed the value proposition entirely.
 
 ---
 
@@ -301,11 +281,11 @@ Signs of a "hair on fire" problem:
 
 **Real-World Problem Pivots:**
 
-> **Instagram** (originally Burbn) started solving the problem of "I want to share my location and plans with friends." When they noticed users cared most about sharing photos, they pivoted to "I want to share beautiful moments visually." Same young, social users—different problem.
+**Instagram** (originally Burbn) started solving the problem of "I want to share my location and plans with friends." When they noticed users cared most about sharing photos, they pivoted to "I want to share beautiful moments visually." Same young, social users—different problem.
 
-> **Twitter** (originally Odeo) was solving the problem of "I want to discover and subscribe to podcasts." When Apple added podcasting to iTunes, that problem became much less acute. They pivoted to "I want to broadcast short thoughts in real-time." Same tech-savvy audience—completely different problem.
+**Twitter** (originally Odeo) was solving the problem of "I want to discover and subscribe to podcasts." When Apple added podcasting to iTunes, that problem became much less acute. They pivoted to "I want to broadcast short thoughts in real-time." Same tech-savvy audience—completely different problem.
 
-> **Notion** started as a no-code tool builder for non-technical users. When they pivoted to "teams need a unified workspace for notes, docs, and tasks," they found a much more urgent problem with broader appeal. The problem shift also required a new solution and a technology rebuild (explored in Chapter 6), but it started with recognizing a more compelling problem.
+**Notion** started as a no-code tool builder for non-technical users. When they pivoted to "teams need a unified workspace for notes, docs, and tasks," they found a much more urgent problem with broader appeal. The problem shift also required a new solution and a technology rebuild (explored in Chapter 6), but it started with recognizing a more compelling problem.
 
 ---
 
@@ -350,11 +330,11 @@ That dimension might be:
 
 **Real-World Solution Pivots:**
 
-> **Netflix** solved the problem of "I want entertainment at home without leaving the house" first with DVD-by-mail, then with streaming. Same customers (home entertainment seekers), same problem (convenience and selection), different solution. The technology evolved, but the solution pivot came first.
+**Netflix** solved the problem of "I want entertainment at home without leaving the house" first with DVD-by-mail, then with streaming. Same customers (home entertainment seekers), same problem (convenience and selection), different solution. The technology evolved, but the solution pivot came first.
 
-> **Duolingo** started with a business model built on crowdsourced translation—users would learn by translating real documents, generating revenue from the translations. When this model proved unsustainable, they dropped it and focused entirely on the gamified learning experience (which had been present from the start). Same customers (language learners), same problem (accessible language education), but a solution pivot that stripped away the translation layer.
+**Duolingo** started with a business model built on crowdsourced translation—users would learn by translating real documents, generating revenue from the translations. When this model proved unsustainable, they dropped it and focused entirely on the gamified learning experience (which had been present from the start). Same customers (language learners), same problem (accessible language education), but a solution pivot that stripped away the translation layer.
 
-> **YouTube** was originally intended as a video dating site where people would upload videos describing themselves and what they were looking for. When that didn't take off, they opened the platform to any video. While the video technology stayed the same, nearly everything else changed—customers, problem, and solution—making this a multi-layer pivot explored further in Chapter 9. The solution shift from "video dating profiles" to "open video platform" was the catalyst.
+**YouTube** was originally intended as a video dating site where people would upload videos describing themselves and what they were looking for. When that didn't take off, they opened the platform to any video. While the video technology stayed the same, nearly everything else changed—customers, problem, and solution—making this a multi-layer pivot explored further in Chapter 9. The solution shift from "video dating profiles" to "open video platform" was the catalyst.
 
 ---
 
@@ -396,11 +376,11 @@ Signs you're in the technology trap:
 
 **Real-World Technology Pivots:**
 
-> **Facebook** rewrote their entire technology stack—from PHP to Hack and HHVM—to handle scale. Their users never noticed. Same customers, same problem, same solution. Technology pivots are often invisible to customers, which is why they're the easiest to execute.
+**Facebook** rewrote their entire technology stack—from PHP to Hack and HHVM—to handle scale. Their users never noticed. Same customers, same problem, same solution. Technology pivots are often invisible to customers, which is why they're the easiest to execute.
 
-> **Harvey AI** (legal AI) used GPT-3 initially but found it wasn't good enough for legal professionals. When GPT-4 arrived, they didn't change their customer, problem, or solution—they just upgraded the underlying technology. Suddenly, they could serve elite law firms. The technology pivot enabled market expansion.
+**Harvey AI** (legal AI) used GPT-3 initially but found it wasn't good enough for legal professionals. When GPT-4 arrived, they didn't change their customer, problem, or solution—they just upgraded the underlying technology. Suddenly, they could serve elite law firms. The technology pivot enabled market expansion.
 
-> **Stripe** began as a simple payment API but has fundamentally re-architected their technology multiple times to handle scale, compliance, and new payment methods. Each technology pivot expanded their capabilities without changing their core value proposition.
+**Stripe** began as a simple payment API but has fundamentally re-architected their technology multiple times to handle scale, compliance, and new payment methods. Each technology pivot expanded their capabilities without changing their core value proposition.
 
 ---
 
@@ -436,13 +416,13 @@ Unlike lower layers, growth *should* change frequently. If you're not testing ne
 
 **Real-World Growth Pivots:**
 
-> **Airbnb** famously hacked Craigslist early on, allowing hosts to cross-post listings. No product changes required—just a clever growth tactic. When Craigslist shut it down, they pivoted to other channels (SEO, referrals) without touching their product.
+**Airbnb** famously hacked Craigslist early on, allowing hosts to cross-post listings. No product changes required—just a clever growth tactic. When Craigslist shut it down, they pivoted to other channels (SEO, referrals) without touching their product.
 
-> **Dropbox** struggled with paid acquisition—CAC exceeded LTV for their freemium product. Their referral program pivot (give space, get space) transformed their growth economics without changing anything below Layer 5. Same product, same customers, dramatically different growth curve.
+**Dropbox** struggled with paid acquisition—CAC exceeded LTV for their freemium product. Their referral program pivot (give space, get space) transformed their growth economics without changing anything below Layer 5. Same product, same customers, dramatically different growth curve.
 
-> **LinkedIn** was built around network effects from day one, but its early growth relied on Reid Hoffman's personal network and manual outreach. The growth pivot came when they introduced viral mechanisms—address book imports, connection suggestions, and later endorsements—that let the platform's network effects compound organically. The growth layer pivot enabled them to scale far beyond what manual seeding could achieve.
+**LinkedIn** was built around network effects from day one, but its early growth relied on Reid Hoffman's personal network and manual outreach. The growth pivot came when they introduced viral mechanisms—address book imports, connection suggestions, and later endorsements—that let the platform's network effects compound organically. The growth layer pivot enabled them to scale far beyond what manual seeding could achieve.
 
-> **Udemy** faced the classic marketplace cold-start problem: no instructors meant no students, and no students meant no instructors. To bootstrap supply, they seeded the platform with OpenCourseWare content and freely available educational videos—university lectures, conference talks, and public expert content—launching with over 100 free courses before they had real instructors. The product vision (an open course marketplace) never changed, but the growth tactic of borrowing existing content to create initial liquidity solved the chicken-and-egg problem long enough for organic supply to take over.
+**Udemy** faced the classic marketplace cold-start problem: no instructors meant no students, and no students meant no instructors. To bootstrap supply, they seeded the platform with OpenCourseWare content and freely available educational videos—university lectures, conference talks, and public expert content—launching with over 100 free courses before they had real instructors. The product vision (an open course marketplace) never changed, but the growth tactic of borrowing existing content to create initial liquidity solved the chicken-and-egg problem long enough for organic supply to take over.
 
 ---
 
@@ -627,18 +607,10 @@ While pivoting, you're not improving what you have. This matters because:
 
 Here's the key strategic insight: **lower pivots have higher cost but higher potential impact, while upper pivots have lower cost but lower potential impact.**
 
-```
-                      Growth
-                     ↗︎ Low cost, low impact
-                   Technology
-                 ↗︎
-               Solution
-             ↗︎
-           Problem
-         ↗︎
-       Customers
-     ↗︎ High cost, high impact
-```
+
+![The inverse relationship between pivot cost and potential impact across the five layers.](./figures/optimized/over-under-pivot.png)
+
+*The inverse relationship between pivot cost and potential impact across the five layers.*
 
 This creates a clear strategic implication:
 
@@ -881,49 +853,45 @@ Be honest about which level of evidence supports each layer. Many founders treat
 
 Use this format to document each layer:
 
-```
-LAYER: [Name]
+**LAYER:** [Name]
 
-HYPOTHESIS: [One sentence]
+**HYPOTHESIS:** [One sentence]
 
-EVIDENCE LEVEL: [Assumed / Anecdotal / Pattern / Quantified / Validated]
+**EVIDENCE LEVEL:** [Assumed / Anecdotal / Pattern / Quantified / Validated]
 
-SUPPORTING EVIDENCE:
+**SUPPORTING EVIDENCE:**
 - [Specific evidence point 1]
 - [Specific evidence point 2]
 - [Specific evidence point 3]
 
-OPEN QUESTIONS:
+**OPEN QUESTIONS:**
 - [Question that could invalidate this hypothesis]
 - [Question that could strengthen this hypothesis]
 
-LAST VALIDATED: [Date]
-```
+**LAST VALIDATED:** [Date]
 
 **Example—Customer Layer:**
 
-```
-LAYER: Customers
+**LAYER:** Customers
 
-HYPOTHESIS: We are building for independent e-commerce stores on Shopify
+**HYPOTHESIS:** We are building for independent e-commerce stores on Shopify
 with $500K-$5M annual revenue, 1-5 employees, selling physical products
 in home goods or apparel.
 
-EVIDENCE LEVEL: Pattern
+**EVIDENCE LEVEL:** Pattern
 
-SUPPORTING EVIDENCE:
+**SUPPORTING EVIDENCE:**
 - 73% of our paying customers fit this profile (n=47)
 - Our highest NPS scores (50+) come from this segment
 - Customer interviews consistently reveal similar pain points
 - Churn is lowest (2% monthly) in this segment
 
-OPEN QUESTIONS:
+**OPEN QUESTIONS:**
 - Would this segment pay more for additional features?
 - Are there adjacent segments with similar needs?
 - Is this segment growing or shrinking?
 
-LAST VALIDATED: November 2024
-```
+**LAST VALIDATED:** November 2024
 
 ---
 
@@ -1476,24 +1444,22 @@ Why 90 days?
 
 **Example 90-day test plan:**
 
-```
-HYPOTHESIS: Content marketing can be a viable acquisition channel
+**HYPOTHESIS:** Content marketing can be a viable acquisition channel
 for our target customer (B2B SaaS companies with 20-100 employees).
 
-SUCCESS METRICS:
+**SUCCESS METRICS:**
 - 50+ qualified leads from organic content
 - 5+ demo requests from content-sourced leads
 - CAC from content < $500
 
-TEST REQUIREMENTS:
+**TEST REQUIREMENTS:**
 - Publish 12 articles (3 per month)
 - Promote each article via LinkedIn and email
 - Track attribution carefully
 - Don't change targeting or messaging mid-test
 
-COMMITMENT: We will run this test for 90 days before
+**COMMITMENT:** We will run this test for 90 days before
 concluding whether content marketing works for us.
-```
 
 ---
 
@@ -1697,15 +1663,14 @@ Let's walk through each.
 
 Document your current pyramid configuration explicitly. Use the format from Chapter 4:
 
-```
-CURRENT STATE
+
+**CURRENT STATE**
 
 Customers: [Specific description]
 Problem: [Specific description]
 Solution: [Specific description]
 Technology: [Specific description]
 Growth: [Specific description]
-```
 
 Be honest and specific. You can't navigate if you don't know your starting point.
 
@@ -1715,15 +1680,14 @@ Be honest and specific. You can't navigate if you don't know your starting point
 
 Now document your hypothesized new configuration. Be equally specific:
 
-```
-TARGET STATE
+
+**TARGET STATE**
 
 Customers: [New description or "No change"]
 Problem: [New description or "No change"]
 Solution: [New description or "No change"]
 Technology: [New description or "No change"]
 Growth: [New description or "No change"]
-```
 
 For each layer that's changing, articulate:
 - What specifically is different?
@@ -1736,8 +1700,8 @@ For each layer that's changing, articulate:
 
 Using the cascade principle from Chapter 3, identify everything that must change:
 
-```
-CASCADE ANALYSIS
+
+**CASCADE ANALYSIS**
 
 Primary pivot: [Layer being intentionally changed]
 
@@ -1748,11 +1712,9 @@ Required changes:
 
 What we're keeping:
 - [Layer]: [What stays the same and why]
-```
 
 **Example: Problem Pivot Cascade**
 
-```
 Primary pivot: Problem layer
 
 We're changing from:
@@ -1763,19 +1725,18 @@ To:
 Required changes:
 
 - Solution: Must shift from recommendation engine to
-  ad optimization platform. New features needed.
+ad optimization platform. New features needed.
 
 - Technology: Must integrate with ad platforms (Google, Meta).
-  Current ML models need retraining for ad optimization.
+Current ML models need retraining for ad optimization.
 
 - Growth: Messaging must change from "increase AOV" to
-  "reduce wasted ad spend." New proof points needed.
+"reduce wasted ad spend." New proof points needed.
 
 What we're keeping:
 
 - Customers: Still targeting Shopify stores with $500K-5M revenue.
-  We've validated this segment has the problem.
-```
+We've validated this segment has the problem.
 
 ---
 
@@ -1805,14 +1766,14 @@ These tell you if the pivot actually worked:
 
 Set specific thresholds in advance:
 
-```
-SUCCESS CRITERIA
+
+**SUCCESS CRITERIA**
 
 The pivot will be considered successful if, within 90 days:
 
 Leading indicators:
 - 80%+ of prospects in customer conversations respond
-  positively to new positioning
+positively to new positioning
 - Signup rate increases from 2% to 4%
 - Activation rate increases from 30% to 50%
 
@@ -1820,7 +1781,6 @@ Lagging indicators (measured at 90 days):
 - MRR increases from $15K to $30K
 - Monthly churn decreases from 8% to 5%
 - CAC decreases from $400 to $250
-```
 
 ---
 
@@ -1849,8 +1809,8 @@ For each cascade layer, assess:
 - Do we need to hire, retrain, or outsource?
 - What's the timeline to build missing capabilities?
 
-```
-CAPABILITY GAPS
+
+**CAPABILITY GAPS**
 
 Layer: Solution
 Gap: We need mobile app development expertise
@@ -1861,7 +1821,6 @@ Layer: Growth
 Gap: We need enterprise sales capabilities
 Options: Hire sales lead (2-4 months), Founder-led sales (immediate)
 Decision: Founder-led for first 10 deals, then hire
-```
 
 **Technology Debt Considerations**
 
@@ -1889,8 +1848,7 @@ Your team needs to understand:
 
 **Template for team announcement:**
 
-```
-PIVOT ANNOUNCEMENT: [Team Name]
+**PIVOT ANNOUNCEMENT:** [Team Name]
 
 What's changing:
 We're pivoting our [layer] from [old] to [new].
@@ -1913,7 +1871,6 @@ How we'll measure success:
 
 Questions?
 [Open discussion]
-```
 
 **External Communication**
 
@@ -1964,57 +1921,67 @@ Don't oversell the new direction. "This is our best hypothesis" is more credible
 
 Bring everything together into a single document:
 
-```
-PIVOT PLANNING DOCUMENT
+
+**PIVOT PLANNING DOCUMENT**
 
 Date: [Date]
 Author: [Who created this]
 Status: [Draft / Under Review / Approved / Executing]
 
-EXECUTIVE SUMMARY
+
+**EXECUTIVE SUMMARY**
 [2-3 sentence summary of the pivot]
 
-CURRENT STATE
+
+**CURRENT STATE**
 [Current pyramid configuration]
 
-TARGET STATE
+
+**TARGET STATE**
 [New pyramid configuration]
 
-CASCADE ANALYSIS
+
+**CASCADE ANALYSIS**
 [What else must change and why]
 
-EVIDENCE BASE
+
+**EVIDENCE BASE**
 [Why we believe this pivot will work]
 
-SUCCESS CRITERIA
+
+**SUCCESS CRITERIA**
 Leading indicators: [List with thresholds]
 Lagging indicators: [List with thresholds]
 
-RESOURCE REQUIREMENTS
+
+**RESOURCE REQUIREMENTS**
 Timeline: [Duration]
 Budget: [Costs]
 Team capabilities: [Gaps and how to address]
 
-COMMUNICATION PLAN
+
+**COMMUNICATION PLAN**
 Internal: [Plan]
 Customers: [Plan]
 Investors: [Plan]
 Market: [Plan]
 
-RISK ASSESSMENT
+
+**RISK ASSESSMENT**
 Risk 1: [Risk and mitigation]
 Risk 2: [Risk and mitigation]
 Risk 3: [Risk and mitigation]
 
-MILESTONES
+
+**MILESTONES**
 Week 1-2: [Milestone]
 Week 3-4: [Milestone]
 Month 2: [Milestone]
 Month 3: [Milestone]
 
-APPROVAL
+
+**APPROVAL**
 [Signatures/approvals needed]
-```
 
 ---
 
@@ -2122,19 +2089,10 @@ If you can't pass this test, you're pivoting to a fantasy.
 
 A Customer Pivot typically cascades through every layer:
 
-```
-CUSTOMER PIVOT CASCADE
 
-Customers: Consumers → SMB Owners
-    ↓
-Problem: "I want to save money" → "I need to grow revenue"
-    ↓
-Solution: Budgeting tools → Sales automation
-    ↓
-Technology: Mobile app → Web platform + CRM integrations
-    ↓
-Growth: App Store + viral → Content marketing + partnerships
-```
+![A Customer Pivot cascades through every layer of the pyramid.](./figures/optimized/cascade-customer-pivot.png)
+
+*A Customer Pivot cascades through every layer of the pyramid.*
 
 **Step 4: Plan for Identity Shift**
 
@@ -2238,19 +2196,10 @@ Not all problems are worth solving. Validate severity:
 
 Problem Pivots have a more contained cascade than Customer Pivots:
 
-```
-PROBLEM PIVOT CASCADE
 
-Customers: SMB Owners (unchanged)
-    ↓
-Problem: "I need help with accounting" → "I need help with cash flow"
-    ↓
-Solution: Bookkeeping automation → Cash flow forecasting
-    ↓
-Technology: Integration-heavy → Prediction algorithms
-    ↓
-Growth: May remain similar if reaching same customers
-```
+![A Problem Pivot has a more contained cascade than a Customer Pivot.](./figures/optimized/cascade-problem-pivot.png)
+
+*A Problem Pivot has a more contained cascade than a Customer Pivot.*
 
 **Step 4: Transition Existing Customers**
 
@@ -2488,13 +2437,12 @@ A Solution Pivot means changing how you solve the problem. Your customers remain
 
 Before pivoting your solution, be crystal clear about what you're keeping:
 
-```
-SOLUTION PIVOT CONSTANTS
+
+**SOLUTION PIVOT CONSTANTS**
 
 Customers: [Who are they?]
 Problem: [What pain are we solving?]
 Success metric: [How will we know if we've solved it?]
-```
 
 If you're not clear on these, you might need a foundational pivot, not a solution pivot.
 
@@ -2532,19 +2480,10 @@ Test your new solution approach before investing heavily:
 
 Solution Pivots typically cascade to Technology and sometimes Growth:
 
-```
-SOLUTION PIVOT CASCADE
 
-Customers: B2B Marketing Teams (unchanged)
-    ↓
-Problem: "Can't measure content ROI" (unchanged)
-    ↓
-Solution: Dashboard analytics → AI-powered recommendations
-    ↓
-Technology: Data visualization → ML infrastructure
-    ↓
-Growth: May need adjustment if value prop changes significantly
-```
+![A Solution Pivot typically cascades to Technology and sometimes Growth.](./figures/optimized/cascade-solution-pivot.png)
+
+*A Solution Pivot typically cascades to Technology and sometimes Growth.*
 
 ---
 
@@ -2618,8 +2557,8 @@ Not every technology problem requires a pivot:
 
 Technology Pivots are expensive. Calculate honestly:
 
-```
-TECHNOLOGY PIVOT COST ANALYSIS
+
+**TECHNOLOGY PIVOT COST ANALYSIS**
 
 Development costs:
 - Engineering time: [hours × rate]
@@ -2635,7 +2574,6 @@ Risk costs:
 - Migration failures: [probability × impact]
 - Customer disruption: [probability × impact]
 - Team attrition: [probability × impact]
-```
 
 **Step 3: Choose Your Migration Path**
 
@@ -2960,8 +2898,8 @@ A Growth Pivot means changing how you acquire, activate, and retain customers. E
 
 Before pivoting growth, understand why current growth isn't working:
 
-```
-GROWTH DIAGNOSIS FRAMEWORK
+
+**GROWTH DIAGNOSIS FRAMEWORK**
 
 Channel Performance:
 - Paid acquisition: CAC = $[X], LTV = $[Y], Ratio = [Z]
@@ -2974,7 +2912,6 @@ Key Questions:
 2. Which channel drives the best quality customers?
 3. Which channel has the best unit economics?
 4. What's limiting each channel's growth?
-```
 
 **Step 2: Identify Alternative Growth Engines**
 
@@ -3168,8 +3105,8 @@ Growth Pivots require careful measurement because growth metrics can be deceivin
 
 **Meaningful Metrics to Track:**
 
-```
-GROWTH PIVOT SCORECARD
+
+**GROWTH PIVOT SCORECARD**
 
 Acquisition:
 - Cost per acquisition: $[X]
@@ -3195,7 +3132,6 @@ Retention:
 - Monthly retention: [X]%
 - Annual retention: [X]%
 - Net revenue retention: [X]%
-```
 
 **The Cohort Analysis Imperative:**
 
@@ -3333,34 +3269,33 @@ If customers don't stick around once you acquire them, fixing Growth won't help.
 
 Use this framework to decide if a Growth Pivot is right:
 
-```
-GROWTH PIVOT DECISION TREE
+
+**GROWTH PIVOT DECISION TREE**
 
 Step 1: Retention Check
-└── Is Day 30 retention > 20%?
-    ├── NO → Fix product first, not growth
-    └── YES → Continue
+Is Day 30 retention > 20%?
+├── NO → Fix product first, not growth
+YES → Continue
 
 Step 2: Economics Check
-└── Is current CAC/LTV ratio > 3:1?
-    ├── YES → Current growth may be fine, optimize
-    └── NO → Continue to Step 3
+Is current CAC/LTV ratio > 3:1?
+├── YES → Current growth may be fine, optimize
+NO → Continue to Step 3
 
 Step 3: Ceiling Check
-└── Have you hit diminishing returns on current channels?
-    ├── NO → Scale current approach first
-    └── YES → Continue
+Have you hit diminishing returns on current channels?
+├── NO → Scale current approach first
+YES → Continue
 
 Step 4: Alternative Check
-└── Do you have a specific alternative hypothesis to test?
-    ├── NO → Research before pivoting
-    └── YES → Run a contained test
+Do you have a specific alternative hypothesis to test?
+├── NO → Research before pivoting
+YES → Run a contained test
 
 Step 5: Resource Check
-└── Can you run the test without disrupting current growth?
-    ├── NO → Sequence carefully
-    └── YES → Execute the Growth Pivot test
-```
+Can you run the test without disrupting current growth?
+├── NO → Sequence carefully
+YES → Execute the Growth Pivot test
 
 ---
 
@@ -3451,7 +3386,6 @@ Example: A desktop software company facing mobile disruption might need to chang
 
 Before starting, identify every layer that needs to change:
 
-```
 MULTI-LAYER PIVOT MAP
 
 Current State:
@@ -3469,14 +3403,13 @@ Target State:
 - Growth: [Target or "unchanged"]
 
 Changes Required:
-□ Customer Pivot: Yes/No
-□ Problem Pivot: Yes/No
-□ Solution Pivot: Yes/No
-□ Technology Pivot: Yes/No
-□ Growth Pivot: Yes/No
+- Customer Pivot: Yes/No
+- Problem Pivot: Yes/No
+- Solution Pivot: Yes/No
+- Technology Pivot: Yes/No
+- Growth Pivot: Yes/No
 
 Total Layers Changing: [X] of 5
-```
 
 **Step 2: Assess Complexity**
 
@@ -3516,7 +3449,6 @@ Sometimes you need technology in place before you can test the solution:
 
 Define clear milestones for each layer change:
 
-```
 MULTI-LAYER PIVOT MILESTONES
 
 Layer 1: Customer Pivot
@@ -3535,7 +3467,6 @@ Layer 3: Solution Pivot
 - Timeline: Weeks 4-8
 
 [Continue for each layer]
-```
 
 ---
 
@@ -3663,8 +3594,8 @@ Week 13+: Growth validation
 
 Define what would make you stop at each stage:
 
-```
-KILL CRITERIA BY LAYER
+
+**KILL CRITERIA BY LAYER**
 
 Customer Layer:
 - STOP IF: Can't find 20 target customers in 2 weeks
@@ -3685,7 +3616,6 @@ Technology Layer:
 Growth Layer:
 - STOP IF: No channel can achieve CAC < LTV/3
 - STOP IF: Market size < minimum viable scale
-```
 
 **Tactic 3: The Parallel Path**
 
@@ -3933,8 +3863,8 @@ Every pivot—successful or not—contains lessons. Capture them:
 
 **Post-Pivot Analysis Template:**
 
-```
-PIVOT RETROSPECTIVE
+
+**PIVOT RETROSPECTIVE**
 
 What We Pivoted:
 - From: [Previous state]
@@ -3959,7 +3889,6 @@ What We'll Carry Forward:
 - Knowledge: [What we now know]
 - Relationships: [Connections to maintain]
 - Team capabilities: [Skills developed]
-```
 
 ---
 
@@ -3976,8 +3905,8 @@ Think of your startup journey as a portfolio of experiments:
 
 **Calculating Your Pivot Budget:**
 
-```
-PIVOT BUDGET CALCULATION
+
+**PIVOT BUDGET CALCULATION**
 
 Total runway: $[X]
 Minimum operating costs: $[Y]/month
@@ -3988,7 +3917,6 @@ Maximum pivots possible: (X - reserve) / A = [N] pivots
 
 Reserve for execution (if you find fit): $[B]
 Realistic pivot budget: N - 1 = [final number]
-```
 
 Don't spend your entire runway on pivoting—leave enough to execute once you find fit.
 
@@ -4115,15 +4043,14 @@ Low psychological safety:
 
 Train teams to think in hypotheses:
 
-```
-HYPOTHESIS FORMAT
+
+**HYPOTHESIS FORMAT**
 
 We believe that [specific outcome] will happen
 if we [specific action]
 because [specific reason].
 
 We will know we're right when we see [specific evidence].
-```
 
 Example:
 "We believe that conversion will increase by 20% if we simplify the signup flow because customers have complained about too many steps. We will know we're right when our signup conversion rate exceeds 25% for two weeks."
@@ -4358,52 +4285,13 @@ This chapter provides ready-to-use tools for applying the Pivot Pyramid framewor
 
 *The complete Pyramid Assessment Canvas for documenting your current state.*
 
-Use this canvas to document your current state and identify potential issues.
+Use this canvas to document your current state and identify potential issues. For each layer, note your key evidence and rate your confidence level.
 
-```
-╔══════════════════════════════════════════════════════════════════════════╗
-║                     PIVOT PYRAMID ASSESSMENT CANVAS                       ║
-╠══════════════════════════════════════════════════════════════════════════╣
-║ Company: _________________________ Date: ____________                     ║
-╠══════════════════════════════════════════════════════════════════════════╣
-║                                                                          ║
-║                           ┌─────────────┐                                ║
-║                           │   GROWTH    │                                ║
-║                           │             │                                ║
-║                           │ Evidence:   │  Confidence: □ Low □ Med □ High║
-║                           │ ___________ │                                ║
-║                           └─────────────┘                                ║
-║                        ┌───────────────────┐                             ║
-║                        │    TECHNOLOGY     │                             ║
-║                        │                   │                             ║
-║                        │ Evidence:         │  Confidence: □ Low □ Med □ High
-║                        │ _________________ │                             ║
-║                        └───────────────────┘                             ║
-║                     ┌───────────────────────┐                            ║
-║                     │       SOLUTION        │                            ║
-║                     │                       │                            ║
-║                     │ Evidence:             │  Confidence: □ Low □ Med □ High
-║                     │ _____________________ │                            ║
-║                     └───────────────────────┘                            ║
-║                  ┌───────────────────────────┐                           ║
-║                  │         PROBLEM           │                           ║
-║                  │                           │                           ║
-║                  │ Evidence:                 │  Confidence: □ Low □ Med □ High
-║                  │ _________________________ │                           ║
-║                  └───────────────────────────┘                           ║
-║               ┌───────────────────────────────┐                          ║
-║               │         CUSTOMERS             │                          ║
-║               │                               │                          ║
-║               │ Evidence:                     │  Confidence: □ Low □ Med □ High
-║               │ _____________________________ │                          ║
-║               └───────────────────────────────┘                          ║
-║                                                                          ║
-╠══════════════════════════════════════════════════════════════════════════╣
-║ LOWEST CONFIDENCE LAYER: _______________________________________________ ║
-║ PRIMARY CONCERN: _______________________________________________________ ║
-║ RECOMMENDED ACTION: ____________________________________________________ ║
-╚══════════════════════════════════════════════════════════════════════════╝
-```
+For each of the five layers (Growth, Technology, Solution, Problem, Customers), document:
+- **Evidence:** What data supports your current hypothesis?
+- **Confidence:** Low, Medium, or High
+
+Then identify your **lowest confidence layer**, your **primary concern**, and your **recommended action**.
 
 ---
 
@@ -4411,52 +4299,29 @@ Use this canvas to document your current state and identify potential issues.
 
 Use this worksheet to track evidence for each layer over time.
 
-```
-LAYER EVIDENCE TRACKER
+**Layer:** Customers / Problem / Solution / Technology / Growth
 
-Layer: □ Customers □ Problem □ Solution □ Technology □ Growth
+**Current Hypothesis:** *(Document what you believe to be true about this layer)*
 
-Current Hypothesis:
-_________________________________________________________________
-_________________________________________________________________
-
-SUPPORTING EVIDENCE
+**Supporting Evidence:**
 
 | Date | Evidence | Source | Strength (1-5) |
 |------|----------|--------|----------------|
 |      |          |        |                |
-|      |          |        |                |
-|      |          |        |                |
-|      |          |        |                |
-|      |          |        |                |
 
-CONTRADICTING EVIDENCE
+**Contradicting Evidence:**
 
 | Date | Evidence | Source | Strength (1-5) |
 |------|----------|--------|----------------|
 |      |          |        |                |
-|      |          |        |                |
-|      |          |        |                |
-|      |          |        |                |
-|      |          |        |                |
 
-OVERALL ASSESSMENT
+**Overall Assessment:**
+- Total Supporting Strength: ___
+- Total Contradicting Strength: ___
+- Net Evidence Score: ___
+- Confidence Level: Low / Medium / High
 
-Total Supporting Strength: _____
-Total Contradicting Strength: _____
-Net Evidence Score: _____
-
-Confidence Level: □ Low □ Medium □ High
-
-Next Steps:
-□ Continue with current hypothesis
-□ Run more experiments
-□ Consider pivoting this layer
-
-Notes:
-_________________________________________________________________
-_________________________________________________________________
-```
+**Next Steps:** Continue with current hypothesis / Run more experiments / Consider pivoting this layer
 
 ---
 
@@ -4464,69 +4329,45 @@ _________________________________________________________________
 
 Before committing to a pivot, work through this checklist.
 
-```
-PIVOT DECISION CHECKLIST
+**Layer Being Considered for Pivot:** ___
 
-Layer Being Considered for Pivot: _______________________
-Current State: _______________________________________
-Proposed New State: __________________________________
+**Pre-Pivot Validation:**
+- Have we given the current approach at least 90 days?
+- Have we exhausted optimization options?
+- Do we have clear evidence that the current approach won't work?
+- Can we articulate WHY the current approach is failing?
 
-PRE-PIVOT VALIDATION
+**Pivot Hypothesis:**
+- Do we have a clear hypothesis for the new direction?
+- Is the hypothesis specific and testable?
+- Have we identified how we'll know if it's working?
+- Have we talked to potential customers about this direction?
 
-□ Have we given the current approach at least 90 days?
-□ Have we exhausted optimization options?
-□ Do we have clear evidence that the current approach won't work?
-□ Can we articulate WHY the current approach is failing?
+**Cascade Analysis:**
+- Have we mapped all layers that will need to change?
+- Do we understand the full cascade effect?
+- Do we have resources for the full cascade?
+- Is the cascade manageable given our constraints?
 
-PIVOT HYPOTHESIS
+**Capability Check:**
+- Do we have the skills needed for the new direction?
+- Can we acquire missing capabilities in time?
+- Does the team support this pivot?
+- Are key people willing to adapt?
 
-□ Do we have a clear hypothesis for the new direction?
-□ Is the hypothesis specific and testable?
-□ Have we identified how we'll know if it's working?
-□ Have we talked to potential customers about this direction?
+**Resource Check:**
+- Do we have sufficient runway for this pivot?
+- Have we budgeted for the transition period?
+- Have we accounted for potential setbacks?
+- Do we have reserves if this pivot also needs adjustment?
 
-CASCADE ANALYSIS
+**Stakeholder Alignment:**
+- Does the leadership team agree on the pivot?
+- Have we informed our board/investors?
+- Do we have a plan to communicate to the team?
+- Have we considered customer communication?
 
-□ Have we mapped all layers that will need to change?
-□ Do we understand the full cascade effect?
-□ Do we have resources for the full cascade?
-□ Is the cascade manageable given our constraints?
-
-CAPABILITY CHECK
-
-□ Do we have the skills needed for the new direction?
-□ Can we acquire missing capabilities in time?
-□ Does the team support this pivot?
-□ Are key people willing to adapt?
-
-RESOURCE CHECK
-
-□ Do we have sufficient runway for this pivot?
-□ Have we budgeted for the transition period?
-□ Have we accounted for potential setbacks?
-□ Do we have reserves if this pivot also needs adjustment?
-
-STAKEHOLDER ALIGNMENT
-
-□ Does the leadership team agree on the pivot?
-□ Have we informed our board/investors?
-□ Do we have a plan to communicate to the team?
-□ Have we considered customer communication?
-
-DECISION
-
-Based on this checklist:
-
-□ PROCEED with pivot
-□ GATHER MORE INFORMATION before deciding
-□ DO NOT PIVOT at this time
-
-Reasoning:
-_________________________________________________________________
-_________________________________________________________________
-
-Signed: _________________________ Date: _____________
-```
+**Decision:** PROCEED with pivot / GATHER MORE INFORMATION / DO NOT PIVOT at this time
 
 ---
 
@@ -4534,134 +4375,65 @@ Signed: _________________________ Date: _____________
 
 Once you've decided to pivot, use this template to plan the execution.
 
-```
-PIVOT PLANNING DOCUMENT
+**Section 1: The Pivot**
 
-Date Created: _____________
-Status: □ Draft □ Under Review □ Approved □ Executing
+What layer(s) are we pivoting? Customers / Problem / Solution / Technology / Growth
 
-─────────────────────────────────────────────────────────
+- **From** (current state): ___
+- **To** (target state): ___
+- **Why** are we pivoting? ___
 
-SECTION 1: THE PIVOT
+**Section 2: Cascade Analysis**
 
-What layer(s) are we pivoting?
-□ Customers □ Problem □ Solution □ Technology □ Growth
+| Layer | Current | After Pivot | Change? |
+|-------|---------|-------------|---------|
+| Customers |     |             | Yes/No  |
+| Problem |       |             | Yes/No  |
+| Solution |      |             | Yes/No  |
+| Technology |    |             | Yes/No  |
+| Growth |        |             | Yes/No  |
 
-From (current state):
-_________________________________________________________________
-_________________________________________________________________
+**Section 3: Success Criteria**
 
-To (target state):
-_________________________________________________________________
-_________________________________________________________________
-
-Why are we pivoting?
-_________________________________________________________________
-_________________________________________________________________
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-SECTION 2: CASCADE ANALYSIS
-
-Full pyramid before and after:
-
-| Layer      | Current          | After Pivot      | Change? |
-|------------|------------------|------------------|---------|
-| Customers  |                  |                  | □ Yes □ No |
-| Problem    |                  |                  | □ Yes □ No |
-| Solution   |                  |                  | □ Yes □ No |
-| Technology |                  |                  | □ Yes □ No |
-| Growth     |                  |                  | □ Yes □ No |
-
-─────────────────────────────────────────────────────────
-
-SECTION 3: SUCCESS CRITERIA
-
-Leading Indicators (weeks 1-4):
+*Leading Indicators (weeks 1-4):*
 
 | Metric | Current | Target | Timeline |
 |--------|---------|--------|----------|
 |        |         |        |          |
-|        |         |        |          |
-|        |         |        |          |
 
-Lagging Indicators (months 2-3):
+*Lagging Indicators (months 2-3):*
 
 | Metric | Current | Target | Timeline |
 |--------|---------|--------|----------|
 |        |         |        |          |
-|        |         |        |          |
-|        |         |        |          |
 
-─────────────────────────────────────────────────────────
-
-SECTION 4: TIMELINE AND MILESTONES
+**Section 4: Timeline and Milestones**
 
 | Week | Milestone | Owner | Success Criteria |
 |------|-----------|-------|------------------|
 | 1    |           |       |                  |
 | 2    |           |       |                  |
-| 3    |           |       |                  |
-| 4    |           |       |                  |
+| 3-4  |           |       |                  |
 | 5-8  |           |       |                  |
 | 9-12 |           |       |                  |
 
-─────────────────────────────────────────────────────────
+**Section 5: Resources Required**
 
-SECTION 5: RESOURCES REQUIRED
+Budget, team allocation, new capabilities needed.
 
-Budget: $____________
-
-Team allocation:
-| Person/Role | Current Focus | New Focus | % Time |
-|-------------|---------------|-----------|--------|
-|             |               |           |        |
-|             |               |           |        |
-|             |               |           |        |
-
-New capabilities needed:
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-SECTION 6: RISK ASSESSMENT
+**Section 6: Risk Assessment**
 
 | Risk | Probability | Impact | Mitigation |
 |------|-------------|--------|------------|
 |      |             |        |            |
-|      |             |        |            |
-|      |             |        |            |
 
-─────────────────────────────────────────────────────────
+**Section 7: Communication Plan**
 
-SECTION 7: COMMUNICATION PLAN
+Plan for communicating the pivot to team, customers, and investors.
 
-Team communication:
-- When: _____________
-- How: _____________
-- Key messages: _____________
+**Section 8: Approval**
 
-Customer communication:
-- When: _____________
-- How: _____________
-- Key messages: _____________
-
-Investor communication:
-- When: _____________
-- How: _____________
-- Key messages: _____________
-
-─────────────────────────────────────────────────────────
-
-SECTION 8: APPROVAL
-
-Prepared by: _______________ Date: ___________
-
-Approved by: _______________ Date: ___________
-
-Board notification: □ Yes □ Not required
-```
+Prepared by / Approved by / Board notification
 
 ---
 
@@ -4669,79 +4441,29 @@ Board notification: □ Yes □ Not required
 
 Track your pivot execution with this weekly check-in template.
 
-```
-WEEKLY PIVOT PROGRESS TRACKER
+**Week ___ of ___ | Pivot Status:** On Track / At Risk / Behind / Blocked
 
-Week: _____ of _____ Date: _______________
+**This Week's Accomplishments:**
+1. ___
+2. ___
+3. ___
 
-Pivot Status: □ On Track □ At Risk □ Behind □ Blocked
-
-─────────────────────────────────────────────────────────
-
-THIS WEEK'S ACCOMPLISHMENTS
-
-□ _____________________________________________
-□ _____________________________________________
-□ _____________________________________________
-□ _____________________________________________
-
-─────────────────────────────────────────────────────────
-
-METRICS UPDATE
+**Metrics Update:**
 
 | Metric | Last Week | This Week | Target | Status |
 |--------|-----------|-----------|--------|--------|
 |        |           |           |        |        |
-|        |           |           |        |        |
-|        |           |           |        |        |
 
-─────────────────────────────────────────────────────────
+**Next Week's Priorities:**
+1. ___
+2. ___
+3. ___
 
-NEXT WEEK'S PRIORITIES
+**Blockers and Risks:** ___
 
-1. _____________________________________________
-2. _____________________________________________
-3. _____________________________________________
+**Learnings:** What we learned this week and how it affects our hypothesis.
 
-─────────────────────────────────────────────────────────
-
-BLOCKERS AND RISKS
-
-Current blockers:
-_________________________________________________________________
-
-Emerging risks:
-_________________________________________________________________
-
-Help needed:
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-LEARNINGS
-
-What we learned this week:
-_________________________________________________________________
-_________________________________________________________________
-
-How it affects our hypothesis:
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-CONFIDENCE CHECK
-
-How confident are you in the pivot direction?
-
-□ Very confident (80%+)
-□ Somewhat confident (60-80%)
-□ Neutral (40-60%)
-□ Somewhat doubtful (20-40%)
-□ Very doubtful (<20%)
-
-If confidence is dropping, why?
-_________________________________________________________________
-```
+**Confidence Check:** Very confident (80%+) / Somewhat confident (60-80%) / Neutral (40-60%) / Somewhat doubtful (20-40%) / Very doubtful (<20%)
 
 ---
 
@@ -4749,108 +4471,26 @@ _________________________________________________________________
 
 After completing a pivot (successful or not), capture learnings.
 
-```
-POST-PIVOT RETROSPECTIVE
+**Pivot Summary:**
+- From: ___ → To: ___
+- Duration: ___ weeks
+- Outcome: Successful / Partially Successful / Failed / Abandoned
 
-Pivot Completed: _______________
-Duration: ___ weeks
-Outcome: □ Successful □ Partially Successful □ Failed □ Abandoned
-
-─────────────────────────────────────────────────────────
-
-THE PIVOT SUMMARY
-
-What we pivoted:
-From: ___________________________________
-To: _____________________________________
-
-Why we pivoted:
-_________________________________________________________________
-
-What happened:
-_________________________________________________________________
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-RESULTS VS. EXPECTATIONS
+**Results vs. Expectations:**
 
 | Metric | Expected | Actual | Variance |
 |--------|----------|--------|----------|
 |        |          |        |          |
-|        |          |        |          |
-|        |          |        |          |
 
-Overall assessment:
-□ Exceeded expectations
-□ Met expectations
-□ Below expectations
-□ Significantly below expectations
+**What went well:** ___
 
-─────────────────────────────────────────────────────────
+**What didn't go well:** ___
 
-WHAT WENT WELL
+**Key Learnings:** About customers, the problem/market, our solution, our execution.
 
-1. _____________________________________________
-2. _____________________________________________
-3. _____________________________________________
+**What we'd do differently:** ___
 
-─────────────────────────────────────────────────────────
-
-WHAT DIDN'T GO WELL
-
-1. _____________________________________________
-2. _____________________________________________
-3. _____________________________________________
-
-─────────────────────────────────────────────────────────
-
-KEY LEARNINGS
-
-About our customers:
-_________________________________________________________________
-
-About the problem/market:
-_________________________________________________________________
-
-About our solution:
-_________________________________________________________________
-
-About our execution:
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-WHAT WE'D DO DIFFERENTLY
-
-1. _____________________________________________
-2. _____________________________________________
-3. _____________________________________________
-
-─────────────────────────────────────────────────────────
-
-WHAT WE'RE CARRYING FORWARD
-
-Assets/technology:
-_________________________________________________________________
-
-Knowledge:
-_________________________________________________________________
-
-Relationships:
-_________________________________________________________________
-
-Team capabilities:
-_________________________________________________________________
-
-─────────────────────────────────────────────────────────
-
-RECOMMENDATIONS FOR FUTURE PIVOTS
-
-_________________________________________________________________
-_________________________________________________________________
-_________________________________________________________________
-```
+**What we're carrying forward:** Assets, knowledge, relationships, team capabilities.
 
 ---
 
@@ -4858,87 +4498,22 @@ _________________________________________________________________
 
 Use this structure when communicating pivots to investors.
 
-```
-INVESTOR UPDATE: STRATEGIC PIVOT
+**Executive Summary:** We are pivoting [layer] from [current state] to [new state] based on [primary reason]. We expect this to [expected outcome] within [timeline].
 
-Date: _______________
-From: _______________
+**What We Learned:** Key learnings that led to this decision.
 
-─────────────────────────────────────────────────────────
+**The Pivot:**
+- **From:** [Current state]
+- **To:** [New state]
+- **Not changing:** [Elements staying constant]
 
-EXECUTIVE SUMMARY
+**Why We Believe This Will Work:** Evidence supporting this direction.
 
-We are pivoting [layer] from [current state] to [new state] based on
-[primary reason]. We expect this to [expected outcome] within
-[timeline].
+**Success Metrics:** Specific targets with timelines.
 
-─────────────────────────────────────────────────────────
+**Resource Implications:** Runway remaining, burn rate changes, next fundraise timeline.
 
-WHAT WE LEARNED
-
-Over the past [period], we discovered:
-
-1. [Key learning #1]
-2. [Key learning #2]
-3. [Key learning #3]
-
-This led us to conclude that [conclusion].
-
-─────────────────────────────────────────────────────────
-
-THE PIVOT
-
-We are changing:
-- From: [Current state]
-- To: [New state]
-
-We are NOT changing:
-- [Element staying constant]
-- [Element staying constant]
-
-─────────────────────────────────────────────────────────
-
-WHY WE BELIEVE THIS WILL WORK
-
-Evidence supporting this direction:
-1. [Evidence #1]
-2. [Evidence #2]
-3. [Evidence #3]
-
-─────────────────────────────────────────────────────────
-
-SUCCESS METRICS
-
-We will know this is working when:
-- [Metric #1]: [Target] by [Date]
-- [Metric #2]: [Target] by [Date]
-- [Metric #3]: [Target] by [Date]
-
-─────────────────────────────────────────────────────────
-
-RESOURCE IMPLICATIONS
-
-Runway: [X months] remaining
-Burn rate: [Change / No change]
-Next fundraise: [Timeline if relevant]
-
-─────────────────────────────────────────────────────────
-
-WHAT WE NEED FROM YOU
-
-□ No action needed, informational only
-□ Input on strategy
-□ Introductions to [specific type]
-□ Other: _______________
-
-─────────────────────────────────────────────────────────
-
-NEXT UPDATE
-
-We will report on pivot progress in [timeframe].
-
-Questions? Reply to this email or schedule time: [link]
-```
+**What We Need From You:** Informational only / Input on strategy / Introductions / Other.
 
 ---
 
@@ -4947,72 +4522,29 @@ Questions? Reply to this email or schedule time: [link]
 Print these for easy reference during decision-making.
 
 **Card 1: The 90-Day Rule**
-```
-┌────────────────────────────────────────┐
-│          THE 90-DAY RULE               │
-│                                        │
-│  Give any strategic direction at       │
-│  least 90 days before pivoting.        │
-│                                        │
-│  EXCEPTIONS:                           │
-│  • Clear evidence of fraud/danger      │
-│  • Market has fundamentally changed    │
-│  • Key customer/team departure         │
-│  • Strong negative signal that can't   │
-│    be addressed by optimization        │
-│                                        │
-│  IF IN DOUBT: Optimize first,          │
-│  then pivot if optimization fails.     │
-└────────────────────────────────────────┘
-```
+
+Give any strategic direction at least 90 days before pivoting.
+
+*Exceptions:* Clear evidence of fraud/danger, market has fundamentally changed, key customer/team departure, strong negative signal that can't be addressed by optimization.
+
+*If in doubt:* Optimize first, then pivot if optimization fails.
 
 **Card 2: The Cascade Quick Reference**
-```
-┌────────────────────────────────────────┐
-│        CASCADE QUICK REFERENCE         │
-│                                        │
-│  Pivot Customers →                     │
-│    Likely affects: Problem, Solution,  │
-│    Technology, Growth                  │
-│                                        │
-│  Pivot Problem →                       │
-│    Likely affects: Solution,           │
-│    Technology, sometimes Growth        │
-│                                        │
-│  Pivot Solution →                      │
-│    Likely affects: Technology,         │
-│    sometimes Growth                    │
-│                                        │
-│  Pivot Technology →                    │
-│    Rarely cascades                     │
-│                                        │
-│  Pivot Growth →                        │
-│    Never cascades downward             │
-└────────────────────────────────────────┘
-```
+
+- **Pivot Customers →** Likely affects: Problem, Solution, Technology, Growth
+- **Pivot Problem →** Likely affects: Solution, Technology, sometimes Growth
+- **Pivot Solution →** Likely affects: Technology, sometimes Growth
+- **Pivot Technology →** Rarely cascades
+- **Pivot Growth →** Never cascades downward
 
 **Card 3: Evidence Levels**
-```
-┌────────────────────────────────────────┐
-│          EVIDENCE LEVELS               │
-│                                        │
-│  ASSUMED (Lowest)                      │
-│  "We think this is true"               │
-│                                        │
-│  TESTED                                │
-│  "We ran an experiment"                │
-│                                        │
-│  VALIDATED                             │
-│  "Multiple customers confirmed"        │
-│                                        │
-│  PROVEN (Highest)                      │
-│  "We have sustained results"           │
-│                                        │
-│  RULE: Never pivot a layer with        │
-│  higher evidence than the layer        │
-│  you're keeping.                       │
-└────────────────────────────────────────┘
-```
+
+1. **ASSUMED** (Lowest) — "We think this is true"
+2. **TESTED** — "We ran an experiment"
+3. **VALIDATED** — "Multiple customers confirmed"
+4. **PROVEN** (Highest) — "We have sustained results"
+
+*Rule:* Never pivot a layer with higher evidence than the layer you're keeping.
 
 ---
 
@@ -5068,7 +4600,7 @@ A collection of notable pivots organized by type.
 | Nintendo | Playing cards | Video games | Gaming giant |
 | Nokia | Paper mill | Mobile phones | (then failed to pivot again) |
 
-> **Note:** Some pivots appear in multiple categories because they involved changes across several layers. Instagram appears in both Problem Pivots (the user need changed) and Solution Pivots (the product was rebuilt). Twitter/Odeo appears in Multi-Layer Pivots below, reflecting its full five-layer transformation.
+**Note:** Some pivots appear in multiple categories because they involved changes across several layers. Instagram appears in both Problem Pivots (the user need changed) and Solution Pivots (the product was rebuilt). Twitter/Odeo appears in Multi-Layer Pivots below, reflecting its full five-layer transformation.
 
 ---
 
@@ -5217,23 +4749,6 @@ The gap between early adopters and mainstream markets.
 **The 90-Day Rule**: Give any strategic direction at least 90 days before pivoting, unless clear evidence demands faster action.
 
 **Validation**: Evidence from real customers or market data that supports a hypothesis. Different from opinion or assumption.
-
----
-
-
-## About the Author
-
-**Selçuk Atlı** is a serial entrepreneur, investor, and startup advisor who has raised over $50 million in venture capital across four companies, completed three successful exits, and been granted five U.S. patents—cited by Google, Meta, Salesforce, Nike, and ByteDance, among others.
-
-Selçuk is the co-founder and CEO of **Bunch**, a social gaming platform that has attracted over 10 million players and raised $28 million from investors including General Catalyst and Electronic Arts. Before Bunch, he founded **Manifest** (acquired by Rakuten), a product advertising platform for online retailers, and co-founded **Boostable** (acquired by Metric Collective), a Y Combinator–backed adtech platform. He also co-founded **Nomadic Mentors** (acquired by The Family), a nonprofit connecting startup mentors to emerging technology ecosystems.
-
-As a **Y Combinator** alum (W14), **Fulbright Scholar**, **Endeavor Entrepreneur**, and **Venture Partner at 500 Startups**, Selçuk has been on both sides of the startup journey—building companies and helping others do the same. He has made over 30 angel investments and advised companies including MobileAction and GetStream. Having seen hundreds of pivots, successful and unsuccessful, he developed the Pivot Pyramid framework to codify the patterns that separate the two.
-
-**Connect with Selçuk:**
-- Website: pivotpyramid.com
-- Personal: selcukatli.com
-- Twitter: @selcukatli
-- LinkedIn: linkedin.com/in/selcukatli
 
 ---
 
