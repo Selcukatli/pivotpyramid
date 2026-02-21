@@ -4,7 +4,7 @@ import { useLayoutEffect, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, X, Maximize2, Users, ArrowUpDown, Target, MapPin, Search, GitBranch, FlaskConical, BookOpen } from "lucide-react";
+import { ArrowRight, ExternalLink, X, Maximize2, Users, ArrowUpDown, Target, MapPin, Search, GitBranch, FlaskConical, BookOpen, Terminal } from "lucide-react";
 
 const layers = [
   {
@@ -603,6 +603,44 @@ export default function PivotPyramidPage() {
         </div>
       </section>
       */}
+
+      {/* AI Tools */}
+      <section className="py-16 md:py-24 border-t border-stone-200">
+        <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-stone-800 flex items-center justify-center">
+              <Terminal className="w-5 h-5 text-stone-100" />
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wide text-stone-500 mb-1">
+                AI-Powered Tool
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-stone-800">
+                Pivot Pyramid Plugin for Claude Code
+              </h2>
+            </div>
+          </div>
+          <p className="text-stone-600 leading-relaxed mb-6 max-w-2xl">
+            Turn Claude into your startup pivot advisor. Describe your startup and the plugin runs a guided
+            diagnostic interview — mapping your layers, scoring each one, identifying what&apos;s broken, and
+            recommending whether to persist, optimize, or pivot with the right playbook and case studies.
+          </p>
+          <div className="bg-stone-900 rounded-lg p-4 mb-6 max-w-lg">
+            <code className="text-sm text-stone-300">
+              <span className="text-stone-500">$</span> npx skills add Selcukatli/pivotpyramid-plugin
+            </code>
+          </div>
+          <a
+            href="https://github.com/Selcukatli/pivotpyramid-plugin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-amber-600 hover:underline"
+          >
+            View on GitHub
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </section>
 
       {/* About the Author */}
       <section className="py-16 md:py-20 border-t border-stone-200">
