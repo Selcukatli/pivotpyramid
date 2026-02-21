@@ -10,7 +10,7 @@ const convex = convexUrl ? new ConvexReactClient(convexUrl) : null;
 
 export function ConvexClientProvider({ children }: { children: ReactNode }) {
   if (!convex) {
-    return <>{children}</>;
+    return <ClerkProvider>{children}</ClerkProvider>;
   }
 
   return (
