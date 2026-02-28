@@ -7,13 +7,13 @@ import { EbookCTAButtons } from '@/components/ebook/EbookCTAButtons';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'The Pivot Pyramid - Early Access Ebook',
-  description: 'Read The Pivot Pyramid ebook online. A comprehensive guide to startup experimentation and pivoting by Selçuk Atlı (YC W14).',
+  title: 'The Pivot Pyramid - Ebook | Available on Amazon',
+  description: 'Read The Pivot Pyramid ebook online or get it on Amazon (Kindle & Paperback). A comprehensive guide to startup experimentation and pivoting by Selçuk Atlı (YC W14).',
   alternates: {
     canonical: 'https://pivotpyramid.com/ebook',
   },
   openGraph: {
-    title: 'The Pivot Pyramid - Early Access Ebook',
+    title: 'The Pivot Pyramid - Ebook | Available on Amazon',
     description: 'A comprehensive guide to startup experimentation and pivoting.',
     url: 'https://pivotpyramid.com/ebook',
     type: 'book',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Pivot Pyramid - Early Access Ebook',
+    title: 'The Pivot Pyramid - Ebook | Available on Amazon',
     description: 'A comprehensive guide to startup experimentation and pivoting.',
     images: ['/pivot-pyramid-cover.png'],
     creator: '@selcukatli',
@@ -142,7 +142,7 @@ export default function EbookLandingPage() {
           <div className="text-center md:text-left flex-1">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium mb-4">
               <BookOpen className="w-4 h-4" />
-              Early Access
+              Now Available on Amazon
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4 font-[family-name:var(--font-inter)]">
