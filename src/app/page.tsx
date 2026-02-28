@@ -4,7 +4,7 @@ import { useLayoutEffect, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, X, Maximize2, Users, ArrowUpDown, Target, MapPin, Search, GitBranch, FlaskConical, BookOpen, Terminal } from "lucide-react";
+import { ArrowRight, ExternalLink, X, Maximize2, Users, ArrowUpDown, Target, MapPin, Search, GitBranch, FlaskConical, BookOpen, Terminal, ShoppingBag } from "lucide-react";
 
 const layers = [
   {
@@ -173,27 +173,27 @@ export default function PivotPyramidPage() {
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              {/* Canvas CTA - commented out for now
-              <Link
-                href="/canvas"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
-                         text-stone-600 hover:text-stone-800 hover:bg-stone-100 transition-colors"
-              >
-                <ArrowRight className="w-4 h-4" />
-                <span className="hidden sm:inline">Open Pivot Canvas</span>
-              </Link>
-              */}
-              <Link
-                href="/ebook"
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.amazon.com/dp/B0GPNMPXCH"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   isBottomCtaVisible
                     ? "bg-transparent border border-primary text-primary hover:bg-primary/10"
                     : "bg-primary text-primary-foreground hover:bg-primary-hover"
                 }`}
               >
+                <ShoppingBag className="w-4 h-4" />
+                <span className="hidden sm:inline">Buy on Amazon</span>
+              </a>
+              <Link
+                href="/ebook"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
+                         text-stone-600 hover:text-stone-800 hover:bg-stone-100 transition-colors"
+              >
                 <BookOpen className="w-4 h-4" />
-                Get the Ebook
+                <span className="hidden sm:inline">Read Ebook</span>
               </Link>
             </div>
           </nav>
@@ -560,7 +560,7 @@ export default function PivotPyramidPage() {
             {/* CTA Content */}
             <div className="order-1 md:order-2">
               <p className="text-primary text-sm uppercase tracking-wide font-semibold mb-2">
-                Early Access
+                Now on Amazon
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-4">
                 Get the Complete Guide
@@ -569,13 +569,44 @@ export default function PivotPyramidPage() {
                 The Pivot Pyramid Ebook includes detailed examples, worksheets, and exercises to help you systematically experiment with your startup.
               </p>
 
-              <Link
-                href="/ebook"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-hover transition-colors"
-              >
-                <BookOpen className="w-5 h-5" />
-                Read the Ebook
-              </Link>
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <a
+                  href="https://www.amazon.com/dp/B0GPNMPXCH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-hover transition-colors"
+                >
+                  <ShoppingBag className="w-5 h-5" />
+                  Buy on Amazon
+                </a>
+                <Link
+                  href="/ebook"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-stone-300 text-stone-700 font-medium hover:border-stone-400 hover:bg-stone-50 transition-colors"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  Read Ebook
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-4 mt-3">
+                <a
+                  href="https://www.amazon.com/dp/B0GPNMPXCH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-stone-500 hover:text-amber-600 transition-colors"
+                >
+                  Kindle Edition
+                </a>
+                <span className="text-stone-300">·</span>
+                <a
+                  href="https://www.amazon.com/dp/B0GPXTMTGQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-stone-500 hover:text-amber-600 transition-colors"
+                >
+                  Paperback
+                </a>
+              </div>
             </div>
           </div>
         </div>
