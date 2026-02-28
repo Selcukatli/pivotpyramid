@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "setup": "cp $HYPERSPACE_ROOT/.env.local .env.local && npm install",
+    "run": "npm run dev"
+  }
+}

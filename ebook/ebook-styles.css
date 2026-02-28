@@ -1,7 +1,49 @@
 /* Pivot Pyramid Ebook Stylesheet */
 /* Professional styling for markdown-pdf */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+/* Local font faces for reliable PDF embedding */
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/Inter-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  src: url('./fonts/Inter-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+  src: url('./fonts/Inter-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-style: normal;
+  src: url('./fonts/Inter-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/Merriweather-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 700;
+  font-style: normal;
+  src: url('./fonts/Merriweather-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 400;
+  font-style: italic;
+  src: url('./fonts/Merriweather-Italic.ttf') format('truetype');
+}
 
 /* Page setup — 6x9 trim for Amazon KDP paperback */
 @page {
@@ -20,7 +62,7 @@ body {
 
 /* Headings */
 h1 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18pt;
   font-weight: 700;
   color: #0c0a09;
@@ -34,7 +76,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 13pt;
   font-weight: 600;
   color: #292524;
@@ -45,7 +87,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11pt;
   font-weight: 600;
   color: #44403c;
@@ -55,7 +97,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 10pt;
   font-weight: 600;
   color: #57534e;
@@ -106,7 +148,7 @@ blockquote p:last-child {
 
 /* Code and technical content */
 code {
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  font-family: 'Courier New', 'Inconsolata', monospace;
   font-size: 0.9em;
   background-color: #f5f5f4;
   padding: 0.15em 0.4em;
