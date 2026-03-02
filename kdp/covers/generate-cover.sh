@@ -1,19 +1,19 @@
 #!/bin/bash
 # Generate KDP paperback full-wrap cover
-# 180 pages, 6x9 trim, white paper
+# 196 pages, 6x9 trim, standard color interior, white paper
 #
-# Spine width: 180 * 0.002252 = 0.405"
-# Total: 0.125 + 6 + 0.405 + 6 + 0.125 = 12.655" x 9.250"
-# At 300 DPI: 3797 x 2775 px
+# Spine width: 196 * 0.002252 = 0.4414"
+# Total: 0.125 + 6 + 0.441 + 6 + 0.125 = 12.691" x 9.250"
+# At 300 DPI: 3808 x 2775 px
 
 set -e
 cd "$(dirname "$0")"
 
 # Dimensions
 BACK_W=1838    # (0.125 + 6) * 300 = 1837.5 → 1838
-SPINE_W=121    # 0.405 * 300 = 121.5 → 121
+SPINE_W=132    # 0.441 * 300 = 132.3 → 132
 FRONT_W=1838   # (6 + 0.125) * 300 = 1837.5 → 1838
-TOTAL_W=$((BACK_W + SPINE_W + FRONT_W))  # 3797
+TOTAL_W=$((BACK_W + SPINE_W + FRONT_W))  # 3808
 HEIGHT=2775    # 9.250 * 300
 
 echo "Cover dimensions: ${TOTAL_W} x ${HEIGHT} px"
@@ -37,11 +37,17 @@ magick back-cropped.png \
   -gravity SouthWest -annotate +80+45 '@selcukatli  ·  selcukatli.com' \
   back-final.png
 
-# Step 3: Create spine with rotated text
+# Step 3: Create spine with title and author
 echo "Step 3: Creating spine..."
-magick -size ${SPINE_W}x${HEIGHT} xc:'#f59e0b' \
-  -font 'Avenir-Black' -pointsize 24 -fill 'white' \
-  -gravity Center -annotate 90x90+0+0 'THE PIVOT PYRAMID' \
+# Build text horizontally (easier to position), then rotate 90° clockwise
+# for standard US spine reading direction (tilt head right to read)
+# Title in white, author in warm off-white for subtle differentiation
+magick -size ${HEIGHT}x${SPINE_W} xc:'#f59e0b' \
+  -font 'Avenir-Black' -pointsize 36 -fill 'white' \
+  -gravity Center -annotate -150+0 'THE PIVOT PYRAMID' \
+  -font 'Avenir-Medium' -pointsize 26 -fill '#5c2000' \
+  -gravity Center -annotate +310+0 'by Selçuk Atlı' \
+  -rotate 90 +repage \
   spine-new.png
 
 # Step 4: Crop front cover to size
