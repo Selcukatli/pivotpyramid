@@ -8,11 +8,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "copy-outreach-to-prod": "node scripts/copy-outreach-to-prod.mjs"
+    "copy-outreach-to-prod": "node scripts/copy-outreach-to-prod.mjs",
+    "ebook:generate-figures": "node scripts/generate-ebook-figures.mjs",
+    "ebook:migrate-figures": "node scripts/migrate-figures-to-convex.mjs",
+    "ebook:import-content": "node scripts/import-ebook-to-convex.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.5",
     "@convex-dev/persistent-text-streaming": "^0.3.0",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@fal-ai/client": "^1.8.0",
     "@openrouter/ai-sdk-provider": "^1.5.4",
     "@tailwindcss/postcss": "^4.1.18",

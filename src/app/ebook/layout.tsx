@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Merriweather, Inter } from 'next/font/google';
-import { getGroupedTableOfContents } from '@/lib/ebook-parser';
+import { getGroupedTableOfContents } from '@/lib/ebook-convex';
 import { EbookSidebar, ReadingProgress, PasswordUrlChecker } from '@/components/ebook';
 import type { Metadata } from 'next';
 
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   description: 'Read The Pivot Pyramid ebook online. A comprehensive guide to startup experimentation by Selçuk Atlı.',
 };
 
-export default function EbookLayout({
+export default async function EbookLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const groups = getGroupedTableOfContents();
+  const groups = await getGroupedTableOfContents();
 
   return (
     <div className={`${merriweather.variable} ${inter.variable} min-h-screen bg-white`}>

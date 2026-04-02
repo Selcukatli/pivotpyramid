@@ -252,6 +252,9 @@ export default function LoginPage() {
                         </div>
                       </div>
 
+                      {/* Clerk CAPTCHA widget container */}
+                      <div id="clerk-captcha" className="flex justify-center" />
+
                       <button
                         type="submit"
                         disabled={isLoading || !email}
